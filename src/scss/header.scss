@@ -1,18 +1,30 @@
 .header {
+	border-bottom: 1px solid #79797962;
+
 
 	&__container {
+		display: flex;
+		align-items:center;
 	}
 
 	&__logo {
+		@include adaptiveValue("margin-right", 100, 0);
+		flex: 0 0 160px;
+		img {
+			width: 100%;
+			height: 100%;
+		}
 	}
 
 	&__menu {
+		flex: 1 1 auto;
 	}
 
 	&__info {
 	}
 }
 .menu {
+
 
 	&__icon {
 	}
@@ -21,12 +33,44 @@
 	}
 
 	&__list {
+		position: relative;
+		height: 75px;
+		display: flex;
+		flex-wrap: nowrap;
 	}
 
 	&__item {
+		position: relative;
 	}
 
 	&__link {
+		display: flex;
+		flex: 0 1 auto;
+		align-items:center;
+		column-gap: 6px;
+		height: 100%;
+		transition: all 0.1s ease 0s;
+		@include adaptiveValue("padding-left", 30, 10);
+		@include adaptiveValue("padding-right", 30, 10);
+		img{
+			width: 20px;
+			height: 20px;
+			color: #aaaaaa63;
+			transition: all 0.1s ease 0s;
+		}
+		@media (any-hover: hover){
+			&:hover{
+				box-shadow: 1px 1px 5px rgba(194, 194, 194, 0.3);
+				background-color: rgba(202, 202, 202, 0.411);
+			}
+		}
+		&._spoller-active {
+
+			img {
+				transition: all 0.1s ease 0s;
+				transform: rotate(-180deg);
+			}
+		}
 	}
 
 	&__products {
@@ -54,6 +98,8 @@
 }
 .products-menu {
 
+	position: absolute;
+
 	&__items {
 	}
 
@@ -78,26 +124,31 @@
 	}
 }
 .service-items {
+	position: absolute;
 
 	&__item {
 	}
 }
 .exhibitions-items {
+	position: absolute;
 
 	&__item {
 	}
 }
 .delivery-items {
+		position: absolute;
 
 	&__item {
 	}
 }
 .about-company-items {
+	position: absolute;
 
 	&__item {
 	}
 }
 .blog-menu {
+	position: absolute;
 
 	&__items {
 	}
@@ -117,8 +168,11 @@
 	}
 }
 .contacts-menu {
+	position: absolute;
 }
 .info-header {
+	display: flex;
+	column-gap: 20px;
 
 	&__search {
 	}
@@ -127,14 +181,41 @@
 	}
 }
 .search-header {
+	width: 40px;
+	height: 40px;
 
 	&__btn {
+		position: relative;
+		top: 17px;
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		transition: all 0.3s ease 0s;
+		@media (any-hover: hover){
+			&:hover{
+				background-color: rgba(172, 172, 172, 0.349);
+			}
+		}
+		&::before{
+			content:'';
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 30px;
+			height: 30px;
+			position: absolute;
+			top: 5px;
+			left: 5px;
+			background: url('@img/header-search.svg') 100% / contain no-repeat;
+		}
+		
 	}
 
 	&__input-block {
 	}
 }
 .input-block {
+	position: absolute;
 
 	&__search {
 	}
@@ -142,20 +223,64 @@
 .input {
 }
 .contacts-header {
+	height: 100%;
+	position: relative;
+	top: 8px;
 
 	&__phone {
+		position: relative;
+		margin: 0px 0px 20px 0px;
+		padding: 0px 0px 0px 35px;
+		width: 200px;
+
+		&::before{
+			content:'';
+			position: absolute;
+			top: 0;
+			left: -2px;
+			width: 30px;
+			height: 30px;
+			background: url('@img/header-phone.svg') 100% / contain no-repeat;
+		}
 	}
 
 	&__phone-value {
+		font-weight: 700;
+		transition: color 0.1s ease 0s;
+		@media (any-hover: hover){
+			&:hover{
+				color: #0094da;
+			}
+		}
 	}
 
 	&__mail {
+		position: relative;
+		margin: 0px 0px 20px 0px;
+		padding: 0px 0px 0px 35px;
+		width: 200px;
+		&::before{
+			content:'';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 25px;
+			height: 20px;
+			background: url('@img/header-mail.svg') 100% / contain no-repeat;
+		}
 	}
 
 	&__mail-value {
+		font-weight: 700;
+		transition: color 0.1s ease 0s;
+		padding: 0px 0px 0px 12px;
+		@media (any-hover: hover){
+			&:hover{
+				color: #0094da;
+			}
+		}
 	}
 }
-
 
 //====================================================================================================
 
@@ -163,10 +288,11 @@
 
  .icon-menu {
 	display: none;
-	@media (max-width: $mobile) {
-		display: block;
+	@media (max-width: 1000px) {
+		display: flex;
 		position: relative;
 		width: rem(30);
+		flex: 0 0 30px;
 		height: rem(18);
 		cursor: pointer;
 		z-index: 5;
