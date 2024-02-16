@@ -1,147 +1,180 @@
-<header class="header">
-	<div data-spollers data-one-spoller class="header__container">
-		<a href="#" class="header__logo">
+<header class="main-header">
+	<div data-spollers data-one-spoller class="main-header__container">
+		<a href="#" class="main-header__logo  logo">
 			<img src="@img/header-logo.svg" alt="logo" width="160" height="42">
 		</a>
-		<div class="header__menu menu">
-			<nav class="menu__body">
-				<ul class="menu__list">
-					<li class="menu__item">
-						<button type="button" data-spoller class="menu__link">Товары <img width="20" height="20" src="@img/header-arrow.svg" alt=""> </button>
-					<div class="menu__products products-menu"><!-- !Тут контент товаров-->
-						<ul class="products-menu__items">
-							<li class="products-menu__item">
-								<a href="#" class="products-menu__link">
-									<svg width="31" height="38">
-										<use xlink:href="#icon-category-laser"></use>
-									</svg>
-									<i>Лазерные станки</i>
-									<img width="30" height="30" src="@img/item-arrow.svg" alt="item-arrow">
-								</a>
-							</li>
-							<li class="products-menu__item">
-								<a href="#" class="products-menu__link">
-									<svg width="31" height="38">
-										<use xlink:href="#icon-category-marker"></use>
-									</svg>
-									<i>Лазерные маркеры</i>
-									<img width="30" height="30" src="@img/item-arrow.svg" alt="item-arrow">
-								</a>
-							</li>
-							<li class="products-menu__item">
-								<a href="#" class="products-menu__link">
-									<svg width="31" height="38">
-										<use xlink:href="#icon-category-metal"></use>
-									</svg>
-									<i>Станки по металлу</i>
-									<img width="30" height="30" src="@img/item-arrow.svg" alt="item-arrow">
-								</a>
-							</li>
-							<li class="products-menu__item">
-								<a href="#" class="products-menu__link">
-									<svg width="31" height="38">
-										<use xlink:href="#icon-category-frezer"></use>
-									</svg>
-									<i>Лазерные труборезы</i>
-									<img width="30" height="30" src="@img/item-arrow.svg" alt="item-arrow">
-								</a>
-							</li>
-							<li class="products-menu__item">
-								<a href="#" class="products-menu__link">
-									<svg width="31" height="38">
-										<use xlink:href="#icon-category-marker"></use>
-									</svg>
-									<i>Лазерные станки с ЧПУ</i>
-									<img width="30" height="30" src="@img/item-arrow.svg" alt="item-arrow">
-								</a>
-							</li>
-							<li class="products-menu__item">
-								<a href="#" class="products-menu__link">
-									<svg width="31" height="38">
-										<use xlink:href="#icon-category-welding"></use>
-									</svg>
-									<i>Очистка и сварка</i>
-									<img width="30" height="30" src="@img/item-arrow.svg" alt="item-arrow">
-								</a>
-							</li>
-							<li class="products-menu__item">
-								<a href="#" class="products-menu__link">
-									<svg width="31" height="38">
-										<use xlink:href="#icon-category-laser"></use>
-									</svg>
-									<i>Фрезеры по металлу</i>
-									<img width="30" height="30" src="@img/item-arrow.svg" alt="item-arrow">
-								</a>
-							</li>
-							<li class="products-menu__item">
-								<a href="#" class="products-menu__link">
-									<svg width="31" height="38">
-										<use xlink:href="#icon-category-metal"></use>
-									</svg>
-									<i>Токарные станки</i>
-									<img width="30" height="30" src="@img/item-arrow.svg" alt="item-arrow">
-								</a>
-							</li>
-							<li class="products-menu__item">
-								<a href="#" class="products-menu__link">
-									<svg width="31" height="38">
-										<use xlink:href="#icon-category-laser"></use>
-									</svg>
-									<i>Гибочные станки</i>
-									<img width="30" height="30" src="@img/item-arrow.svg" alt="item-arrow">
-								</a>
-							</li>
-							<li class="products-menu__item">
-								<a href="#" class="products-menu__link">
-									<svg width="31" height="38">
-										<use xlink:href="#icon-category-laser"></use>
-									</svg>
-									<i>Ленточнопильные станки</i>
-									<img width="30" height="30" src="@img/item-arrow.svg" alt="item-arrow">
-								</a>
-							</li>
-							<li class="products-menu__item">
-								<a href="#" class="products-menu__link">
-									<svg width="31" height="38">
-										<use xlink:href="#icon-category-laser"></use>
-									</svg>
-									<i>Многофункциональные комплексы</i>
-									<img width="30" height="30" src="@img/item-arrow.svg" alt="item-arrow">
-								</a>
-							</li>
-							<li class="products-menu__item">
-								<a href="#" class="products-menu__link">
-									<svg width="31" height="38">
-										<use xlink:href="#icon-category-laser"></use>
-									</svg>
-									<i>Каталог комплектующих</i>
-									<img width="30" height="30" src="@img/item-arrow.svg" alt="item-arrow">
-								</a>
-							</li>
-						</ul>
-						<div class="products-menu__description description-menu">
-							<div class="description-menu__image">
-								<img width="400" height="400" src="@img/item-main-image.png" alt="main-image">
+		<nav class="main-header__nav main-nav">
+				<ul class="main-nav__list">
+					<li class="main-nav__item">
+						<button type="button" data-spoller data-spoller-close class="main-nav__link">Товары <svg width="20" height="20">
+							<use xlink:href="#icon-arrow-down"></use>
+						</svg> </button>
+					<div class="main-nav__products  products-menu"><!-- !Тут контент товаров-->
+						<div class="products-menu__wrapper">
+							<ul class="products-menu__items">
+								<li class="products-menu__item">
+									<a href="#" class="products-menu__link">
+										<svg class="products-menu__icon" width="100" height="38">
+											<use xlink:href="#icon-category-laser"></use>
+										</svg>
+										<span class="products-menu__text">Лазерные станки</span>
+										<svg class="products-menu__arrow" width="20" height="20">
+											<use xlink:href="#icon-arrow-down"></use>
+										</svg>
+									</a>
+								</li>
+								<li class="products-menu__item">
+									<a href="#" class="products-menu__link">
+										<svg class="products-menu__icon" width="100" height="38">
+											<use xlink:href="#icon-category-marker"></use>
+										</svg>
+										<span class="products-menu__text">Лазерные маркеры</span>
+										<svg class="products-menu__arrow" width="20" height="20">
+											<use xlink:href="#icon-arrow-down"></use>
+										</svg>
+									</a>
+								</li>
+								<li class="products-menu__item">
+									<a href="#" class="products-menu__link">
+										<svg class="products-menu__icon" width="100" height="38">
+											<use xlink:href="#icon-category-metal"></use>
+										</svg>
+										<span class="products-menu__text">Станки по металлу</span>
+										<svg class="products-menu__arrow" width="20" height="20">
+											<use xlink:href="#icon-arrow-down"></use>
+										</svg>
+									</a>
+								</li>
+								<li class="products-menu__item">
+									<a href="#" class="products-menu__link">
+										<svg class="products-menu__icon" width="100" height="38">
+											<use xlink:href="#icon-category-frezer"></use>
+										</svg>
+										<span class="products-menu__text">Лазерные труборезы</span>
+										<svg class="products-menu__arrow" width="20" height="20">
+											<use xlink:href="#icon-arrow-down"></use>
+										</svg>
+									</a>
+								</li>
+								<li class="products-menu__item">
+									<a href="#" class="products-menu__link">
+										<svg class="products-menu__icon" width="100" height="38">
+											<use xlink:href="#icon-category-marker"></use>
+										</svg>
+										<span class="products-menu__text">Лазерные станки с ЧПУ</span>
+										<svg class="products-menu__arrow" width="20" height="20">
+											<use xlink:href="#icon-arrow-down"></use>
+										</svg>
+									</a>
+								</li>
+								<li class="products-menu__item">
+									<a href="#" class="products-menu__link">
+										<svg class="products-menu__icon" width="100" height="38">
+											<use xlink:href="#icon-category-welding"></use>
+										</svg>
+										<span class="products-menu__text">Очистка и сварка</span>
+										<svg class="products-menu__arrow" width="20" height="20">
+											<use xlink:href="#icon-arrow-down"></use>
+										</svg>
+									</a>
+								</li>
+								<li class="products-menu__item">
+									<a href="#" class="products-menu__link">
+										<svg class="products-menu__icon" width="100" height="38">
+											<use xlink:href="#icon-category-laser"></use>
+										</svg>
+										<span class="products-menu__text">Фрезеры по металлу</span>
+										<svg class="products-menu__arrow" width="20" height="20">
+											<use xlink:href="#icon-arrow-down"></use>
+										</svg>
+									</a>
+								</li>
+								<li class="products-menu__item">
+									<a href="#" class="products-menu__link">
+										<svg class="products-menu__icon" width="100" height="38">
+											<use xlink:href="#icon-category-metal"></use>
+										</svg>
+										<span class="products-menu__text">Токарные станки</span>
+										<svg class="products-menu__arrow" width="20" height="20">
+											<use xlink:href="#icon-arrow-down"></use>
+										</svg>
+									</a>
+								</li>
+								<li class="products-menu__item">
+									<a href="#" class="products-menu__link">
+										<svg class="products-menu__icon" width="100" height="38">
+											<use xlink:href="#icon-category-laser"></use>
+										</svg>
+										<span class="products-menu__text">Гибочные станки</span>
+										<svg class="products-menu__arrow" width="20" height="20">
+											<use xlink:href="#icon-arrow-down"></use>
+										</svg>
+									</a>
+								</li>
+								<li class="products-menu__item">
+									<a href="#" class="products-menu__link">
+										<svg class="products-menu__icon" width="100" height="38">
+											<use xlink:href="#icon-category-laser"></use>
+										</svg>
+										<span class="products-menu__text">Ленточнопильные станки</span>
+										<svg class="products-menu__arrow" width="20" height="20">
+											<use xlink:href="#icon-arrow-down"></use>
+										</svg>
+									</a>
+								</li>
+								<li class="products-menu__item">
+									<a href="#" class="products-menu__link">
+										<svg class="products-menu__icon" width="100" height="38">
+											<use xlink:href="#icon-category-laser"></use>
+										</svg>
+										<span class="products-menu__text">Многофункциональные комплексы</span>
+										<svg class="products-menu__arrow" width="20" height="20">
+											<use xlink:href="#icon-arrow-down"></use>
+										</svg>
+									</a>
+								</li>
+								<li class="products-menu__item">
+									<a href="#" class="products-menu__link">
+										<svg class="products-menu__icon" width="100" height="38">
+											<use xlink:href="#icon-category-laser"></use>
+										</svg>
+										<span class="products-menu__text">Каталог комплектующих</span>
+										<svg class="products-menu__arrow" width="20" height="20">
+											<use xlink:href="#icon-arrow-down"></use>
+										</svg>
+									</a>
+								</li>
+							</ul>
+							<div class="products-menu__description description-menu">
+								<div class="description-menu__image">
+									<img width="500" height="400" src="@img/item-main-image.png" alt="main-image">
+								</div>
+								<h1 class="description-menu__title">Пример лазерного станка</h1>
+								<p class="description-menu__sub-title">Тут описание лазерных станков</p>
 							</div>
-							<h1 class="description-menu__title">Пример лазерного станка</h1>
-							<p class="description-menu__sub-title">Тут описание лазерных станков</p>
 						</div>
 					</div>
 				</li>
-					<li class="menu__item">
-						<button type="button" data-spoller class="menu__link">Сервис <img width="20" height="20" src="@img/header-arrow.svg" alt="header-arrow"> </button>
-					<ul class="menu__service service-items"><!-- !Тут контент сервиса-->
-						<li class="service-items__item"><a href="#">Запуск и наладка оборудования</a></li>
-						<li class="service-items__item"><a href="#">Запуск и наладка лазерных станков по металлу</a></li>
-						<li class="service-items__item"><a href="#">Диагностика, настройка и юстировка</a></li>
-						<li class="service-items__item"><a href="#">Обучение персонала на станках с ЧПУ</a></li>
-						<li class="service-items__item"><a href="#">Ремонт чиллеров S&A</a></li>
-						<li class="service-items__item"><a href="#">Ремонт оборудования</a></li>
-					</ul>
+					<li class="main-nav__item">
+						<button type="button" data-spoller data-spoller-close class="main-nav__link">Сервис <svg width="20" height="20">
+							<use xlink:href="#icon-arrow-down"></use>
+						</svg> </button>
+						<div class="main-nav__service  service-items">
+						<ul class="service-items__wrapper"><!-- !Тут контент сервиса-->
+							<li class="service-items__item"><a href="#">Запуск и наладка оборудования</a></li>
+							<li class="service-items__item"><a href="#">Запуск и наладка лазерных станков по металлу</a></li>
+							<li class="service-items__item"><a href="#">Диагностика, настройка и юстировка</a></li>
+							<li class="service-items__item"><a href="#">Обучение персонала на станках с ЧПУ</a></li>
+							<li class="service-items__item"><a href="#">Ремонт чиллеров S&A</a></li>
+							<li class="service-items__item"><a href="#">Ремонт оборудования</a></li>
+						</ul>
+					</div>
 				</li>
-					<li class="menu__item">
-						<button type="button" data-spoller class="menu__link">Выставки <img width="20" height="20" src="@img/header-arrow.svg" alt="header-arrow"> </button>
-					<ul class="menu__exhibitions exhibitions-items"><!-- !Тут контент выставок-->
+					<li class="main-nav__item">
+						<button type="button" data-spoller data-spoller-close class="main-nav__link">Выставки <svg width="20" height="20">
+							<use xlink:href="#icon-arrow-down"></use>
+						</svg> </button>
+					<ul class="main-nav__exhibitions  exhibitions-items"><!-- !Тут контент выставок-->
 						<li class="exhibitions-items__item"><a href="#">Металлообработка. Сварка - Урал 2024</a></li>
 						<li class="exhibitions-items__item"><a href="#">Инлегмаш-2024</a></li>
 						<li class="exhibitions-items__item"><a href="#">Woodex 2023</a></li>
@@ -161,24 +194,30 @@
 						<li class="exhibitions-items__item"><a href="#">Металлообработка-2022</a></li>
 					</ul>
 				</li>
-					<li class="menu__item">
-						<button type="button" data-spoller class="menu__link">Доставка и оплата <img width="20" height="20" src="@img/header-arrow.svg" alt="header-arrow"> </button>
-					<ul class="menu__delivery delivery-items"><!-- !Тут контент доставки и оплаты-->
+					<li class="main-nav__item">
+						<button type="button" data-spoller data-spoller-close class="main-nav__link">Доставка и оплата <svg width="20" height="20">
+							<use xlink:href="#icon-arrow-down"></use>
+						</svg> </button>
+					<ul class="main-nav__delivery  delivery-items"><!-- !Тут контент доставки и оплаты-->
 						<li class="delivery-items__item"><a href="#">Наши гарантии</a></li>
 						<li class="delivery-items__item"><a href="#">Станок в рассрочку</a></li>
 						<li class="delivery-items__item"><a href="#">Доставка</a></li>
 					</ul>
 				</li>
-					<li class="menu__item">
-						<button type="button" data-spoller class="menu__link">О компании <img width="20" height="20" src="@img/header-arrow.svg" alt="header-arrow"> </button>
-					<ul class="menu__about-company about-company-items"><!-- !Тут контент о компании-->
+					<li class="main-nav__item">
+						<button type="button" data-spoller data-spoller-close class="main-nav__link">О компании <svg width="20" height="20">
+							<use xlink:href="#icon-arrow-down"></use>
+						</svg> </button>
+					<ul class="main-nav__about-company  about-company-items"><!-- !Тут контент о компании-->
 						<li class="about-company-items__item"><a href="#">Преимущества компании</a></li>
 						<li class="about-company-items__item"><a href="#">Отзывы о LASERCUT</a></li>
 					</ul>
 				</li>
-					<li class="menu__item">
-						<button type="button" data-spoller class="menu__link">Блог <img width="20" height="20" src="@img/header-arrow.svg" alt="header-arrow"> </button>
-					<div href="#" class="menu__blog blog-menu"><!-- !Тут контент блога-->
+					<li class="main-nav__item">
+						<button type="button" data-spoller data-spoller-close class="main-nav__link">Блог <svg width="20" height="20">
+							<use xlink:href="#icon-arrow-down"></use>
+						</svg> </button>
+					<div href="#" class="main-nav__blog  blog-menu"><!-- !Тут контент блога-->
 						<div class="blog-menu__items">
 							<div class="blog-menu__card blog-card">
 								<a href="#" class="blog-card__link">
@@ -215,9 +254,11 @@
 						</div>
 					</div>
 				</li>
-					<li class="menu__item">
-						<button type="button" data-spoller class="menu__link">Контакты <img width="20" height="20" src="@img/header-arrow.svg" alt="header-arrow"> </button>
-						<div class="menu__contacts contacts-menu"><!-- !Тут контент контактов-->
+					<li class="main-nav__item">
+						<button type="button" data-spoller data-spoller-close class="main-nav__link">Контакты <svg width="20" height="20">
+							<use xlink:href="#icon-arrow-down"></use>
+						</svg> </button>
+						<div class="main-nav__contacts  contacts-menu"><!-- !Тут контент контактов-->
 							<div>Test block</div>
 							<div>Test block</div>
 							<div>Test block</div>
@@ -225,18 +266,17 @@
 				</li>
 				</ul>
 			</nav>
-		</div>
-		<div class="header__info info-header">
-			<div class="info-header__search search-header">
-				<button data-spoller class="search-header__btn">
+			<div class="header__info  info-header">
+			<div class="info-header__search  search-header">
+				<button data-spoller data-spoller-close class="search-header__btn">
 				</button>
-				<div class="search-header__input-block input-block"><!-- !Тут контент поиска-->
+				<div class="search-header__input-block  input-block"><!-- !Тут контент поиска-->
 					<div class="input-block__search">
 						<input type="text" name="form" placeholder="Поиск..." class="input">
 					</div>
 				</div>
 			</div>
-			<dl class="info-header__contacts contacts-header">
+			<dl class="info-header__contacts  contacts-header">
 				<dt style="display: none">Phone</dt>
 				<dd class="contacts-header__phone">
 					<a href="tel:88007771787" class="contacts-header__phone-value">+7 (800) 777-17-87</a>
@@ -247,7 +287,7 @@
 				</dd>
 				</dl>
 			</div>
-			<button type="button" class="menu__icon icon-menu"><span></span></button>
+			<button type="button" class="main-header__icon  icon-menu"><span></span></button>
 		</div>
 	</div>
 </header>

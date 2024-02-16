@@ -499,18 +499,18 @@ export function menuInit() {
     document.addEventListener('click', function (e) {
       if (bodyLockStatus && e.target.closest('.icon-menu')) {
         bodyLockToggle();
-        document.documentElement.classList.toggle('menu-open');
+        document.documentElement.classList.toggle('main-nav-open');
       }
     });
   }
 }
 export function menuOpen() {
   bodyLock();
-  document.documentElement.classList.add('menu-open');
+  document.documentElement.classList.add('main-nav-open');
 }
 export function menuClose() {
   bodyUnlock();
-  document.documentElement.classList.remove('menu-open');
+  document.documentElement.classList.remove('main-nav-open');
 }
 // Модуль "показать еще" =======================================================================================================================================================================================================================
 /*

@@ -1,6 +1,6 @@
-.header {
-	border-bottom: 1px solid #79797962;
+.main-header {
 
+	border-bottom: 1px solid #79797962;
 
 	&__container {
 		display: flex;
@@ -15,22 +15,11 @@
 			height: 100%;
 		}
 	}
-
-	&__menu {
-		flex: 1 1 auto;
-	}
-
-	&__info {
-	}
 }
-.menu {
 
+.main-nav {
 
-	&__icon {
-	}
-
-	&__body {
-	}
+	flex: 1 1 auto;
 
 	&__list {
 		position: relative;
@@ -45,89 +34,175 @@
 
 	&__link {
 		display: flex;
-		flex: 0 1 auto;
 		align-items:center;
 		column-gap: 6px;
 		height: 100%;
 		transition: all 0.1s ease 0s;
 		@include adaptiveValue("padding-left", 30, 10);
 		@include adaptiveValue("padding-right", 30, 10);
-		img{
+		svg{
 			width: 20px;
 			height: 20px;
-			color: #aaaaaa63;
 			transition: all 0.1s ease 0s;
 		}
 		@media (any-hover: hover){
 			&:hover{
-				box-shadow: 1px 1px 5px rgba(194, 194, 194, 0.3);
-				background-color: rgba(202, 202, 202, 0.411);
+				background-color: #0095da5d;
 			}
 		}
+		&:focus {
+			background-color: #0095da5d;
+		}
+
 		&._spoller-active {
 
-			img {
+			svg {
 				transition: all 0.1s ease 0s;
+				// ? Тут нужно отобразить стрелку зеркально!
 				transform: rotate(-180deg);
+				// transform: scale(1, -1);
 			}
 		}
 	}
 
-	&__products {
-	}
-
-	&__service {
-	}
-
-	&__exhibitions {
-	}
-
-	&__delivery {
-	}
-
-	&__about-company {
-	}
-
-	&__blog {
-	}
-
-	&__contacts {
-	}
 }
+
 .icon-menu {
 }
+
 .products-menu {
 
 	position: absolute;
 
+	&__wrapper {
+		display: flex;
+		@include adaptiveValue("column-gap", 250, 50);
+		@include adaptiveValue("margin-top", 10, 5);
+	}
+
 	&__items {
+		display: flex;
+		flex-direction: column;
+		// row-gap: 20px;
+		@include adaptiveValue("row-gap", 15, 10);
+		@include adaptiveValue("width", 500, 300);
 	}
 
 	&__item {
+		// ? Первый элемент должен подсвечиваться сразу после открытия товаров
+		// &:first-child{
+		// 	color: #0094da;
+		// 	.products-menu__arrow {
+		// 		visibility: visible;
+		// 		overflow:visible;
+		// 	}
+		// 	svg {
+		// 		fill: #0094da;
+		// 	}
+		// }
 	}
 
 	&__link {
+
+		border-bottom: 1px solid #79797962;
+		transition: color 0.1s ease 0s;
+		display: flex;
+		justify-content:center;
+		align-items:center;
+		@include adaptiveValue("padding-bottom", 15, 5);
+
+		&:focus{
+			fill: #0094da;
+			color: #0094da;
+			.products-menu__arrow {
+				visibility: visible;
+				overflow:visible;
+			}
+		}
+
+			@media (any-hover: hover){
+				&:hover{
+					fill: #0094da;
+					color: #0094da;
+				}
+			}
 	}
 
-	&__description {
+	&__text {
+		flex: 1 1 100%;
+
 	}
+
+	&__icon {
+		flex: 0 0 90px;
+		
+	}
+
+	&__arrow {
+		display: flex;
+		visibility: hidden;
+		overflow: hidden;
+		transform: rotate(-90deg);
+	}
+
 }
 .description-menu {
+	// ? Блок одного товара должен центрироваться, или привязаться к первому товару в списке.
+	// align-self: start;
+	display: flex;
+	flex-direction: column;
+	justify-content:center;
 
 	&__image {
+		cursor: pointer;
+		@include adaptiveValue("margin-bottom", 30, 10);
+		background: -webkit-linear-gradient(315deg, rgb(255, 0, 0) 3%, rgb(129, 129, 129));
+		border-radius: 20px;
 	}
 
 	&__title {
+		font-size: 32px;
+		font-weight: 800;
+		@include adaptiveValue("margin-bottom", 20, 10);
 	}
 
 	&__sub-title {
-	}
+		font-size: 20px;
+		color: #acacac;
+		}
 }
 .service-items {
+
 	position: absolute;
+	width: 450px;
+
+	&__wrapper {
+		display: flex;
+		flex-direction: column;
+		row-gap: 10px;
+	}
 
 	&__item {
+		border-bottom: 1px solid #79797962;
+
+			a {
+				display: block;
+				padding: 12px 3px;
+				height: 100%;
+				width: 100%;
+				transition: color 0.1s ease 0s;
+				@media (any-hover: hover){
+					&:hover{
+						color: #0094da;
+					}
+				}
+			}
+			
+			:focus {
+				color: #0094da;
+			}
 	}
+
 }
 .exhibitions-items {
 	position: absolute;
@@ -193,7 +268,7 @@
 		transition: all 0.3s ease 0s;
 		@media (any-hover: hover){
 			&:hover{
-				background-color: rgba(172, 172, 172, 0.349);
+				background-color: #0095da5d;
 			}
 		}
 		&::before{
@@ -210,19 +285,23 @@
 		}
 		
 	}
-
-	&__input-block {
-	}
 }
+
 .input-block {
 	position: absolute;
 
 	&__search {
+		input {
+
+		}
 	}
 }
+
 .input {
 }
+
 .contacts-header {
+
 	height: 100%;
 	position: relative;
 	top: 8px;
@@ -288,7 +367,7 @@
 
  .icon-menu {
 	display: none;
-	@media (max-width: 1000px) {
+	@media (max-width: 1600px) {
 		display: flex;
 		position: relative;
 		width: rem(30);
@@ -316,7 +395,7 @@
 		span {
 			top: calc(50% - rem(1));
 		}
-		.menu-open & {
+		.main-nav-open & {
 			span {
 				width: 0;
 			}
