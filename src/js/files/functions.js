@@ -283,7 +283,7 @@ export function spollers() {
         const oneSpoller = spollersBlock.hasAttribute('data-one-spoller');
         const spollerSpeed = spollersBlock.dataset.spollersSpeed
           ? parseInt(spollersBlock.dataset.spollersSpeed)
-          : 500;
+          : 100;
         if (!spollersBlock.querySelectorAll('._slide').length) {
           if (
             oneSpoller &&
@@ -303,7 +303,7 @@ export function spollers() {
       );
       const spollerSpeed = spollersBlock.dataset.spollersSpeed
         ? parseInt(spollersBlock.dataset.spollersSpeed)
-        : 500;
+        : 100;
       if (
         spollerActiveTitle &&
         !spollersBlock.querySelectorAll('._slide').length
@@ -314,19 +314,25 @@ export function spollers() {
     }
     // Закрытие при клике вне спойлера
     const spollersClose = document.querySelectorAll('[data-spoller-close]');
+    const isEscapeKey = (e) => e.key === 'Escape';
+
+    function closeSpoiler(e) {
+      const el = e.target;
+      if (!el.closest('[data-spollers]')) {
+        spollersClose.forEach((spollerClose) => {
+          const spollersBlock = spollerClose.closest('[data-spollers]');
+          const spollerSpeed = spollersBlock.dataset.spollersSpeed
+            ? parseInt(spollersBlock.dataset.spollersSpeed)
+            : 100;
+          spollerClose.classList.remove('_spoller-active');
+          _slideUp(spollerClose.nextElementSibling, spollerSpeed);
+        });
+      }
+    }
+
     if (spollersClose.length) {
       document.addEventListener('click', function (e) {
-        const el = e.target;
-        if (!el.closest('[data-spollers]')) {
-          spollersClose.forEach((spollerClose) => {
-            const spollersBlock = spollerClose.closest('[data-spollers]');
-            const spollerSpeed = spollersBlock.dataset.spollersSpeed
-              ? parseInt(spollersBlock.dataset.spollersSpeed)
-              : 500;
-            spollerClose.classList.remove('_spoller-active');
-            _slideUp(spollerClose.nextElementSibling, spollerSpeed);
-          });
-        }
+        closeSpoiler(e);
       });
     }
   }
