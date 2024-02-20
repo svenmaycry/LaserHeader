@@ -247,11 +247,11 @@ export function spollers() {
         if (matchMedia.matches || !matchMedia) {
           spollersBlock.classList.add('_spoller-init');
           initSpollerBody(spollersBlock);
-          spollersBlock.addEventListener('click', setSpollerAction);
+          spollersBlock.addEventListener('mouseover', setSpollerAction);
         } else {
           spollersBlock.classList.remove('_spoller-init');
           initSpollerBody(spollersBlock, false);
-          spollersBlock.removeEventListener('click', setSpollerAction);
+          spollersBlock.removeEventListener('mouseover', setSpollerAction);
         }
       });
     }
@@ -312,27 +312,29 @@ export function spollers() {
         _slideUp(spollerActiveTitle.nextElementSibling, spollerSpeed);
       }
     }
+
     // Закрытие при клике вне спойлера
     const spollersClose = document.querySelectorAll('[data-spoller-close]');
-    const isEscapeKey = (e) => e.key === 'Escape';
 
-    function closeSpoiler(e) {
-      const el = e.target;
-      if (!el.closest('[data-spollers]')) {
-        spollersClose.forEach((spollerClose) => {
-          const spollersBlock = spollerClose.closest('[data-spollers]');
-          const spollerSpeed = spollersBlock.dataset.spollersSpeed
-            ? parseInt(spollersBlock.dataset.spollersSpeed)
-            : 100;
-          spollerClose.classList.remove('_spoller-active');
-          _slideUp(spollerClose.nextElementSibling, spollerSpeed);
-        });
-      }
-    }
+    //  const isEscapeKey = (e) => e.key === 'Escape';
+    //  document.addEventListener('keydown', function (e) {
+    //    if (isEscapeKey(e)) {
+    //      console.log('esc прожат');
+    //    }
+    //  });
 
     if (spollersClose.length) {
       document.addEventListener('click', function (e) {
-        closeSpoiler(e);
+        if (!e.target.closest('[data-spollers]')) {
+          spollersClose.forEach((spollerClose) => {
+            const spollersBlock = spollerClose.closest('[data-spollers]');
+            const spollerSpeed = spollersBlock.dataset.spollersSpeed
+              ? parseInt(spollersBlock.dataset.spollersSpeed)
+              : 100;
+            spollerClose.classList.remove('_spoller-active');
+            _slideUp(spollerClose.nextElementSibling, spollerSpeed);
+          });
+        }
       });
     }
   }
