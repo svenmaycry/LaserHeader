@@ -247,11 +247,11 @@ export function spollers() {
         if (matchMedia.matches || !matchMedia) {
           spollersBlock.classList.add('_spoller-init');
           initSpollerBody(spollersBlock);
-          spollersBlock.addEventListener('mouseover', setSpollerAction);
+          spollersBlock.addEventListener('click', setSpollerAction);
         } else {
           spollersBlock.classList.remove('_spoller-init');
           initSpollerBody(spollersBlock, false);
-          spollersBlock.removeEventListener('mouseover', setSpollerAction);
+          spollersBlock.removeEventListener('click', setSpollerAction);
         }
       });
     }
@@ -339,6 +339,7 @@ export function spollers() {
     }
   }
 }
+
 // Модуь работы с табами =======================================================================================================================================================================================================================
 /*
 Документация по работе в шаблоне: https://template.fls.guru/template-docs/modul-taby.html
