@@ -316,16 +316,23 @@ export function spollers() {
     // Закрытие при клике вне спойлера
     const spollersClose = document.querySelectorAll('[data-spoller-close]');
 
-    //  const isEscapeKey = (e) => e.key === 'Escape';
-    //  document.addEventListener('keydown', function (e) {
-    //    if (isEscapeKey(e)) {
-    //      console.log('esc прожат');
-    //    }
-    //  });
+    const isEscapeKey = (e) => e.key === 'Escape';
 
     if (spollersClose.length) {
       document.addEventListener('click', function (e) {
         if (!e.target.closest('[data-spollers]')) {
+          spollersClose.forEach((spollerClose) => {
+            const spollersBlock = spollerClose.closest('[data-spollers]');
+            const spollerSpeed = spollersBlock.dataset.spollersSpeed
+              ? parseInt(spollersBlock.dataset.spollersSpeed)
+              : 100;
+            spollerClose.classList.remove('_spoller-active');
+            _slideUp(spollerClose.nextElementSibling, spollerSpeed);
+          });
+        }
+      });
+      document.addEventListener('keydown', function (e) {
+        if (!e.target.closest('[data-spollers]') || isEscapeKey(e)) {
           spollersClose.forEach((spollerClose) => {
             const spollersBlock = spollerClose.closest('[data-spollers]');
             const spollerSpeed = spollersBlock.dataset.spollersSpeed

@@ -1,6 +1,7 @@
 .main-header {
 
 	border-bottom: 1px solid #79797962;
+	
 
 	&__container {
 		display: flex;
@@ -9,8 +10,7 @@
 
 	&__logo {
 		@include adaptiveValue("margin-right", 15, 0);
-		@include adaptiveValue("flex-basis", 160,100 );
-		flex: 0 0;
+		flex: 0 0 160px;
 		img {
 			width: 100%;
 			height: 100%;
@@ -28,22 +28,25 @@
 		height: 75px;
 		display: flex;
 		flex-wrap: nowrap;
+		background-color: rgb(255, 255, 255);
+		transition: left 0.3s ease 0s;
+
 
 		@media (max-width: em(1279)){
 			display: block;
 			position: fixed;
 			width: 100%;
-			height: 100%;
+			height: 90dvh;
 			top: 74px;
-			left: -100%;
+			left: -120%;
 			overflow: auto;
 			z-index: 4;
+
 			.main-nav-open & {
-				padding: 20px 30px;
+				box-shadow: 0px 20px 10px rgba(0, 0, 0, 0.7);
 				left: 0;
-				align-items:left;
-				font-size: 24px;
-				row-gap: 20px;
+				padding: 8px 16px;
+				font-size: 16px;
 			  }
 		}
 	}
@@ -52,7 +55,7 @@
 
 		.main-nav-open & {
 			border-bottom: 1px solid #79797962;
-			padding: 20px 0;
+			padding: 13px 0;
 			
 		}
 	}
@@ -60,23 +63,25 @@
 
 	&__button {
 
+
 		text-align: center;
 		position: relative;
 		display: flex;
 		align-items:center;
 		column-gap: 6px;
 		height: 100%;
-		transition: all 0.1s ease 0s;
+		transition: background-color 0.3s ease 0s;
 		@include adaptiveValue("padding-left", 25, 0);
 		@include adaptiveValue("padding-right", 25, 0);
 
 		svg {
 			flex: 1 0 20px;
 			height: 20px;
-			transition: all 0.1s ease 0s;
+			transition: transform 0.3s ease 0s;
 		}
 
 		.main-nav-open & {
+			font-weight: 600;
 			width: 100%;
 			height: 100%;
 
@@ -89,7 +94,7 @@
 
 		&._spoller-active {
 			svg {
-				transition: all 0.1s ease 0s;
+				transition: transform 0.3s ease 0s;
 				// ? Тут нужно отобразить стрелку зеркально!
 				transform: rotate(-180deg);
 				// transform: scale(1, -1);
@@ -117,6 +122,7 @@
 		}
 	}
 }
+
 //========================================================================================================================================================
 
 
@@ -124,8 +130,10 @@
 
 	position: absolute;
 	left: 0;
+	top: 76px;
 	width: 100%;
-	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+	box-shadow: 0px 20px 10px rgba(0, 0, 0, 0.7);
+	background-color: rgb(255, 255, 255);
 	@include adaptiveValue("padding-top", 5, 5);
 	@include adaptiveValue("padding-bottom", 5, 5);
 	@include adaptiveValue("padding-right", 50, 5);
@@ -133,6 +141,7 @@
 
 	.main-nav-open & {
 		position: relative;
+		top: 0;
 		box-shadow:none;
 		font-size: 14px;
 		text-align: left;
@@ -197,6 +206,7 @@
 				&:hover{
 					fill: #0094da;
 					color: #0094da;
+
 					.products-menu__arrow {
 						visibility: visible;
 						overflow:visible;
@@ -261,9 +271,11 @@
 .service-items {
 	position: absolute;
 	left: 0;
+	top: 76px;
 	width: 100%;
 	text-align: center;
-	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+	box-shadow: 0px 20px 10px rgba(0, 0, 0, 0.7);
+	background-color: rgb(255, 255, 255);
 	@include adaptiveValue("padding-top", 5, 5);
 	@include adaptiveValue("padding-bottom", 5, 5);
 	@include adaptiveValue("padding-right", 50, 5);
@@ -272,6 +284,7 @@
 	.main-nav-open & {
 		text-align: left;
 		position: relative;
+		top: 0px;
 		box-shadow:none;
 		font-size: 14px;
 		padding: 20px 0;
@@ -311,9 +324,11 @@
 .exhibitions-items {
 	position: absolute;
 	left: 0;
+	top: 76px;
 	width: 100%;
 	text-align: center;
-	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+	box-shadow: 0px 20px 10px rgba(0, 0, 0, 0.7);
+	background-color: rgb(255, 255, 255);
 	@include adaptiveValue("padding-top", 5, 5);
 	@include adaptiveValue("padding-bottom", 5, 5);
 	@include adaptiveValue("padding-right", 50, 5);
@@ -322,6 +337,7 @@
 	.main-nav-open & {
 		text-align: left;
 		position: relative;
+		top: 0px;
 		box-shadow:none;
 		font-size: 14px;
 		padding: 20px 0;
@@ -358,9 +374,11 @@
 .delivery-items {
 		position: absolute;
 		left: 0;
-		min-width: 100%;
+		top: 76px;
+		width: 100%;
 		text-align: center;
-		box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+		box-shadow: 0px 20px 10px rgba(0, 0, 0, 0.7);
+		background-color: rgb(255, 255, 255);
 		@include adaptiveValue("padding-top", 5, 5);
 		@include adaptiveValue("padding-bottom", 5, 5);
 		@include adaptiveValue("padding-right", 50, 5);
@@ -369,6 +387,7 @@
 		.main-nav-open & {
 			text-align: left;
 			position: relative;
+			top: 0;
 			box-shadow:none;
 			font-size: 14px;
 			padding: 20px 0;
@@ -406,9 +425,11 @@
 .about-company {
 	position: absolute;
 	left: 0;
+	top: 76px;
 	width: 100%;
 	text-align: center;
-	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+	box-shadow: 0px 20px 10px rgba(0, 0, 0, 0.7);
+	background-color: rgb(255, 255, 255);
 	@include adaptiveValue("padding-top", 5, 5);
 	@include adaptiveValue("padding-bottom", 5, 5);
 	@include adaptiveValue("padding-right", 50, 5);
@@ -417,6 +438,7 @@
 	.main-nav-open & {
 		text-align: left;
 		position: relative;
+		top: 0;
 		box-shadow:none;
 		font-size: 14px;
 		padding: 20px 0;
@@ -452,8 +474,10 @@
 .blog-menu {
 	position: absolute;
 	left: 0;
-	min-width: 100%;
-	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+	top: 76px;
+	width: 100%;
+	box-shadow: 0px 20px 10px rgba(0, 0, 0, 0.7);
+	background-color: rgb(255, 255, 255);
 	@include adaptiveValue("padding-top", 5, 5);
 	@include adaptiveValue("padding-bottom", 5, 5);
 	@include adaptiveValue("padding-right", 50, 5);
@@ -461,6 +485,7 @@
 
 	.main-nav-open & {
 		position: relative;
+		top: 0;
 		box-shadow:none;
 		font-size: 14px;
 		padding: 20px 0;
@@ -480,14 +505,20 @@
 				grid-column: 6 span;
 			 }
 		}
+
+		@media (max-width: em(767)){
+			.main-nav-open & {
+				> * {
+					grid-column: 3/11;
+				 }
+			}
+		}
 	}
 }
 
 .blog-card {
 
 	padding: 20px;
-	border-radius: 18px;
-	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.432);
 
 	&__link {
 		
@@ -519,12 +550,15 @@
 
 	position: absolute;
 	left: 0;
-	min-width: 100%;
-	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+	top: 76px;
+	width: 100%;
+	box-shadow: 0px 20px 10px rgba(0, 0, 0, 0.7);
 	padding: 20px 50px;
+	background-color: rgb(255, 255, 255);
 
 	.main-nav-open & {
 		position: relative;
+		top: 0;
 		box-shadow:none;
 		font-size: 14px;
 		padding: 20px 0;
@@ -543,13 +577,20 @@
 				grid-column: 4 span;
 			 }
 		}
+
+		@media (max-width: em(767)){
+			.main-nav-open & {
+				> * {
+					grid-column: 3/11;
+				 }
+			}
+		}
 	}
 
 	&__card {
 		max-width: 350px;
 		padding: 8px 16px;
-		border-radius: 18px;
-		box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.432);
+
 		&_krasnodar {
 			grid-column: 4/7;
 		}
@@ -623,10 +664,19 @@
 		width: 40px;
 		height: 40px;
 		border-radius: 50%;
-		transition: all 0.3s ease 0s;
+		transition: background-color 0.3s ease 0s;
 
 		&:focus {
 			background-color: #0095da5d;
+		}
+
+		&._spoller-active {
+
+			&::before{
+				content:'';
+				transition: background 0.3s ease 0s;
+				background: url('@img/close-icon.svg') 100% / contain no-repeat;
+			}
 		}
 
 		&::before{
@@ -636,13 +686,13 @@
 			align-items: center;
 			width: 30px;
 			height: 30px;
-			position: absolute;
 			top: 5px;
+			position: absolute;
 			left: 5px;
 			background: url('@img/header-search.svg') 100% / contain no-repeat;
 		}
 
-		@media (any-hover: hover){
+		@media (any-hover: hover) {
 			&:hover{
 				background-color: #0095da5d;
 			}
@@ -659,18 +709,20 @@
 	left: 0;
 	top: 76px;
 	min-width: 100%;
-	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
-	padding: 20px 50px;
+	box-shadow: 0px 20px 10px rgba(0, 0, 0, 0.7);
+	padding: 16px 50px;
 	text-align: center;
+	background-color: rgb(255, 255, 255);
+	z-index: 10;
 
 	input {
 		border: 1px solid #a7a7a7;
-		padding: 10px 13px;
+		padding: 8px 13px;
 		border-radius: 10px;
 		background-color:#c7c7c756;
 		outline:none;
 		&::placeholder {
-			font-size: 19px;
+			font-size: 16px;
 		}
 		&:focus {
 			outline: 2px solid #0094da;
@@ -685,6 +737,8 @@
 	height: 100%;
 	position: relative;
 	top: 7px;
+	right: 3px;
+	margin-left: 5px;
 
 	&__phone {
 		position: relative;
@@ -760,7 +814,6 @@
 	@media (max-width: 1279px) {
 		display: flex;
 		position: relative;
-		width: rem(30);
 		flex: 0 0 30px;
 		height: rem(18);
 		cursor: pointer;
@@ -801,6 +854,9 @@
 				transform: rotate(45deg);
 			}
 		}
+	}
+	@media (max-width: em(767)){
+		right: 10px;
 	}
 }
 

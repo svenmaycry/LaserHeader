@@ -1,4 +1,8 @@
-// Подключение функционала "Чертогов Фрилансера"
-// import { isMobile } from "./functions.js";
-// Подключение списка активных модулей
-// import { flsModules } from "./modules.js";
+// const searchButton = document.getElementById('searchId');
+// const mainNav = document.querySelector('main-nav-open');
+
+// if (searchButton) {
+//   document.addEventListener('click', function () {
+//     document.documentElement.classList.remove('main-nav-open');
+//   });
+// }
