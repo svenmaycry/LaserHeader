@@ -38,12 +38,12 @@
 			left: -120%;
 			overflow: auto;
 			z-index: 4;
+			transition: left 0.1s ease 0s;
 
 			.main-nav-open & {
 				box-shadow: 0px 20px 10px rgba(0, 0, 0, 0.7);
 				left: 0;
 				padding: 8px 16px;
-				font-size: 16px;
 			  }
 		}
 	}
@@ -52,7 +52,6 @@
 		display: flex;
 		flex-wrap: nowrap;
 		background-color: rgb(255, 255, 255);
-		transition: left 0.1s ease 0s;
 		height: 75px;
 
 		@media (max-width: em(1279)){
