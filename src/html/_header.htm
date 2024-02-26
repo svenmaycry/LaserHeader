@@ -1,7 +1,10 @@
 <header class="main-header">
 	<div data-spollers data-one-spoller class="main-header__container">
-		<a href="#" class="main-header__logo  logo">
-			<img src="@img/header-logo.svg" alt="logo" width="160" height="42">
+		<a href="#" class="main-header__logo">
+			<picture>
+				<source media="(max-width: 767px)" srcset="@img/icon-logo-simple.svg">
+				<img src="@img/header-logo.svg" width="198" height="52" alt="Логотип Лазеркат">
+			 </picture>
 		</a>
 		<nav class="main-header__nav main-nav">
 				<ul class="main-nav__list">
@@ -369,25 +372,53 @@
 								</ul>
 						</div>
 				</li>
+				<!-- <li class="main-nav__item  mobile-contacts">
+					<a href="#" class="mobile-contacts__link">
+						<svg width="90" height="50">
+							<use xlink:href="#icon-lc-youtube"></use>
+						</svg> 
+					</a>
+					 <dl class="mobile-contacts__list">
+						<div class="mobile-contacts__item">
+						  <dt class="mobile-contacts__term">Наш офис:</dt>
+						  <dd class="mobile-contacts__tel">
+							 <a class="mobile-contacts__tel-value" href="tel:88007771787">+7 (800) 777-17-87</a>
+						  </dd>
+						</div>
+						<div class="mobile-contacts__item">
+							<dt class="mobile-contacts__term">E-mail:</dt>
+							<dd class="mobile-contacts__mail">
+								<a href="mailto:info@lasercut.ru">info@lasercut.ru</a>
+							</dd>
+						 </div>
+						<div class="mobile-contacts__item">
+						  <dt class="mobile-contacts__term">Адрес:</dt>
+						  <dd class="mobile-contacts__adress">
+							 <address>192019, г. Санкт-Петербург, Глухоозёрское шоссе, 12Ж</address>
+						  </dd>
+						</div>
+
+					 </dl>
+				</li> -->
 				</ul>
 			</nav>
-			<div class="header__info  info-header">
-			<div class="info-header__search  search-header">
-				<button type="button" data-spoller data-spoller-close class="search-header__link">
-				</button>
+			<div class="main-header__info  info-header">
+				<div class="info-header__search  search-header">
+					<button type="button" data-spoller data-spoller-close class="search-header__link">
+					</button>
 				<div class="search-header__input-block  input-block"><!-- !Тут контент ПОИСКА-->
 						<input type="text" name="form-input" placeholder="Поиск..." >
 				</div>
-			</div>
-			<dl class="info-header__contacts  contacts-info">
-				<dt style="display: none">Phone</dt>
-				<dd class="contacts-info__phone">
-					<a href="tel:88007771787" class="contacts-info__phone-value">+7 (800) 777-17-87</a>
-				</dd>
-				<dt style="display: none">Mail</dt>
-				<dd class="contacts-info__mail">
-					<a href="mailto:info@lasercut.ru" class="contacts-info__mail-value">info@lasercut.ru</a>
-				</dd>
+				</div>
+				<dl class="info-header__contacts  contacts-info">
+					<dt style="display: none">Phone</dt>
+					<dd class="contacts-info__phone">
+						<a href="tel:88007771787" class="contacts-info__phone-value">+7 (800) 777-17-87</a>
+					</dd>
+					<dt style="display: none">Mail</dt>
+					<dd class="contacts-info__mail">
+						<a href="mailto:info@lasercut.ru" class="contacts-info__mail-value">info@lasercut.ru</a>
+					</dd>
 				</dl>
 			</div>
 			<button type="button" class="main-header__icon  icon-menu"><span></span></button>

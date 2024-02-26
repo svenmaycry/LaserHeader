@@ -1,6 +1,10 @@
 .main-header {
 
 	border-bottom: 1px solid #79797962;
+
+	@media (max-width: em(767)){
+		padding: 12px 0;
+	}
 	
 
 	&__container {
@@ -10,9 +14,9 @@
 
 	&__logo {
 		@include adaptiveValue("margin-right", 15, 0);
-		flex: 0 0 160px;
+
 		img {
-			width: 100%;
+			width: auto;
 			height: 100%;
 		}
 	}
@@ -22,14 +26,13 @@
 .main-nav {
 
 	flex: 1 1 auto;
-
 	
 	&__list {
 		height: 75px;
 		display: flex;
 		flex-wrap: nowrap;
 		background-color: rgb(255, 255, 255);
-		transition: left 0.3s ease 0s;
+		transition: left 0.1s ease 0s;
 
 
 		@media (max-width: em(1279)){
@@ -52,17 +55,17 @@
 	}
 
 	&__item {
-
+		
 		.main-nav-open & {
-			border-bottom: 1px solid #79797962;
-			padding: 13px 0;
-			
+			padding: 10px 0;
+			&:not(:last-child) {
+				border-bottom: 1px solid #79797962;
+			}
 		}
 	}
 
 
 	&__button {
-
 
 		text-align: center;
 		position: relative;
@@ -73,6 +76,19 @@
 		transition: background-color 0.3s ease 0s;
 		@include adaptiveValue("padding-left", 25, 0);
 		@include adaptiveValue("padding-right", 25, 0);
+
+		&::after {
+			background: none repeat scroll 0 0 transparent;
+			bottom: 0;
+			content: "";
+			display: block;
+			height: 2px;
+			right: 0;
+			position: absolute;
+			background: linear-gradient(to left, #f69eaa, #f9dd94 100%);
+			transition: width 0.3s ease 0s, right 0.3s ease 0s;
+			width: 0;
+		}
 
 		svg {
 			flex: 1 0 20px;
@@ -93,25 +109,29 @@
 		}
 
 		&._spoller-active {
+			background-color: #0095da5d;
+			&::after {
+				width: 100%;
+				right: 0;
+			}
+
 			svg {
 				transition: transform 0.3s ease 0s;
 				// ? Тут нужно отобразить стрелку зеркально!
-				transform: rotate(-180deg);
-				// transform: scale(1, -1);
-			}
-			&:focus {
-				background-color: #0095da5d;
-				border-bottom: 1px solid #000;
+				// transform: rotate(-180deg);
+				transform: scale(1, -1);
 			}
 		}
 
 		@media (max-width: em(1279)){
 			.main-nav-open & {
-				text-align: left;
 				padding-left: 0px;
-				&:focus {
-					background-color:inherit;
-					border-bottom: none;
+					&._spoller-active {
+					background:none;
+					&::after {
+						content: '';
+						display: none;
+					}
 				}
 			  }
 		}
@@ -518,7 +538,7 @@
 
 .blog-card {
 
-	padding: 20px;
+	@include adaptiveValue("padding", 20, 5);
 
 	&__link {
 		
@@ -526,21 +546,24 @@
 
 	&__image {
 		border-radius: 20px;
-		@include adaptiveValue("margin-bottom", 20, 10);
-		width: 100%;
-		height: auto;
+		@include adaptiveValue("margin-bottom", 16, 8);
+		width: 200px;
+		height: 150px;
 	}
 
 	&__date {
+		@include adaptiveValue("font-size", 16, 12);
+		display: block;
 		font-weight: 300;
-		padding: 12px 5px;
+		padding: 12px 0px;
 	}
 
 	&__title {
-		@include adaptiveValue("font-size", 20, 18);
+		@include adaptiveValue("font-size", 18, 14);
 		@include adaptiveValue("line-height", 32, 24);
+		max-width: 200px;
 		font-weight: 700;
-		padding: 12px 5px;
+		padding: 8px 0px;
 	}
 }
 
@@ -589,7 +612,7 @@
 
 	&__card {
 		max-width: 350px;
-		padding: 8px 16px;
+		@include adaptiveValue("padding", 20, 5);
 
 		&_krasnodar {
 			grid-column: 4/7;
@@ -605,13 +628,13 @@
 	&__image {
 		border-radius: 20px;
 		@include adaptiveValue("margin-bottom", 8, 5);
-		width: 100%;
-		height: auto;
+		width: 200px;
+		height: 150px;
 	}
 
 	&__title {
 		font-weight: 700;
-		@include adaptiveValue("font-size", 24, 16);
+		@include adaptiveValue("font-size", 18, 16);
 		@include adaptiveValue("line-height", 32, 24);
 		@include adaptiveValue("margin-bottom", 20, 10);
 
@@ -629,10 +652,13 @@
 	&__address {
 		@include adaptiveValue("font-size", 18, 14);
 		@include adaptiveValue("margin-bottom", 16, 7);
+		max-width: 200px;
+
 	}
 
 
 	&__phone {
+		@include adaptiveValue("font-size", 16, 14);
 		@include adaptiveValue("margin-bottom", 10, 5);
 		a {
 			font-weight: 700;
@@ -648,6 +674,49 @@
 
 //========================================================================================================================================================
 
+// .mobile-contacts {
+// 	display: none;
+
+// 	@media (max-width: em(767)){
+// 		display: block; 
+//   }
+
+// 	&__link {
+// 		svg {
+// 			margin: 0px 0px 10px 0px;
+// 		}
+// 	}
+
+// 	&__list {
+// 	}
+
+// 	&__item {
+// 		margin: 0px 0px 20px 0px;
+// 	}
+
+// 	&__term {
+// 		font-weight: 400;
+// 		color: #9c9a9a;
+// 		margin: 0px 0px 10px 0px;
+// 	}
+
+// 	&__tel {
+// 	}
+
+// 	&__tel-value {
+// 	}
+
+// 	&__mail {
+// 	}
+
+// 	&__adress {
+// 	}
+// }
+
+
+
+//========================================================================================================================================================
+
 .info-header {
 	display: flex;
 	@include adaptiveValue("column-gap", 20, 5);
@@ -657,6 +726,10 @@
 	width: 40px;
 	height: 40px;
 
+	@media (max-width: em(767)){
+		order: 2;
+	}
+
 	&__link {
 		display: block;
 		position: relative;
@@ -665,6 +738,10 @@
 		height: 40px;
 		border-radius: 50%;
 		transition: background-color 0.3s ease 0s;
+
+		@media (max-width: em(767)){
+			top: 0;
+		}
 
 		&:focus {
 			background-color: #0095da5d;
@@ -769,6 +846,10 @@
 				color: #0094da;
 			}
 		}
+		@media (max-width: em(767)){
+			position: relative;
+			top: 5px
+		}
 	}
 
 	&__mail {
@@ -778,6 +859,9 @@
 		width: 200px;
 		@media (max-width: em(1279)){
 			width: 175px;
+		}
+		@media (max-width: em(767)){
+			display: none;
 		}
 
 		&::before{
@@ -814,6 +898,7 @@
 	@media (max-width: 1279px) {
 		display: flex;
 		position: relative;
+		margin: 0px 0px 0px 20px;
 		flex: 0 0 30px;
 		height: rem(18);
 		cursor: pointer;
@@ -854,9 +939,6 @@
 				transform: rotate(45deg);
 			}
 		}
-	}
-	@media (max-width: em(767)){
-		right: 10px;
 	}
 }
 
