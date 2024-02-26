@@ -26,15 +26,9 @@
 .main-nav {
 
 	flex: 1 1 auto;
-	
-	&__list {
-		height: 75px;
-		display: flex;
-		flex-wrap: nowrap;
+
+	&__wrapper {
 		background-color: rgb(255, 255, 255);
-		transition: left 0.1s ease 0s;
-
-
 		@media (max-width: em(1279)){
 			display: block;
 			position: fixed;
@@ -51,6 +45,20 @@
 				padding: 8px 16px;
 				font-size: 16px;
 			  }
+		}
+	}
+	
+	&__list {
+		display: flex;
+		flex-wrap: nowrap;
+		background-color: rgb(255, 255, 255);
+		transition: left 0.1s ease 0s;
+		height: 75px;
+
+		@media (max-width: em(1279)){
+			margin: 0px 0px 30px 0px;
+			display: block;
+			height: auto;
 		}
 	}
 
@@ -85,7 +93,7 @@
 			height: 2px;
 			right: 0;
 			position: absolute;
-			background: linear-gradient(to left, #f69eaa, #f9dd94 100%);
+			background: linear-gradient(to left, #0a0a0a, #f50000 100%);
 			transition: width 0.3s ease 0s, right 0.3s ease 0s;
 			width: 0;
 		}
@@ -674,44 +682,46 @@
 
 //========================================================================================================================================================
 
-// .mobile-contacts {
-// 	display: none;
+.mobile-contacts {
+	display: none;
 
-// 	@media (max-width: em(767)){
-// 		display: block; 
-//   }
+	@media (max-width: em(1276)){
+		display: block;
+  }
 
-// 	&__link {
-// 		svg {
-// 			margin: 0px 0px 10px 0px;
-// 		}
-// 	}
+	&__link {
+		svg {
+			margin: 0px 0px 10px 0px;
+		}
+	}
 
-// 	&__list {
-// 	}
+	&__list {
+	}
 
-// 	&__item {
-// 		margin: 0px 0px 20px 0px;
-// 	}
+	&__item {
+		margin: 0px 0px 20px 0px;
+	}
 
-// 	&__term {
-// 		font-weight: 400;
-// 		color: #9c9a9a;
-// 		margin: 0px 0px 10px 0px;
-// 	}
+	&__term {
+		font-weight: 400;
+		color: #9c9a9a;
+		margin: 0px 0px 10px 0px;
+	}
 
-// 	&__tel {
-// 	}
+	&__tel {
+		a{ font-weight: 600;}
+	}
 
-// 	&__tel-value {
-// 	}
+	&__mail {
+		a {
+			font-weight: 600;
+		}
+	}
 
-// 	&__mail {
-// 	}
+	&__adress {
 
-// 	&__adress {
-// 	}
-// }
+	}
+}
 
 
 
@@ -720,6 +730,9 @@
 .info-header {
 	display: flex;
 	@include adaptiveValue("column-gap", 20, 5);
+	@media (max-width: em(1279)){
+		margin: 0px 45px 0px 0px;
+	}
 }
 
 .search-header {
@@ -897,9 +910,11 @@
 	display: none;
 	@media (max-width: 1279px) {
 		display: flex;
-		position: relative;
+		position: absolute;
+		top: 23px;
+		right: 20px;
 		margin: 0px 0px 0px 20px;
-		flex: 0 0 30px;
+		width: 30px;
 		height: rem(18);
 		cursor: pointer;
 		z-index: 5;
