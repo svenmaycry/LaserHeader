@@ -47,7 +47,6 @@
 
   &__list {
     display: flex;
-    flex-wrap: nowrap;
     height: 75px;
 
     @media (max-width: em(1279)) {
@@ -67,7 +66,6 @@
   }
 
   &__button {
-    text-align: center;
     position: relative;
     display: flex;
     align-items: center;
@@ -78,9 +76,8 @@
     @include adaptiveValue('padding-right', 25, 0);
 
     &::after {
-      background: none repeat scroll 0 0 transparent;
-      bottom: 0;
       content: '';
+      bottom: 0;
       display: block;
       height: 2px;
       right: 0;
@@ -696,11 +693,48 @@
   }
 }
 
+.social {
+  margin: 0px 0px 40px 0px;
+
+  &__list {
+    display: flex;
+    column-gap: 25px;
+  }
+
+  &__item {
+  }
+
+  &__item--vk {
+    svg {
+      fill: rgb(0, 119, 255);
+    }
+  }
+
+  &__item--youtube {
+  }
+
+  &__item--telegram {
+    svg {
+      fill: #25a0dd;
+    }
+  }
+
+  &__item--whatsapp {
+  }
+
+  &__link {
+  }
+}
+
+.visually-hidden {
+  display: none;
+}
+
 //========================================================================================================================================================
 
 .info-header {
   display: flex;
-  @include adaptiveValue('column-gap', 20, 5);
+  @include adaptiveValue('column-gap', 20, 3);
   @media (max-width: em(1279)) {
     margin: 0px 45px 0px 0px;
   }
@@ -714,7 +748,7 @@
     order: 2;
   }
 
-  &__link {
+  &__button {
     display: block;
     position: relative;
     top: 17px;
@@ -725,10 +759,6 @@
 
     @media (max-width: em(767)) {
       top: 0;
-    }
-
-    &:focus {
-      background-color: #0095da5d;
     }
 
     &._spoller-active {
@@ -762,13 +792,14 @@
 
 //========================================================================================================================================================
 
-.input-block {
+.input-wrapper {
   position: absolute;
   left: 0;
   top: 76px;
   min-width: 100%;
   box-shadow: 0px 20px 10px rgba(0, 0, 0, 0.7);
-  padding: 16px 50px;
+  padding-top: 15px;
+  padding-bottom: 20px;
   text-align: center;
   background-color: rgb(255, 255, 255);
   z-index: 10;
@@ -780,7 +811,6 @@
     background-color: #c7c7c756;
     outline: none;
     &::placeholder {
-      font-size: 16px;
     }
     &:focus {
       outline: 2px solid #0094da;
@@ -804,6 +834,9 @@
     width: 200px;
     @media (max-width: em(1279)) {
       width: 182px;
+    }
+    @media (max-width: em(767)) {
+      width: 169px;
     }
 
     &::before {
