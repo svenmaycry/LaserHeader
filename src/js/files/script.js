@@ -1,23 +1,32 @@
-const iconMenu = document.querySelector('.icon-menu');
-const closeInputButton = document.getElementById('input-close-button');
-const inputWrapper = document.getElementById('input-wrapper');
+const iconMenuButton = document.querySelector('.icon-menu');
+const inputButton = document.querySelector('#input-button');
+const inputWrapper = document.querySelector('#input-wrapper');
+const input = document.querySelector('#search-input');
 
+// ? Закрытие меню-бургер при клике на поиск.
 const closeBurgerMenu = () => {
-  document.documentElement.classList.remove('main-nav-open');
+  if (document.documentElement.classList.contains('main-nav-open')) {
+    document.documentElement.classList.remove('main-nav-open');
+  }
 };
 
+// ? Закрытие поиска при клике на меню-бургер.
 const closeSearchWrapper = () => {
-  closeInputButton.classList.remove('_spoller-active');
-  inputWrapper.setAttribute('hidden', '');
+  if (inputButton.classList.contains('_spoller-active')) {
+    inputButton.classList.remove('_spoller-active');
+    inputWrapper.setAttribute('hidden', '');
+  }
 };
 
-closeInputButton.addEventListener('click', closeBurgerMenu);
-iconMenu.addEventListener('click', closeSearchWrapper);
+const onInputClick = () => {
+  closeBurgerMenu();
+};
 
-// ! Попытка сделать фокус на клике на кнопку поиска
+const onIconMenuClick = () => {
+  closeSearchWrapper();
+};
 
-// const focusSearch = () => {
-//   document.getElementById('search-input').focus();
-// };
+inputButton.addEventListener('click', onInputClick);
+iconMenuButton.addEventListener('click', onIconMenuClick);
 
-// closeInputButton.addEventListener('click', focusSearch);
+//========================================================================================================================================================
