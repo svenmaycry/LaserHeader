@@ -188,7 +188,7 @@ export let bodyUnlock = (delay = 0) => {
     }, delay);
   }
 };
-export let bodyLock = (delay = 500) => {
+export let bodyLock = (delay = 0) => {
   let body = document.querySelector('body');
   if (bodyLockStatus) {
     let lock_padding = document.querySelectorAll('[data-lp]');
