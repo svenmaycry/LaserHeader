@@ -663,8 +663,11 @@
   top: 76px;
   width: 100%;
   box-shadow: 0px 20px 10px rgba(0, 0, 0, 0.7);
-  padding: 20px 50px;
   background-color: rgb(255, 255, 255);
+  @include adaptiveValue('padding-top', 5, 5);
+  @include adaptiveValue('padding-bottom', 5, 5);
+  @include adaptiveValue('padding-right', 50, 5);
+  @include adaptiveValue('padding-left', 50, 5);
 
   .main-nav-open & {
     position: relative;
