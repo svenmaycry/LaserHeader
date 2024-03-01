@@ -1,7 +1,7 @@
 const iconMenuButton = document.querySelector('.icon-menu');
 const inputButton = document.querySelector('.search-header__button');
 const inputWrapper = document.querySelector('.input-wrapper');
-const input = document.querySelector('#search-input');
+// const input = document.querySelector('#search-input');
 
 // ? Закрытие меню-бургер при клике на поиск.
 const closeBurgerMenu = () => {

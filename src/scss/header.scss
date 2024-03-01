@@ -629,8 +629,8 @@
 .blog-card {
   @include adaptiveValue('padding', 20, 5);
 
-  &__link {
-  }
+  //   &__link {
+  //   }
 
   &__image {
     border-radius: 20px;
@@ -706,8 +706,8 @@
     }
   }
 
-  &__link {
-  }
+  //   &__link {
+  //   }
 }
 
 .contacts-menu-content {
@@ -725,8 +725,8 @@
     @include adaptiveValue('margin-bottom', 20, 10);
   }
 
-  &__list {
-  }
+  //   &__list {
+  //   }
 
   &__term {
     font-weight: 400;
@@ -769,8 +769,8 @@
     }
   }
 
-  &__list {
-  }
+  //   &__list {
+  //   }
 
   &__item {
     margin: 0px 0px 20px 0px;
@@ -794,8 +794,8 @@
     }
   }
 
-  &__adress {
-  }
+  //   &__adress {
+  //   }
 }
 
 .social {
@@ -806,8 +806,8 @@
     column-gap: 25px;
   }
 
-  &__item {
-  }
+  //   &__item {
+  //   }
 
   &__item--vk {
     svg {
@@ -815,8 +815,8 @@
     }
   }
 
-  &__item--youtube {
-  }
+  //   &__item--youtube {
+  //   }
 
   &__item--telegram {
     svg {
@@ -824,11 +824,11 @@
     }
   }
 
-  &__item--whatsapp {
-  }
+  //   &__item--whatsapp {
+  //   }
 
-  &__link {
-  }
+  //   &__link {
+  //   }
 }
 
 .visually-hidden {
@@ -915,8 +915,6 @@
     border-radius: 10px;
     background-color: #c7c7c756;
     outline: none;
-    &::placeholder {
-    }
     &:focus {
       outline: 2px solid #0094da;
     }
@@ -1048,9 +1046,6 @@
     .main-nav-open & {
       span {
         width: 0;
-      }
-      &::before,
-      &::after {
       }
       &::before {
         top: calc(50% - rem(1));
