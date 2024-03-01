@@ -12,8 +12,8 @@
 				<ul class="main-nav__list">
 					<li class="main-nav__item">
 						<button type="button" data-spoller data-spoller-close class="main-nav__button">Товары
-							<svg width="20" height="20">
-								<use xlink:href="#icon-arrow-down"></use>
+							<svg width="20" height="13">
+								<use id="nav-icon" xlink:href="#icon-arrow-down"></use>
 							</svg>
 						</button>
 						<div class="main-nav__products  products-menu"><!-- !Тут контент ТОВАРОВ-->
@@ -154,7 +154,7 @@
 								</ul>
 								<div class="products-menu__media-block  products-media-block">
 									<div class="products-media-block__image">
-										<img width="500" height="400" src="@img/item-main-image.png" alt="Картинка товара">
+										<img width="500" height="400" src="@img/item-main-image.png" alt="Лазерный станок">
 									</div>
 									<h2 class="products-media-block__title">Пример лазерного станка</h2>
 									<p class="products-media-block__sub-title">Тут описание лазерных станков</p>
@@ -164,25 +164,36 @@
 					</li>
 					<li class="main-nav__item">
 						<button type="button" data-spoller data-spoller-close class="main-nav__button">Сервис
-							<svg width="20" height="20">
+							<svg width="20" height="13">
 								<use xlink:href="#icon-arrow-down"></use>
 							</svg>
 						</button>
 						<div class="main-nav__service  service-items"><!-- !Тут контент СЕРВИСА-->
-							<ul class="service-items__list">
-								<li class="service-items__link"><a href="#">Запуск и наладка оборудования</a></li>
-								<li class="service-items__link"><a href="#">Запуск и наладка лазерных станков по металлу</a>
-								</li>
-								<li class="service-items__link"><a href="#">Диагностика, настройка и юстировка</a></li>
-								<li class="service-items__link"><a href="#">Обучение персонала на станках с ЧПУ</a></li>
-								<li class="service-items__link"><a href="#">Ремонт чиллеров S&A</a></li>
-								<li class="service-items__link"><a href="#">Ремонт оборудования</a></li>
-							</ul>
+							<div data-tabs class="service-items__wrapper">
+								<div data-tabs-body class="service-items__media-block  service-media-block">
+									<img class="service-media-block__image" src="@img/zapusk-i-naladka.jpg" alt="#">
+									<img class="service-media-block__image" src="@img/zapusk-i-naladka-laser.jpeg" alt="#">
+									<img class="service-media-block__image" src="@img/diagnostika.jpeg" alt="#">
+									<img class="service-media-block__image" src="@img/obuchenie-personalu.jpg" alt="#">
+									<img class="service-media-block__image" src="@img/remont.jpg" alt="#">
+									<img class="service-media-block__image" src="@img/remont-oborudov.jpg" alt="#">
+								</div>
+								<ul data-tabs-titles class="service-items__list">
+									<li class="service-items__link _tab-active"><a href="#">Запуск и наладка оборудования</a>
+									</li>
+									<li class="service-items__link"><a href="#">Запуск и наладка лазерных станков по металлу</a>
+									</li>
+									<li class="service-items__link"><a href="#">Диагностика, настройка и юстировка</a></li>
+									<li class="service-items__link"><a href="#">Обучение персонала на станках с ЧПУ</a></li>
+									<li class="service-items__link"><a href="#">Ремонт чиллеров S&A</a></li>
+									<li class="service-items__link"><a href="#">Ремонт оборудования</a></li>
+								</ul>
+							</div>
 						</div>
 					</li>
 					<li class="main-nav__item">
 						<button type="button" data-spoller data-spoller-close class="main-nav__button">Выставки
-							<svg width="20" height="20">
+							<svg width="20" height="13">
 								<use xlink:href="#icon-arrow-down"></use>
 							</svg>
 						</button>
@@ -210,7 +221,7 @@
 								</ul>
 								<div class="exhibitions-items__media  exhibitions-media-block">
 									<img width="1680" height="680" class="exhibitions-media-block__image"
-										src="@img/exhibitions-photo.jpg" alt="Фото с выставки">
+										src="@img/exhibitions-photo.jpg" alt="Выставка">
 									<a href="#" class="exhibitions-media-block__link">Все выставки</a>
 								</div>
 							</div>
@@ -218,7 +229,7 @@
 					</li>
 					<li class="main-nav__item">
 						<button type="button" data-spoller data-spoller-close class="main-nav__button">Доставка и оплата
-							<svg width="20" height="20">
+							<svg width="20" height="13">
 								<use xlink:href="#icon-arrow-down"></use>
 							</svg>
 						</button>
@@ -226,7 +237,7 @@
 							<div class="delivery-items__wrapper">
 								<div class="delivery-items__media-block  delivery-media-block">
 									<img width="1250" height="260" class="delivery-media-block__image"
-										src="@img/delivery-image.jpg" alt="Картинка доставки и оплаты">
+										src="@img/delivery-image.jpg" alt="Доставка и оплата">
 								</div>
 								<ul class="delivery-items__list">
 									<li class="delivery-items__link"><a href="#">Наши гарантии</a></li>
@@ -238,20 +249,26 @@
 					</li>
 					<li class="main-nav__item">
 						<button type="button" data-spoller data-spoller-close class="main-nav__button">О компании
-							<svg width="20" height="20">
+							<svg width="20" height="13">
 								<use xlink:href="#icon-arrow-down"></use>
 							</svg>
 						</button>
 						<div class="main-nav__about-company  about-company"><!-- !Тут контент О КОМПАНИИ-->
-							<ul class="about-company__list">
-								<li class="about-company__link"><a href="#">Преимущества компании</a></li>
-								<li class="about-company__link"><a href="#">Отзывы о LASERCUT</a></li>
-							</ul>
+							<div class="about-company__wrapper">
+								<ul class="about-company__list">
+									<li class="about-company__link"><a href="#">Преимущества компании</a></li>
+									<li class="about-company__link"><a href="#">Отзывы о LASERCUT</a></li>
+								</ul>
+								<div class="about-company__media-block  about-company-media-block">
+									<img width="1280" height="853" class="about-company-media-block__image"
+										src="@img/about-company-image.jpeg" alt="О компании">
+								</div>
+							</div>
 						</div>
 					</li>
 					<li class="main-nav__item">
 						<button type="button" data-spoller data-spoller-close class="main-nav__button">Блог
-							<svg width="20" height="20">
+							<svg width="20" height="13">
 								<use xlink:href="#icon-arrow-down"></use>
 							</svg>
 						</button>
@@ -296,7 +313,7 @@
 					</li>
 					<li class="main-nav__item">
 						<button type="button" data-spoller data-spoller-close class="main-nav__button">Контакты
-							<svg width="20" height="20">
+							<svg width="20" height="13">
 								<use xlink:href="#icon-arrow-down"></use>
 							</svg>
 						</button>
@@ -475,7 +492,6 @@
 								<address>192019, г. Санкт-Петербург, Глухоозёрское шоссе, 12Ж</address>
 							</dd>
 						</div>
-
 					</dl>
 				</div>
 			</div>

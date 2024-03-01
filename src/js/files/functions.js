@@ -364,7 +364,7 @@ export function tabs() {
     tabs.forEach((tabsBlock, index) => {
       tabsBlock.classList.add('_tab-init');
       tabsBlock.setAttribute('data-tabs-index', index);
-      tabsBlock.addEventListener('click', setTabsAction);
+      tabsBlock.addEventListener('mouseover', setTabsAction);
       initTabs(tabsBlock);
     });
 

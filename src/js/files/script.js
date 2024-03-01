@@ -30,3 +30,16 @@ inputButton.addEventListener('click', onInputClick);
 iconMenuButton.addEventListener('click', onIconMenuClick);
 
 //========================================================================================================================================================
+// ? Изменение иконки стрелки в крестик
+// const mainNavButton = document.querySelector('.main-nav__button');
+// const mainNavIcon = document.querySelector('#nav-icon');
+
+// const changeIconPath = () => {
+//   mainNavIcon.setAttribute('xlink:href', '#icon-cross');
+
+//   if (mainNavButton.classList.contains('_spoller-active')) {
+//     mainNavIcon.setAttribute('xlink:href', '#icon-arrow-down');
+//   }
+// };
+
+// mainNavButton.addEventListener('click', changeIconPath);
