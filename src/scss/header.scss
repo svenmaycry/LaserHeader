@@ -123,7 +123,7 @@
       }
     }
 
-    &._spoller-active {
+    &._spoiler-active {
       background-color: #0095da5d;
       &::after {
         width: 100%;
@@ -141,7 +141,7 @@
     @media (max-width: em(1279)) {
       .main-nav-open & {
         padding-left: 0px;
-        &._spoller-active {
+        &._spoiler-active {
           background: none;
           &::after {
             content: '';
@@ -895,7 +895,7 @@
       top: 0;
     }
 
-    &._spoller-active {
+    &._spoiler-active {
       &::before {
         content: '';
         transition: background 0.3s ease 0s;

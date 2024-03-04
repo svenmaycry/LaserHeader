@@ -39,7 +39,7 @@ flsFunctions.menuInit();
 Документация: https://template.fls.guru/template-docs/modul-spojlery.html
 Сниппет (HTML): spollers
 */
-flsFunctions.spollers();
+flsFunctions.spoilers();
 
 /*
 Модуль работы с табами

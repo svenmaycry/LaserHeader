@@ -214,132 +214,132 @@ export let bodyLock = (delay = 0) => {
 Документация по работе в шаблоне: https://template.fls.guru/template-docs/modul-spojlery.html
 Сниппет (HTML): spollers
 */
-export function spollers() {
-  const spollersArray = document.querySelectorAll('[data-spollers]');
-  if (spollersArray.length > 0) {
+export function spoilers() {
+  const spoilersArray = document.querySelectorAll('[data-spoilers]');
+  if (spoilersArray.length > 0) {
     // Получение обычных слойлеров
-    const spollersRegular = Array.from(spollersArray).filter(function (
+    const spoilersRegular = Array.from(spoilersArray).filter(function (
       item,
       index,
       self
     ) {
-      return !item.dataset.spollers.split(',')[0];
+      return !item.dataset.spoilers.split(',')[0];
     });
     // Инициализация обычных слойлеров
-    if (spollersRegular.length) {
-      initSpollers(spollersRegular);
+    if (spoilersRegular.length) {
+      initSpoilers(spoilersRegular);
     }
     // Получение слойлеров с медиа запросами
-    let mdQueriesArray = dataMediaQueries(spollersArray, 'spollers');
+    let mdQueriesArray = dataMediaQueries(spoilersArray, 'spoilers');
     if (mdQueriesArray && mdQueriesArray.length) {
       mdQueriesArray.forEach((mdQueriesItem) => {
         // Событие
         mdQueriesItem.matchMedia.addEventListener('change', function () {
-          initSpollers(mdQueriesItem.itemsArray, mdQueriesItem.matchMedia);
+          initSpoilers(mdQueriesItem.itemsArray, mdQueriesItem.matchMedia);
         });
-        initSpollers(mdQueriesItem.itemsArray, mdQueriesItem.matchMedia);
+        initSpoilers(mdQueriesItem.itemsArray, mdQueriesItem.matchMedia);
       });
     }
     // Инициализация
-    function initSpollers(spollersArray, matchMedia = false) {
-      spollersArray.forEach((spollersBlock) => {
-        spollersBlock = matchMedia ? spollersBlock.item : spollersBlock;
+    function initSpoilers(spoilersArray, matchMedia = false) {
+      spoilersArray.forEach((spoilersBlock) => {
+        spoilersBlock = matchMedia ? spoilersBlock.item : spoilersBlock;
         if (matchMedia.matches || !matchMedia) {
-          spollersBlock.classList.add('_spoller-init');
-          initSpollerBody(spollersBlock);
-          spollersBlock.addEventListener('click', setSpollerAction);
+          spoilersBlock.classList.add('_spoiler-init');
+          initSpoilerBody(spoilersBlock);
+          spoilersBlock.addEventListener('click', setSpoilerAction);
         } else {
-          spollersBlock.classList.remove('_spoller-init');
-          initSpollerBody(spollersBlock, false);
-          spollersBlock.removeEventListener('click', setSpollerAction);
+          spoilersBlock.classList.remove('_spoiler-init');
+          initSpoilerBody(spoilersBlock, false);
+          spoilersBlock.removeEventListener('click', setSpoilerAction);
         }
       });
     }
     // Работа с контентом
-    function initSpollerBody(spollersBlock, hideSpollerBody = true) {
-      let spollerTitles = spollersBlock.querySelectorAll('[data-spoller]');
-      if (spollerTitles.length) {
-        spollerTitles = Array.from(spollerTitles).filter(
-          (item) => item.closest('[data-spollers]') === spollersBlock
+    function initSpoilerBody(spoilersBlock, hideSpoilerBody = true) {
+      let spoilerTitles = spoilersBlock.querySelectorAll('[data-spoiler]');
+      if (spoilerTitles.length) {
+        spoilerTitles = Array.from(spoilerTitles).filter(
+          (item) => item.closest('[data-spoilers]') === spoilersBlock
         );
-        spollerTitles.forEach((spollerTitle) => {
-          if (hideSpollerBody) {
-            spollerTitle.removeAttribute('tabindex');
-            if (!spollerTitle.classList.contains('_spoller-active')) {
-              spollerTitle.nextElementSibling.hidden = true;
+        spoilerTitles.forEach((spoilerTitle) => {
+          if (hideSpoilerBody) {
+            spoilerTitle.removeAttribute('tabindex');
+            if (!spoilerTitle.classList.contains('_spoiler-active')) {
+              spoilerTitle.nextElementSibling.hidden = true;
             }
           } else {
-            spollerTitle.setAttribute('tabindex', '-1');
-            spollerTitle.nextElementSibling.hidden = false;
+            spoilerTitle.setAttribute('tabindex', '-1');
+            spoilerTitle.nextElementSibling.hidden = false;
           }
         });
       }
     }
-    function setSpollerAction(e) {
+    function setSpoilerAction(e) {
       const el = e.target;
-      if (el.closest('[data-spoller]')) {
-        const spollerTitle = el.closest('[data-spoller]');
-        const spollersBlock = spollerTitle.closest('[data-spollers]');
-        const oneSpoller = spollersBlock.hasAttribute('data-one-spoller');
-        const spollerSpeed = spollersBlock.dataset.spollersSpeed
-          ? parseInt(spollersBlock.dataset.spollersSpeed)
+      if (el.closest('[data-spoiler]')) {
+        const spoilerTitle = el.closest('[data-spoiler]');
+        const spoilersBlock = spoilerTitle.closest('[data-spoilers]');
+        const oneSpoiler = spoilersBlock.hasAttribute('data-one-spoiler');
+        const spoilerSpeed = spoilersBlock.dataset.spoilersSpeed
+          ? parseInt(spoilersBlock.dataset.spoilersSpeed)
           : 100;
-        if (!spollersBlock.querySelectorAll('._slide').length) {
+        if (!spoilersBlock.querySelectorAll('._slide').length) {
           if (
-            oneSpoller &&
-            !spollerTitle.classList.contains('_spoller-active')
+            oneSpoiler &&
+            !spoilerTitle.classList.contains('_spoiler-active')
           ) {
-            hideSpollersBody(spollersBlock);
+            hideSpoilersBody(spoilersBlock);
           }
-          spollerTitle.classList.toggle('_spoller-active');
-          _slideToggle(spollerTitle.nextElementSibling, spollerSpeed);
+          spoilerTitle.classList.toggle('_spoiler-active');
+          _slideToggle(spoilerTitle.nextElementSibling, spoilerSpeed);
         }
         e.preventDefault();
       }
     }
-    function hideSpollersBody(spollersBlock) {
-      const spollerActiveTitle = spollersBlock.querySelector(
-        '[data-spoller]._spoller-active'
+    function hideSpoilersBody(spoilersBlock) {
+      const spoilerActiveTitle = spoilersBlock.querySelector(
+        '[data-spoiler]._spoiler-active'
       );
-      const spollerSpeed = spollersBlock.dataset.spollersSpeed
-        ? parseInt(spollersBlock.dataset.spollersSpeed)
+      const spoilerSpeed = spoilersBlock.dataset.spoilersSpeed
+        ? parseInt(spoilersBlock.dataset.spoilersSpeed)
         : 100;
       if (
-        spollerActiveTitle &&
-        !spollersBlock.querySelectorAll('._slide').length
+        spoilerActiveTitle &&
+        !spoilersBlock.querySelectorAll('._slide').length
       ) {
-        spollerActiveTitle.classList.remove('_spoller-active');
-        _slideUp(spollerActiveTitle.nextElementSibling, spollerSpeed);
+        spoilerActiveTitle.classList.remove('_spoiler-active');
+        _slideUp(spoilerActiveTitle.nextElementSibling, spoilerSpeed);
       }
     }
 
     // Закрытие при клике вне спойлера
-    const spollersClose = document.querySelectorAll('[data-spoller-close]');
+    const spoilersClose = document.querySelectorAll('[data-spoiler-close]');
 
     const isEscapeKey = (e) => e.key === 'Escape';
 
-    if (spollersClose.length) {
+    if (spoilersClose.length) {
       document.addEventListener('click', function (e) {
-        if (!e.target.closest('[data-spollers]')) {
-          spollersClose.forEach((spollerClose) => {
-            const spollersBlock = spollerClose.closest('[data-spollers]');
-            const spollerSpeed = spollersBlock.dataset.spollersSpeed
-              ? parseInt(spollersBlock.dataset.spollersSpeed)
+        if (!e.target.closest('[data-spoilers]')) {
+          spoilersClose.forEach((spoilerClose) => {
+            const spoilersBlock = spoilerClose.closest('[data-spoilers]');
+            const spoilerSpeed = spoilersBlock.dataset.spoilersSpeed
+              ? parseInt(spoilersBlock.dataset.spoilersSpeed)
               : 100;
-            spollerClose.classList.remove('_spoller-active');
-            _slideUp(spollerClose.nextElementSibling, spollerSpeed);
+            spoilerClose.classList.remove('_spoiler-active');
+            _slideUp(spoilerClose.nextElementSibling, spoilerSpeed);
           });
         }
       });
       document.addEventListener('keydown', function (e) {
-        if (!e.target.closest('[data-spollers]') || isEscapeKey(e)) {
-          spollersClose.forEach((spollerClose) => {
-            const spollersBlock = spollerClose.closest('[data-spollers]');
-            const spollerSpeed = spollersBlock.dataset.spollersSpeed
-              ? parseInt(spollersBlock.dataset.spollersSpeed)
+        if (!e.target.closest('[data-spoilers]') || isEscapeKey(e)) {
+          spoilersClose.forEach((spoilerClose) => {
+            const spoilersBlock = spoilerClose.closest('[data-spoilers]');
+            const spoilerSpeed = spoilersBlock.dataset.spoilersSpeed
+              ? parseInt(spoilersBlock.dataset.spoilersSpeed)
               : 100;
-            spollerClose.classList.remove('_spoller-active');
-            _slideUp(spollerClose.nextElementSibling, spollerSpeed);
+            spoilerClose.classList.remove('_spoiler-active');
+            _slideUp(spoilerClose.nextElementSibling, spoilerSpeed);
           });
         }
       });
@@ -398,10 +398,10 @@ export function tabs() {
         if (matchMedia.matches) {
           tabsContent.append(tabsTitleItems[index]);
           tabsContent.append(tabsContentItem);
-          tabsMediaItem.classList.add('_tab-spoller');
+          tabsMediaItem.classList.add('_tab-spoiler');
         } else {
           tabsTitles.append(tabsTitleItems[index]);
-          tabsMediaItem.classList.remove('_tab-spoller');
+          tabsMediaItem.classList.remove('_tab-spoiler');
         }
       });
     });
