@@ -27,7 +27,8 @@
   &__wrapper {
     background-color: rgb(255, 255, 255);
     @media (max-width: em(1279)) {
-      display: block;
+      display: flex;
+      flex-direction: column;
       position: fixed;
       width: 100%;
       height: 90dvh;
@@ -50,13 +51,20 @@
     height: 75px;
 
     @media (max-width: em(1279)) {
-      margin: 0px 0px 30px 0px;
+      margin: 0px 0px 20px 0px;
+      flex: 1 1 auto;
       display: block;
       height: auto;
     }
   }
 
   &__item {
+    @media (max-width: em(1279)) {
+      padding: 10px 0;
+      &:not(:last-child) {
+        border-bottom: 1px solid #79797962;
+      }
+    }
     &_special {
       a {
         color: red;
@@ -77,10 +85,6 @@
           padding-left: 0;
         }
       }
-    }
-    .main-nav-open & {
-      padding: 10px 0;
-      border-bottom: 1px solid #79797962;
     }
   }
 
@@ -111,18 +115,6 @@
       transition: transform 0.3s ease 0s;
     }
 
-    .main-nav-open & {
-      font-weight: 600;
-      width: 100%;
-      height: 100%;
-
-      svg {
-        position: absolute;
-        top: 0;
-        right: 0;
-      }
-    }
-
     &._spoiler-active {
       background-color: #0095da5d;
       &::after {
@@ -139,17 +131,26 @@
     }
 
     @media (max-width: em(1279)) {
-      .main-nav-open & {
-        padding-left: 0px;
-        &._spoiler-active {
-          background: none;
-          &::after {
-            content: '';
-            display: none;
-          }
+      font-weight: 600;
+      width: 100%;
+      height: 100%;
+      padding-left: 0px;
+
+      svg {
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+
+      &._spoiler-active {
+        background: none;
+        &::after {
+          content: '';
+          display: none;
         }
       }
     }
+
     @media (any-hover: hover) {
       &:hover {
         background-color: #0095da5d;
@@ -172,12 +173,11 @@
   @include adaptiveValue('padding-right', 50, 5);
   @include adaptiveValue('padding-left', 50, 5);
 
-  .main-nav-open & {
+  @media (max-width: em(1279)) {
     position: relative;
     top: 0;
     box-shadow: none;
     font-size: 14px;
-    text-align: left;
     padding: 20px 0;
   }
 
@@ -211,7 +211,7 @@
         fill: #0094da;
       }
 
-      .main-nav-open & {
+      @media (max-width: em(1279)) {
         color: inherit;
         svg {
           fill: inherit;
@@ -289,9 +289,7 @@
   }
 
   @media (max-width: em(1279)) {
-    .main-nav-open & {
-      display: none;
-    }
+    display: none;
   }
 }
 
@@ -310,7 +308,7 @@
   @include adaptiveValue('padding-right', 50, 5);
   @include adaptiveValue('padding-left', 50, 5);
 
-  .main-nav-open & {
+  @media (max-width: em(1279)) {
     text-align: left;
     position: relative;
     top: 0px;
@@ -331,7 +329,7 @@
   &__list {
     flex: 1 1 70%;
     align-self: center;
-    @media (max-width: em(1276)) {
+    @media (max-width: em(1279)) {
       align-self: flex-start;
     }
   }
@@ -349,7 +347,7 @@
           color: #0094da;
         }
       }
-      @media (max-width: em(1276)) {
+      @media (max-width: em(1279)) {
         font-size: 14px;
       }
     }
@@ -366,7 +364,7 @@
       object-fit: contain;
       width: 100%;
       height: 100%;
-      @media (max-width: em(1276)) {
+      @media (max-width: em(1279)) {
         position: relative;
       }
     }
@@ -387,7 +385,7 @@
   @include adaptiveValue('padding-right', 50, 5);
   @include adaptiveValue('padding-left', 50, 5);
 
-  .main-nav-open & {
+  @media (max-width: em(1279)) {
     text-align: left;
     position: relative;
     top: 0px;
@@ -483,7 +481,7 @@
   @include adaptiveValue('padding-right', 50, 5);
   @include adaptiveValue('padding-left', 50, 5);
 
-  .main-nav-open & {
+  @media (max-width: em(1279)) {
     text-align: left;
     position: relative;
     top: 0;
@@ -522,7 +520,7 @@
           color: #0094da;
         }
       }
-      @media (max-width: em(1276)) {
+      @media (max-width: em(1279)) {
         font-size: 14px;
       }
     }
@@ -553,7 +551,7 @@
   @include adaptiveValue('padding-right', 50, 5);
   @include adaptiveValue('padding-left', 50, 5);
 
-  .main-nav-open & {
+  @media (max-width: em(1279)) {
     text-align: left;
     position: relative;
     top: 0;
@@ -565,7 +563,7 @@
   &__wrapper {
     display: flex;
     @include adaptiveValue('column-gap', 20, 5);
-    @media (max-width: em(1276)) {
+    @media (max-width: em(1279)) {
       flex-direction: column;
       row-gap: 20px;
     }
@@ -592,7 +590,7 @@
           color: #0094da;
         }
       }
-      @media (max-width: em(1276)) {
+      @media (max-width: em(1279)) {
         font-size: 14px;
       }
     }
@@ -622,7 +620,7 @@
   @include adaptiveValue('padding-right', 50, 5);
   @include adaptiveValue('padding-left', 50, 5);
 
-  .main-nav-open & {
+  @media (max-width: em(1279)) {
     position: relative;
     top: 0;
     box-shadow: none;
@@ -639,17 +637,21 @@
     > * {
       grid-column: 3 span;
     }
-    .main-nav-open & {
+
+    @media (max-width: em(1279)) {
+      > * {
+        grid-column: 4 span;
+      }
+    }
+    @media (max-width: em(767)) {
       > * {
         grid-column: 6 span;
       }
     }
 
-    @media (max-width: em(767)) {
-      .main-nav-open & {
-        > * {
-          grid-column: 3/11;
-        }
+    @media (max-width: em(479)) {
+      > * {
+        grid-column: 3/11;
       }
     }
   }
@@ -698,7 +700,7 @@
   @include adaptiveValue('padding-right', 50, 5);
   @include adaptiveValue('padding-left', 50, 5);
 
-  .main-nav-open & {
+  @media (max-width: em(1279)) {
     position: relative;
     top: 0;
     box-shadow: none;
@@ -714,17 +716,21 @@
     > * {
       grid-column: 3 span;
     }
-    .main-nav-open & {
+
+    @media (max-width: em(1279)) {
       > * {
         grid-column: 4 span;
       }
     }
 
     @media (max-width: em(767)) {
-      .main-nav-open & {
-        > * {
-          grid-column: 3/11;
-        }
+      > * {
+        grid-column: 6 span;
+      }
+    }
+    @media (max-width: em(479)) {
+      > * {
+        grid-column: 3/11;
       }
     }
   }
@@ -734,7 +740,9 @@
     @include adaptiveValue('padding', 20, 5);
 
     &_krasnodar {
-      grid-column: 4/7;
+      @media (min-width: em(1277)) {
+        grid-column: 4/7;
+      }
     }
   }
 
@@ -791,7 +799,7 @@
 .mobile-contacts {
   display: none;
 
-  @media (max-width: em(1276)) {
+  @media (max-width: em(1279)) {
     display: block;
   }
 
