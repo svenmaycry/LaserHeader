@@ -245,11 +245,11 @@ export function spoilers() {
       spoilersArray.forEach((spoilersBlock) => {
         spoilersBlock = matchMedia ? spoilersBlock.item : spoilersBlock;
         if (matchMedia.matches || !matchMedia) {
-          spoilersBlock.classList.add('_spoiler-init');
+          spoilersBlock.classList.add('--spoiler-init');
           initSpoilerBody(spoilersBlock);
           spoilersBlock.addEventListener('click', setSpoilerAction);
         } else {
-          spoilersBlock.classList.remove('_spoiler-init');
+          spoilersBlock.classList.remove('--spoiler-init');
           initSpoilerBody(spoilersBlock, false);
           spoilersBlock.removeEventListener('click', setSpoilerAction);
         }
@@ -265,7 +265,7 @@ export function spoilers() {
         spoilerTitles.forEach((spoilerTitle) => {
           if (hideSpoilerBody) {
             spoilerTitle.removeAttribute('tabindex');
-            if (!spoilerTitle.classList.contains('_spoiler-active')) {
+            if (!spoilerTitle.classList.contains('--spoiler-active')) {
               spoilerTitle.nextElementSibling.hidden = true;
             }
           } else {
@@ -287,11 +287,11 @@ export function spoilers() {
         if (!spoilersBlock.querySelectorAll('._slide').length) {
           if (
             oneSpoiler &&
-            !spoilerTitle.classList.contains('_spoiler-active')
+            !spoilerTitle.classList.contains('--spoiler-active')
           ) {
             hideSpoilersBody(spoilersBlock);
           }
-          spoilerTitle.classList.toggle('_spoiler-active');
+          spoilerTitle.classList.toggle('--spoiler-active');
           _slideToggle(spoilerTitle.nextElementSibling, spoilerSpeed);
         }
         e.preventDefault();
@@ -299,7 +299,7 @@ export function spoilers() {
     }
     function hideSpoilersBody(spoilersBlock) {
       const spoilerActiveTitle = spoilersBlock.querySelector(
-        '[data-spoiler]._spoiler-active'
+        '[data-spoiler].--spoiler-active'
       );
       const spoilerSpeed = spoilersBlock.dataset.spoilersSpeed
         ? parseInt(spoilersBlock.dataset.spoilersSpeed)
@@ -308,7 +308,7 @@ export function spoilers() {
         spoilerActiveTitle &&
         !spoilersBlock.querySelectorAll('._slide').length
       ) {
-        spoilerActiveTitle.classList.remove('_spoiler-active');
+        spoilerActiveTitle.classList.remove('--spoiler-active');
         _slideUp(spoilerActiveTitle.nextElementSibling, spoilerSpeed);
       }
     }
@@ -326,7 +326,7 @@ export function spoilers() {
             const spoilerSpeed = spoilersBlock.dataset.spoilersSpeed
               ? parseInt(spoilersBlock.dataset.spoilersSpeed)
               : 100;
-            spoilerClose.classList.remove('_spoiler-active');
+            spoilerClose.classList.remove('--spoiler-active');
             _slideUp(spoilerClose.nextElementSibling, spoilerSpeed);
           });
         }
@@ -338,7 +338,7 @@ export function spoilers() {
             const spoilerSpeed = spoilersBlock.dataset.spoilersSpeed
               ? parseInt(spoilersBlock.dataset.spoilersSpeed)
               : 100;
-            spoilerClose.classList.remove('_spoiler-active');
+            spoilerClose.classList.remove('--spoiler-active');
             _slideUp(spoilerClose.nextElementSibling, spoilerSpeed);
           });
         }

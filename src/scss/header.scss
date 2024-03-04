@@ -115,7 +115,7 @@
       transition: transform 0.3s ease 0s;
     }
 
-    &._spoiler-active {
+    &.--spoiler-active {
       background-color: #0095da5d;
       &::after {
         width: 100%;
@@ -142,7 +142,7 @@
         right: 0;
       }
 
-      &._spoiler-active {
+      &.--spoiler-active {
         background: none;
         &::after {
           content: '';
@@ -905,7 +905,7 @@
       top: 0;
     }
 
-    &._spoiler-active {
+    &.--spoiler-active {
       &::before {
         content: '';
         transition: background 0.3s ease 0s;
