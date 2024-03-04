@@ -741,7 +741,7 @@
     max-width: 350px;
     @include adaptiveValue('padding', 20, 5);
 
-    &_krasnodar {
+    &--krasnodar {
       @media (min-width: em(1277)) {
         grid-column: 4/7;
       }

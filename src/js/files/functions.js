@@ -362,7 +362,7 @@ export function tabs() {
       tabsActiveHash = hash.replace('tab-', '').split('-');
     }
     tabs.forEach((tabsBlock, index) => {
-      tabsBlock.classList.add('_tab-init');
+      tabsBlock.classList.add('--tab-init');
       tabsBlock.setAttribute('data-tabs-index', index);
       tabsBlock.addEventListener('mouseover', setTabsAction);
       initTabs(tabsBlock);
@@ -398,10 +398,10 @@ export function tabs() {
         if (matchMedia.matches) {
           tabsContent.append(tabsTitleItems[index]);
           tabsContent.append(tabsContentItem);
-          tabsMediaItem.classList.add('_tab-spoiler');
+          tabsMediaItem.classList.add('--tab-spoiler');
         } else {
           tabsTitles.append(tabsTitleItems[index]);
-          tabsMediaItem.classList.remove('_tab-spoiler');
+          tabsMediaItem.classList.remove('--tab-spoiler');
         }
       });
     });
@@ -415,9 +415,9 @@ export function tabs() {
 
     if (tabsActiveHashBlock) {
       const tabsActiveTitle = tabsBlock.querySelector(
-        '[data-tabs-titles]>._tab-active'
+        '[data-tabs-titles]>.--tab-active'
       );
-      tabsActiveTitle ? tabsActiveTitle.classList.remove('_tab-active') : null;
+      tabsActiveTitle ? tabsActiveTitle.classList.remove('--tab-active') : null;
     }
     if (tabsContent.length) {
       tabsContent = Array.from(tabsContent).filter(
@@ -431,10 +431,10 @@ export function tabs() {
         tabsContentItem.setAttribute('data-tabs-item', '');
 
         if (tabsActiveHashBlock && index == tabsActiveHash[1]) {
-          tabsTitles[index].classList.add('_tab-active');
+          tabsTitles[index].classList.add('--tab-active');
         }
         tabsContentItem.hidden =
-          !tabsTitles[index].classList.contains('_tab-active');
+          !tabsTitles[index].classList.contains('--tab-active');
       });
     }
   }
@@ -459,7 +459,7 @@ export function tabs() {
         (item) => item.closest('[data-tabs]') === tabsBlock
       );
       tabsContent.forEach((tabsContentItem, index) => {
-        if (tabsTitles[index].classList.contains('_tab-active')) {
+        if (tabsTitles[index].classList.contains('--tab-active')) {
           if (tabsBlockAnimate) {
             _slideDown(tabsContentItem, tabsBlockAnimate);
           } else {
@@ -484,11 +484,11 @@ export function tabs() {
       const tabTitle = el.closest('[data-tabs-title]');
       const tabsBlock = tabTitle.closest('[data-tabs]');
       if (
-        !tabTitle.classList.contains('_tab-active') &&
+        !tabTitle.classList.contains('--tab-active') &&
         !tabsBlock.querySelector('._slide')
       ) {
         let tabActiveTitle = tabsBlock.querySelectorAll(
-          '[data-tabs-title]._tab-active'
+          '[data-tabs-title].--tab-active'
         );
         tabActiveTitle.length
           ? (tabActiveTitle = Array.from(tabActiveTitle).filter(
@@ -496,9 +496,9 @@ export function tabs() {
             ))
           : null;
         tabActiveTitle.length
-          ? tabActiveTitle[0].classList.remove('_tab-active')
+          ? tabActiveTitle[0].classList.remove('--tab-active')
           : null;
-        tabTitle.classList.add('_tab-active');
+        tabTitle.classList.add('--tab-active');
         setTabsStatus(tabsBlock);
       }
       e.preventDefault();
