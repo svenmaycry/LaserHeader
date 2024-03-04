@@ -12,8 +12,8 @@ const closeBurgerMenu = () => {
 
 // ? Закрытие поиска при клике на меню-бургер.
 const closeSearchWrapper = () => {
-  if (inputButton.classList.contains('_spoller-active')) {
-    inputButton.classList.remove('_spoller-active');
+  if (inputButton.classList.contains('_spoiler-active')) {
+    inputButton.classList.remove('_spoiler-active');
     inputWrapper.setAttribute('hidden', '');
   }
 };
