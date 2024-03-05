@@ -57,37 +57,38 @@
       height: auto;
     }
   }
+}
 
-  &__item {
-    @media (max-width: em(1279)) {
-      padding: 10px 0;
-      &:not(:last-child) {
-        border-bottom: 1px solid #79797962;
-      }
+//========================================================================================================================================================
+.main-nav-item {
+  @media (max-width: em(1279)) {
+    padding: 10px 0;
+    &:not(:last-child) {
+      border-bottom: 1px solid #79797962;
     }
-    &--special {
-      a {
-        color: red;
-        display: flex;
-        align-items: center;
-        width: 100%;
-        height: 100%;
-        @include adaptiveValue('padding-left', 25, 0);
-        @include adaptiveValue('padding-right', 25, 0);
-        @media (any-hover: hover) {
-          &:hover {
-            background-color: #0095da5d;
-          }
+  }
+  &--special {
+    a {
+      transition: background-color 0.3s ease 0s;
+      color: red;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      @include adaptiveValue('padding-left', 25, 0);
+      @include adaptiveValue('padding-right', 25, 0);
+      @media (any-hover: hover) {
+        &:hover {
+          background-color: #0095da5d;
         }
+      }
 
-        @media (max-width: em(1279)) {
-          font-weight: 600;
-          padding-left: 0;
-        }
+      @media (max-width: em(1279)) {
+        font-weight: 600;
+        padding-left: 0;
       }
     }
   }
-
   &__button {
     position: relative;
     display: flex;
@@ -157,36 +158,81 @@
       }
     }
   }
-}
-
-//========================================================================================================================================================
-
-//========================================================================================================================================================
-
-.products-menu {
-  position: absolute;
-  left: 0;
-  top: 76px;
-  width: 100%;
-  box-shadow: 0px 20px 10px rgba(0, 0, 0, 0.7);
-  background-color: rgb(255, 255, 255);
-  @include adaptiveValue('padding-top', 5, 5);
-  @include adaptiveValue('padding-bottom', 5, 5);
-  @include adaptiveValue('padding-right', 50, 5);
-  @include adaptiveValue('padding-left', 50, 5);
-
-  @media (max-width: em(1279)) {
-    position: relative;
-    top: 0;
-    box-shadow: none;
-    font-size: 14px;
-    padding: 20px 0;
-  }
-
   &__wrapper {
+    position: absolute;
+    left: 0;
+    top: 76px;
+    width: 100%;
+    box-shadow: 0px 20px 10px rgba(0, 0, 0, 0.7);
+    background-color: rgb(255, 255, 255);
+    padding: 20px 50px;
+
+    @media (max-width: em(1279)) {
+      position: relative;
+      top: 0;
+      box-shadow: none;
+      font-size: 14px;
+      padding: 10px 0;
+    }
+  }
+  &__container {
     display: flex;
     column-gap: 30px;
-    @include adaptiveValue('margin-top', 30, 10);
+    @media (max-width: em(1279)) {
+      padding: 0;
+    }
+  }
+  &__link {
+    a {
+      font-size: 20px;
+      display: block;
+      padding: 12px 0px;
+      height: 100%;
+      width: 100%;
+      transition: color 0.1s ease 0s;
+      @media (any-hover: hover) {
+        &:hover {
+          color: #0094da;
+        }
+      }
+      @media (max-width: em(1279)) {
+        font-size: 14px;
+        padding: 10px 0px;
+      }
+    }
+  }
+  &__grid-list {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: auto; // or 1fr если нужно, чтобы блоки были одинаковой высоты
+    grid-gap: 20px;
+
+    > * {
+      grid-column: 3 span;
+    }
+
+    @media (max-width: em(1279)) {
+      > * {
+        grid-column: 4 span;
+      }
+    }
+    @media (max-width: em(767)) {
+      > * {
+        grid-column: 6 span;
+      }
+    }
+
+    @media (max-width: em(479)) {
+      > * {
+        grid-column: 3/11;
+      }
+    }
+  }
+}
+//========================================================================================================================================================
+
+.main-nav-products {
+  &__wrapper {
   }
 
   &__list {
@@ -204,7 +250,7 @@
 
     &:first-child {
       color: #0094da;
-      .products-menu__arrow {
+      .main-nav-products__arrow {
         visibility: visible;
         overflow: visible;
       }
@@ -218,7 +264,7 @@
         svg {
           fill: inherit;
         }
-        .products-menu__arrow {
+        .main-nav-products__arrow {
           visibility: hidden;
           overflow: hidden;
         }
@@ -237,7 +283,7 @@
         fill: #0094da;
         color: #0094da;
 
-        .products-menu__arrow {
+        .main-nav-products__arrow {
           visibility: visible;
           overflow: visible;
         }
@@ -297,34 +343,15 @@
 
 //========================================================================================================================================================
 
-.service-items {
-  position: absolute;
-  left: 0;
-  top: 76px;
-  width: 100%;
+.main-nav-service {
   text-align: center;
-  box-shadow: 0px 20px 10px rgba(0, 0, 0, 0.7);
-  background-color: rgb(255, 255, 255);
-  @include adaptiveValue('padding-top', 30, 10);
-  @include adaptiveValue('padding-bottom', 30, 10);
-  @include adaptiveValue('padding-right', 50, 5);
-  @include adaptiveValue('padding-left', 50, 5);
-
   @media (max-width: em(1279)) {
     text-align: left;
-    position: relative;
-    top: 0px;
-    box-shadow: none;
-    font-size: 14px;
-    padding: 20px 0;
   }
 
   &__wrapper {
-    display: flex;
-    @include adaptiveValue('column-gap', 20, 5);
     @media (max-width: em(1279)) {
       flex-direction: column-reverse;
-      row-gap: 20px;
     }
   }
 
@@ -337,22 +364,6 @@
   }
 
   &__link {
-    a {
-      font-size: 20px;
-      display: block;
-      padding: 12px 0px;
-      height: 100%;
-      width: 100%;
-      transition: color 0.1s ease 0s;
-      @media (any-hover: hover) {
-        &:hover {
-          color: #0094da;
-        }
-      }
-      @media (max-width: em(1279)) {
-        font-size: 14px;
-      }
-    }
   }
 
   .service-media-block {
@@ -374,31 +385,14 @@
 }
 //========================================================================================================================================================
 
-.exhibitions-items {
-  position: absolute;
-  left: 0;
-  top: 76px;
-  width: 100%;
+.main-nav-exhibitions {
   text-align: center;
-  box-shadow: 0px 20px 10px rgba(0, 0, 0, 0.7);
-  background-color: rgb(255, 255, 255);
-  @include adaptiveValue('padding-top', 30, 5);
-  @include adaptiveValue('padding-bottom', 30, 5);
-  @include adaptiveValue('padding-right', 50, 5);
-  @include adaptiveValue('padding-left', 50, 5);
 
   @media (max-width: em(1279)) {
     text-align: left;
-    position: relative;
-    top: 0px;
-    box-shadow: none;
-    font-size: 14px;
-    padding: 20px 0;
   }
 
   &__wrapper {
-    display: flex;
-    @include adaptiveValue('column-gap', 20, 5);
     @media (max-width: em(1279)) {
       flex-direction: column;
       row-gap: 20px;
@@ -422,15 +416,9 @@
 
   &__link {
     a {
-      display: block;
-      padding: 12px 0px;
-      height: 100%;
-      width: 100%;
-      transition: color 0.1s ease 0s;
-      @media (any-hover: hover) {
-        &:hover {
-          color: #0094da;
-        }
+      font-size: 16px;
+      @media (max-width: em(1279)) {
+        font-size: 14px;
       }
     }
   }
@@ -470,31 +458,14 @@
 
 //========================================================================================================================================================
 
-.delivery-items {
-  position: absolute;
-  left: 0;
-  top: 76px;
-  width: 100%;
+.main-nav-delivery {
   text-align: center;
-  box-shadow: 0px 20px 10px rgba(0, 0, 0, 0.7);
-  background-color: rgb(255, 255, 255);
-  @include adaptiveValue('padding-top', 30, 10);
-  @include adaptiveValue('padding-bottom', 30, 10);
-  @include adaptiveValue('padding-right', 50, 5);
-  @include adaptiveValue('padding-left', 50, 5);
 
   @media (max-width: em(1279)) {
     text-align: left;
-    position: relative;
-    top: 0;
-    box-shadow: none;
-    font-size: 14px;
-    padding: 20px 0;
   }
 
   &__wrapper {
-    display: flex;
-    @include adaptiveValue('column-gap', 20, 5);
     @media (max-width: em(1279)) {
       flex-direction: column-reverse;
       row-gap: 20px;
@@ -510,22 +481,6 @@
   }
 
   &__link {
-    a {
-      font-size: 20px;
-      display: block;
-      padding: 12px 0px;
-      height: 100%;
-      width: 100%;
-      transition: color 0.1s ease 0s;
-      @media (any-hover: hover) {
-        &:hover {
-          color: #0094da;
-        }
-      }
-      @media (max-width: em(1279)) {
-        font-size: 14px;
-      }
-    }
   }
 }
 
@@ -540,31 +495,14 @@
 
 //========================================================================================================================================================
 
-.about-company {
-  position: absolute;
-  left: 0;
-  top: 76px;
-  width: 100%;
+.main-nav-about {
   text-align: center;
-  box-shadow: 0px 20px 10px rgba(0, 0, 0, 0.7);
-  background-color: rgb(255, 255, 255);
-  @include adaptiveValue('padding-top', 30, 10);
-  @include adaptiveValue('padding-bottom', 30, 10);
-  @include adaptiveValue('padding-right', 50, 5);
-  @include adaptiveValue('padding-left', 50, 5);
 
   @media (max-width: em(1279)) {
     text-align: left;
-    position: relative;
-    top: 0;
-    box-shadow: none;
-    font-size: 14px;
-    padding: 20px 0;
   }
 
   &__wrapper {
-    display: flex;
-    @include adaptiveValue('column-gap', 20, 5);
     @media (max-width: em(1279)) {
       flex-direction: column;
       row-gap: 20px;
@@ -580,22 +518,6 @@
   }
 
   &__link {
-    a {
-      font-size: 20px;
-      display: block;
-      padding: 12px 0px;
-      height: 100%;
-      width: 100%;
-      transition: color 0.1s ease 0s;
-      @media (any-hover: hover) {
-        &:hover {
-          color: #0094da;
-        }
-      }
-      @media (max-width: em(1279)) {
-        font-size: 14px;
-      }
-    }
   }
 }
 
@@ -610,60 +532,16 @@
 
 //========================================================================================================================================================
 
-.blog-menu {
-  position: absolute;
-  left: 0;
-  top: 76px;
-  width: 100%;
-  box-shadow: 0px 20px 10px rgba(0, 0, 0, 0.7);
-  background-color: rgb(255, 255, 255);
-  @include adaptiveValue('padding-top', 5, 5);
-  @include adaptiveValue('padding-bottom', 5, 5);
-  @include adaptiveValue('padding-right', 50, 5);
-  @include adaptiveValue('padding-left', 50, 5);
-
-  @media (max-width: em(1279)) {
-    position: relative;
-    top: 0;
-    box-shadow: none;
-    font-size: 14px;
-    padding: 20px 0;
-  }
-
+.main-nav-blog {
   &__list {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-auto-rows: auto; // or 1fr если нужно, чтобы блоки были одинаковой высоты
-    grid-gap: 20px;
-
-    > * {
-      grid-column: 3 span;
-    }
-
-    @media (max-width: em(1279)) {
-      > * {
-        grid-column: 4 span;
-      }
-    }
-    @media (max-width: em(767)) {
-      > * {
-        grid-column: 6 span;
-      }
-    }
-
-    @media (max-width: em(479)) {
-      > * {
-        grid-column: 3/11;
-      }
-    }
   }
 }
 
 .blog-card {
   @include adaptiveValue('padding', 20, 5);
 
-  //   &__link {
-  //   }
+  &__link {
+  }
 
   &__image {
     border-radius: 20px;
@@ -690,69 +568,21 @@
 
 //========================================================================================================================================================
 
-.contacts-menu {
-  position: absolute;
-  left: 0;
-  top: 76px;
-  width: 100%;
-  box-shadow: 0px 20px 10px rgba(0, 0, 0, 0.7);
-  background-color: rgb(255, 255, 255);
-  @include adaptiveValue('padding-top', 5, 5);
-  @include adaptiveValue('padding-bottom', 5, 5);
-  @include adaptiveValue('padding-right', 50, 5);
-  @include adaptiveValue('padding-left', 50, 5);
-
-  @media (max-width: em(1279)) {
-    position: relative;
-    top: 0;
-    box-shadow: none;
-    font-size: 14px;
-    padding: 20px 0;
-  }
-
+.main-nav-contacts {
   &__list {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-auto-rows: auto; // or 1fr если нужно, чтобы блоки были одинаковой высоты
-    grid-gap: 12px;
-    > * {
-      grid-column: 3 span;
-    }
-
-    @media (max-width: em(1279)) {
-      > * {
-        grid-column: 4 span;
-      }
-    }
-
-    @media (max-width: em(767)) {
-      > * {
-        grid-column: 6 span;
-      }
-    }
-    @media (max-width: em(479)) {
-      > * {
-        grid-column: 3/11;
-      }
-    }
   }
-
-  &__card {
-    max-width: 350px;
-    @include adaptiveValue('padding', 20, 5);
-
-    &--krasnodar {
-      @media (min-width: em(1277)) {
-        grid-column: 4/7;
-      }
-    }
-  }
-
-  //   &__link {
-  //   }
 }
 
-.contacts-menu-content {
+.contacts-card {
+  max-width: 350px;
+  @include adaptiveValue('padding', 20, 5);
+
+  &--krasnodar {
+    @media (min-width: em(1277)) {
+      grid-column: 4/7;
+    }
+  }
+
   &__image {
     border-radius: 20px;
     @include adaptiveValue('margin-bottom', 8, 5);
@@ -767,8 +597,8 @@
     @include adaptiveValue('margin-bottom', 20, 10);
   }
 
-  //   &__list {
-  //   }
+  &__list {
+  }
 
   &__term {
     font-weight: 400;
@@ -805,11 +635,11 @@
     display: block;
   }
 
-  //   &__link {
-  //   }
+  &__link {
+  }
 
-  //   &__list {
-  //   }
+  &__list {
+  }
 
   &__item {
     margin: 0px 0px 20px 0px;
@@ -833,8 +663,8 @@
     }
   }
 
-  //   &__adress {
-  //   }
+  &__adress {
+  }
 }
 
 .social {
@@ -845,8 +675,8 @@
     column-gap: 25px;
   }
 
-  //   &__item {
-  //   }
+  &__item {
+  }
 
   &__item--vk {
     svg {
@@ -854,8 +684,8 @@
     }
   }
 
-  //   &__item--youtube {
-  //   }
+  &__item--youtube {
+  }
 
   &__item--telegram {
     svg {
@@ -863,11 +693,11 @@
     }
   }
 
-  //   &__item--whatsapp {
-  //   }
+  &__item--whatsapp {
+  }
 
-  //   &__link {
-  //   }
+  &__link {
+  }
 }
 
 .visually-hidden {
@@ -942,11 +772,17 @@
   top: 76px;
   min-width: 100%;
   box-shadow: 0px 20px 10px rgba(0, 0, 0, 0.7);
-  padding-top: 15px;
-  padding-bottom: 20px;
+  padding: 20px 0;
   text-align: center;
-  background-color: rgb(255, 255, 255);
   z-index: 10;
+  background-color: rgb(255, 255, 255);
+
+  @media (max-width: em(767)) {
+    padding-top: 15px;
+  }
+  @media (max-width: em(479)) {
+    padding-top: 10px;
+  }
 
   input {
     border: 1px solid #a7a7a7;
@@ -955,7 +791,7 @@
     background-color: #c7c7c756;
     outline: none;
     &:focus {
-      outline: 2px solid #0094da;
+      border: 1px solid #0094da;
     }
   }
 }
@@ -1047,8 +883,6 @@
 }
 
 //====================================================================================================
-
-//Burger
 
 .icon-menu {
   display: none;
