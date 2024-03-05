@@ -6,7 +6,7 @@ const inputWrapper = document.querySelector('.input-wrapper');
 // ? Закрытие меню-бургер при клике на поиск.
 const closeBurgerMenu = () => {
   if (document.documentElement.classList.contains('main-nav-open')) {
-    document.documentElement.classList.remove('main-nav-open');
+    document.documentElement.classList.remove('main-nav-open', 'lock');
   }
 };
 
