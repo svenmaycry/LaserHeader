@@ -54,6 +54,17 @@ $responsiveType: 1;
 @import 'base/null';
 
 body {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  // Прижимаем footer
+  > main {
+    flex: 1 1 auto;
+  }
+  // Фикс для слайдеров
+  > * {
+    min-width: 0;
+  }
   // Скролл заблокирован
   .lock & {
     overflow: hidden;
