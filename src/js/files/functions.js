@@ -196,11 +196,13 @@ export let bodyLock = (delay = 0) => {
       const el = lock_padding[index];
       el.style.paddingRight =
         window.innerWidth -
-        document.querySelector('.wrapper').offsetWidth +
+        document.querySelector('.page__main').offsetWidth +
         'px';
     }
     body.style.paddingRight =
-      window.innerWidth - document.querySelector('.wrapper').offsetWidth + 'px';
+      window.innerWidth -
+      document.querySelector('.page__main').offsetWidth +
+      'px';
     document.documentElement.classList.add('lock');
 
     bodyLockStatus = false;
