@@ -118,7 +118,6 @@
     }
 
     svg {
-      height: 13px;
       transition: transform 0.3s ease 0s;
     }
 
@@ -164,6 +163,7 @@
       }
     }
   }
+
   &__wrapper {
     position: absolute;
     left: 0;
@@ -458,7 +458,7 @@
     border-radius: 15px;
     padding: 8px 10px;
     font-weight: 600;
-    transition: color, border 0.3s ease 0s;
+    transition: color 0.3s ease 0s, border 0.3s ease 0s;
     @media (any-hover: hover) {
       &:hover {
         color: #0094da;
@@ -806,7 +806,7 @@
     border-radius: 10px;
     background-color: #c7c7c756;
     outline: none;
-    transition: border, background-color 0.3s ease 0s;
+    transition: border 0.3s ease 0s, background-color 0.3s ease 0s;
     &:focus {
       border: 1px solid #0094da;
       background-color: #ffffff;
@@ -817,39 +817,13 @@
 //========================================================================================================================================================
 
 .contacts-info {
-  height: 100%;
   position: relative;
-  top: 7px;
+  top: 6px;
+  padding: 0px 8px 0px 0px;
 
   &__phone {
-    position: relative;
     margin: 0px 0px 20px 0px;
-    padding: 0px 0px 0px 35px;
-    width: 200px;
-
-    @media (max-width: em(1279)) {
-      width: 182px;
-      display: flex;
-      align-items: center;
-    }
-    @media (max-width: em(767)) {
-      width: 170px;
-    }
-
-    &::before {
-      content: '';
-      position: absolute;
-      top: -3px;
-      left: -2px;
-      width: 30px;
-      height: 30px;
-      background: url('@img/header-phone.svg') 100% / contain no-repeat;
-
-      @media (max-width: em(767)) {
-        top: -5px;
-        left: 0;
-      }
-    }
+    padding: 0px 0px 0px 32px;
   }
 
   &__phone-value {
@@ -867,12 +841,26 @@
       position: relative;
       top: 5px;
     }
+    &::before {
+      content: '';
+      position: absolute;
+      top: -6px;
+      left: -37px;
+      width: 30px;
+      height: 30px;
+      background: url('@img/header-phone.svg') 100% / contain no-repeat;
+
+      @media (max-width: em(767)) {
+        top: -10px;
+        left: -37px;
+      }
+    }
   }
 
   &__mail {
     position: relative;
     margin: 0px 0px 20px 0px;
-    padding: 0px 0px 0px 35px;
+    padding: 0px 0px 0px 38px;
     width: 200px;
     @media (max-width: em(1279)) {
       width: 175px;
@@ -880,6 +868,12 @@
     @media (max-width: em(767)) {
       display: none;
     }
+  }
+
+  &__mail-value {
+    @include adaptiveValue('font-size', 16, 13);
+    font-weight: 700;
+    transition: color 0.1s ease 0s;
 
     &::before {
       content: '';
@@ -890,13 +884,7 @@
       height: 20px;
       background: url('@img/header-mail.svg') 100% / contain no-repeat;
     }
-  }
 
-  &__mail-value {
-    @include adaptiveValue('font-size', 16, 13);
-    font-weight: 700;
-    transition: color 0.1s ease 0s;
-    padding: 0px 0px 0px 12px;
     @media (any-hover: hover) {
       &:hover {
         color: #0094da;
