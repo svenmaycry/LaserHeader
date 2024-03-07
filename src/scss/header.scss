@@ -263,14 +263,17 @@
   }
 
   &__link {
-    transition: color 0.1s ease 0s;
     display: flex;
     align-items: center;
     padding: 8px 0;
+    transition: color 0.3s ease 0s;
+
+    @media (max-width: em(1279)) {
+      padding: 6px 0;
+    }
 
     @media (any-hover: hover) {
       &:hover {
-        transition: color, fill 0.1s ease 0s;
         fill: #0094da;
         color: #0094da;
 
@@ -388,16 +391,9 @@
 //========================================================================================================================================================
 
 .main-nav-exhibitions {
-  //   text-align: center;
-
-  @media (max-width: em(1279)) {
-    //  text-align: left;
-  }
-
   &__wrapper {
     @media (max-width: em(1279)) {
       flex-direction: column;
-      row-gap: 20px;
     }
   }
 
@@ -474,7 +470,6 @@
   &__wrapper {
     @media (max-width: em(1279)) {
       flex-direction: column-reverse;
-      row-gap: 20px;
     }
   }
 
@@ -511,7 +506,6 @@
   &__wrapper {
     @media (max-width: em(1279)) {
       flex-direction: column;
-      row-gap: 20px;
     }
   }
 
@@ -548,18 +542,7 @@
       grid-column: 3 span;
     }
 
-    @media (max-width: em(1279)) {
-      > * {
-        grid-column: 3 span;
-      }
-    }
     @media (max-width: em(767)) {
-      > * {
-        grid-column: 6 span;
-      }
-    }
-
-    @media (max-width: em(479)) {
       > * {
         grid-column: 6 span;
       }
@@ -575,7 +558,7 @@
   }
 
   &__image {
-    border-radius: 10px;
+    border-radius: 8px;
     margin-bottom: 10px;
     max-width: 180px;
     height: auto;
@@ -624,12 +607,6 @@
         grid-column: 6 span;
       }
     }
-
-    @media (max-width: em(479)) {
-      > * {
-        grid-column: 6 span;
-      }
-    }
   }
 
   &__card {
@@ -648,11 +625,11 @@
 
   &__link {
     @include adaptiveValue('font-size', 16, 14);
+    @include adaptiveValue('margin-bottom', 10, 6);
     color: #0094da;
     height: 100%;
     display: block;
     font-weight: 700;
-    margin-bottom: 10px;
     transition: color 0.3s ease 0s;
     @media (any-hover: hover) {
       &:hover {
@@ -667,7 +644,7 @@
   &__image {
     width: 180px;
     height: auto;
-    border-radius: 10px;
+    border-radius: 8px;
     @include adaptiveValue('margin-bottom', 10, 5);
     @media (max-width: em(479)) {
       width: 140px;
