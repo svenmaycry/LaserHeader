@@ -181,12 +181,10 @@
     width: 100%;
     box-shadow: 0px 20px 10px rgba(0, 0, 0, 0.7);
     background-color: rgb(255, 255, 255);
-    padding: 20px 50px;
+    padding: 20px 0px;
 
     @media (max-width: em(1279)) {
       position: static;
-      // position: relative;
-      // top: 0;
       box-shadow: none;
       font-size: 14px;
       padding: 10px 0;
@@ -195,10 +193,13 @@
   &__container {
     display: flex;
     column-gap: 30px;
+    max-width: 1320px;
+    padding: 0 30px;
     @media (max-width: em(1279)) {
       padding: 0;
     }
   }
+
   &__link {
     a {
       font-size: 20px;
@@ -215,32 +216,6 @@
       @media (max-width: em(1279)) {
         font-size: 14px;
         padding: 10px 0px;
-      }
-    }
-  }
-  &__grid-list {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-auto-rows: auto; // or 1fr если нужно, чтобы блоки были одинаковой высоты
-
-    > * {
-      grid-column: 3 span;
-    }
-
-    @media (max-width: em(1279)) {
-      > * {
-        grid-column: 4 span;
-      }
-    }
-    @media (max-width: em(767)) {
-      > * {
-        grid-column: 6 span;
-      }
-    }
-
-    @media (max-width: em(479)) {
-      > * {
-        grid-column: 3/11;
       }
     }
   }
@@ -565,11 +540,34 @@
 
 .main-nav-blog {
   &__list {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: auto; // or 1fr если нужно, чтобы блоки были одинаковой высоты
+    gap: 10px;
+    > * {
+      grid-column: 3 span;
+    }
+
+    @media (max-width: em(1279)) {
+      > * {
+        grid-column: 3 span;
+      }
+    }
+    @media (max-width: em(767)) {
+      > * {
+        grid-column: 6 span;
+      }
+    }
+
+    @media (max-width: em(479)) {
+      > * {
+        grid-column: 6 span;
+      }
+    }
   }
 }
 
 .blog-card {
-  padding: 15px 0;
   display: flex;
   justify-content: center;
 
@@ -577,24 +575,30 @@
   }
 
   &__image {
-    border-radius: 20px;
-    @include adaptiveValue('margin-bottom', 16, 5);
-    width: 200px;
-    height: 150px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    max-width: 180px;
+    height: auto;
+    @media (max-width: em(479)) {
+      width: 140px;
+    }
   }
 
   &__date {
     @include adaptiveValue('font-size', 16, 12);
+    @include adaptiveValue('margin-bottom', 15, 5);
     display: block;
     font-weight: 300;
-    padding: 12px 0px;
   }
 
   &__title {
-    @include adaptiveValue('font-size', 18, 14);
-    @include adaptiveValue('line-height', 24, 18);
-    max-width: 200px;
+    @include adaptiveValue('font-size', 16, 12);
+    @include adaptiveValue('line-height', 18, 14);
+    max-width: 180px;
     font-weight: 700;
+    @media (max-width: em(479)) {
+      max-width: 140px;
+    }
   }
 }
 
@@ -602,56 +606,105 @@
 
 .main-nav-contacts {
   &__list {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: auto; // or 1fr если нужно, чтобы блоки были одинаковой высоты
+    gap: 10px;
+    > * {
+      grid-column: 3 span;
+    }
+
+    @media (max-width: em(1279)) {
+      > * {
+        grid-column: 4 span;
+      }
+    }
+    @media (max-width: em(767)) {
+      > * {
+        grid-column: 6 span;
+      }
+    }
+
+    @media (max-width: em(479)) {
+      > * {
+        grid-column: 6 span;
+      }
+    }
   }
 
   &__card {
-    &--krasnodar {
-      @media (min-width: em(1277)) {
-        grid-column: 4/7;
-      }
-    }
   }
 }
 
 .contacts-card {
-  padding: 15px 0;
-  display: flex;
-  justify-content: center;
+  &--krasnodar {
+    @media (min-width: em(1277)) {
+      grid-column: 4/7;
+    }
+    @media (max-width: em(767)) {
+      grid-column: 6 span;
+    }
+  }
+
+  &__link {
+    @include adaptiveValue('font-size', 16, 14);
+    color: #0094da;
+    height: 100%;
+    display: block;
+    font-weight: 700;
+    margin-bottom: 10px;
+    transition: color 0.3s ease 0s;
+    @media (any-hover: hover) {
+      &:hover {
+        color: #e04242;
+      }
+    }
+  }
+
+  &__content {
+  }
 
   &__image {
-    border-radius: 20px;
-    @include adaptiveValue('margin-bottom', 8, 5);
-    width: 200px;
-    height: 150px;
+    width: 180px;
+    height: auto;
+    border-radius: 10px;
+    @include adaptiveValue('margin-bottom', 10, 5);
+    @media (max-width: em(479)) {
+      width: 140px;
+    }
   }
 
   &__title {
     font-weight: 700;
-    @include adaptiveValue('font-size', 18, 16);
-    @include adaptiveValue('line-height', 24, 18);
-    @include adaptiveValue('margin-bottom', 20, 10);
+    font-weight: 700;
+    max-width: 180px;
+    @include adaptiveValue('margin-bottom', 10, 5);
+    @include adaptiveValue('font-size', 18, 14);
+    @include adaptiveValue('line-height', 20, 18);
   }
 
   &__list {
+    @media (max-width: em(479)) {
+      width: 140px;
+    }
   }
 
   &__term {
-    font-weight: 400;
     color: #9c9a9a;
-    @include adaptiveValue('margin-bottom', 16, 5);
+    @include adaptiveValue('margin-bottom', 12, 5);
   }
 
   &__address {
     @include adaptiveValue('font-size', 18, 14);
-    @include adaptiveValue('margin-bottom', 16, 7);
-    max-width: 200px;
+    @include adaptiveValue('margin-bottom', 12, 7);
+    max-width: 180px;
   }
 
   &__phone {
     @include adaptiveValue('font-size', 16, 14);
-    @include adaptiveValue('margin-bottom', 10, 5);
     a {
       font-weight: 700;
+      transition: color 0.3s ease 0s;
       @media (any-hover: hover) {
         &:hover {
           color: #0094da;
