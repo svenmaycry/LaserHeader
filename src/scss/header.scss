@@ -577,6 +577,14 @@
     @include adaptiveValue('line-height', 18, 14);
     max-width: 180px;
     font-weight: 700;
+    transition: color 0.3s ease 0s;
+    color: #0094da;
+
+    @media (any-hover: hover) {
+      &:hover {
+        color: #e04242;
+      }
+    }
     @media (max-width: em(479)) {
       max-width: 140px;
     }
