@@ -413,10 +413,10 @@
 //========================================================================================================================================================
 
 .main-nav-exhibitions {
-  text-align: center;
+  //   text-align: center;
 
   @media (max-width: em(1279)) {
-    text-align: left;
+    //  text-align: left;
   }
 
   &__wrapper {
@@ -428,10 +428,10 @@
 
   &__list {
     flex: 1 1 70%;
-    column-count: 3;
+    column-count: 2;
     column-rule: 1px solid #79797962;
     @media (max-width: em(1279)) {
-      column-count: 3;
+      column-count: 2;
     }
     @media (max-width: em(767)) {
       column-count: 2;
@@ -454,6 +454,7 @@
 .exhibitions-media-block {
   flex: 1 1 30%;
   align-self: center;
+  text-align: center;
 
   &__image {
     max-width: 100%;
