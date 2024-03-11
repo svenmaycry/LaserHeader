@@ -214,30 +214,47 @@
   }
 
   &__item {
-    &:not(:last-child) {
-      border-bottom: 1px solid #79797962;
-    }
+  }
+}
 
-    &:first-child {
+.products-item {
+  @media (any-hover: hover) {
+    &:hover {
       color: #0094da;
-      .main-nav-products__arrow {
-        visibility: visible;
-        overflow: visible;
-      }
 
-      svg {
+      .products-item__arrow {
+        visibility: visible;
         fill: #0094da;
       }
+      .products-item__icon {
+        fill: #0094da;
+      }
+    }
+  }
 
-      @media (max-width: em(1279)) {
-        color: inherit;
-        svg {
-          fill: inherit;
-        }
-        .main-nav-products__arrow {
-          visibility: hidden;
-          overflow: hidden;
-        }
+  &:not(:last-child) {
+    border-bottom: 1px solid #79797962;
+  }
+
+  &:first-child {
+    color: #0094da;
+    .products-item__arrow {
+      fill: #0094da;
+      visibility: visible;
+    }
+
+    .products-item__icon {
+      fill: #0094da;
+    }
+
+    @media (max-width: em(1279)) {
+      color: inherit;
+      .products-item__icon {
+        fill: inherit;
+      }
+      .products-item__arrow {
+        visibility: hidden;
+        overflow: hidden;
       }
     }
   }
@@ -246,22 +263,9 @@
     display: flex;
     align-items: center;
     padding: 8px 0;
-    transition: color 0.3s ease 0s;
 
     @media (max-width: em(1279)) {
       padding: 6px 0;
-    }
-
-    @media (any-hover: hover) {
-      &:hover {
-        fill: #0094da;
-        color: #0094da;
-
-        .main-nav-products__arrow {
-          visibility: visible;
-          overflow: visible;
-        }
-      }
     }
   }
 
@@ -289,26 +293,18 @@
   flex-direction: column;
   flex: 0 1 70%;
 
+  &__content {
+  }
+
   &__image {
-    flex: 0 0 400px;
-    max-width: 800px;
-    position: relative;
-    cursor: pointer;
+    display: block;
     margin-bottom: 30px;
+    border-radius: 20px;
     background: -webkit-linear-gradient(
       315deg,
       rgb(255, 0, 0) 3%,
       rgb(129, 129, 129)
     );
-    border-radius: 20px;
-    img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      object-fit: contain;
-      width: 100%;
-      height: 100%;
-    }
   }
 
   &__title {
