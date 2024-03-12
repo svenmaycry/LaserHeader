@@ -22,7 +22,8 @@ $fontSize: rem(16); // где 14(px) - размер шрифта по умолч
 
 // Основные цвета
 $mainBlackColor: #000; // Цвет шрифта по умолчанию
-$shadowColor: rgba(0, 0, 0, 0.7);
+$shadowLowColor: rgba(0, 0, 0, 0.7);
+$shadowHighColor: rgba(0, 0, 0, 1);
 $mainWhiteColor: rgb(255, 255, 255);
 $greyColor: #9c9a9a;
 $greyBorderColor: #79797962;
@@ -31,6 +32,7 @@ $inputBackColor: #c7c7c756;
 $blueColor: #0094da;
 $blueBackColor: #00b7ff75;
 $blueGradientColor: #00b7ff;
+$grayGradientColor: rgb(247, 247, 247);
 $redColor: #fe3831;
 $vkColor: rgb(0, 119, 255);
 $tgColor: #25a0dd;
