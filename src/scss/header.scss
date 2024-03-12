@@ -102,7 +102,11 @@
       height: 2px;
       right: 0;
       position: absolute;
-      background: linear-gradient(to left, #0a0a0a, #00b7ff 100%);
+      background: linear-gradient(
+        to left,
+        $mainBlackColor,
+        $blueGradientColor 100%
+      );
       transition: width 0.3s ease 0s, right 0.3s ease 0s;
       width: 0;
     }
@@ -283,7 +287,11 @@
     display: block;
     margin-bottom: 20px;
     border-radius: 20px;
-    background: -webkit-linear-gradient(360deg, #00b7ff 3%, rgb(247, 247, 247));
+    background: -webkit-linear-gradient(
+      360deg,
+      $blueGradientColor 3%,
+      rgb(247, 247, 247)
+    );
   }
 
   &__title {
@@ -295,7 +303,7 @@
 
   &__desc {
     font-size: 20px;
-    color: #acacac;
+    color: $greyColor;
     max-width: 500px;
   }
 

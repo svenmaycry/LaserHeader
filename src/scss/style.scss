@@ -22,17 +22,18 @@ $fontSize: rem(16); // где 14(px) - размер шрифта по умолч
 
 // Основные цвета
 $mainBlackColor: #000; // Цвет шрифта по умолчанию
+$shadowColor: rgba(0, 0, 0, 0.7);
 $mainWhiteColor: rgb(255, 255, 255);
-$redColor: #ee4122;
-$blueColor: #00b7ff;
-$blueBackColor: #00b7ff75;
 $greyColor: #9c9a9a;
 $greyBorderColor: #79797962;
-$shadowColor: rgba(0, 0, 0, 0.7);
-$vkColor: rgb(0, 119, 255);
-$tgColor: #25a0dd;
 $inputBorder: #a7a7a7;
 $inputBackColor: #c7c7c756;
+$blueColor: #0094da;
+$blueBackColor: #00b7ff75;
+$blueGradientColor: #00b7ff;
+$redColor: #fe3831;
+$vkColor: rgb(0, 119, 255);
+$tgColor: #25a0dd;
 
 // НАСТРОЙКИ ===============================================================================================================================================================================================================================================================================================
 // Минимальная ширина страницы
