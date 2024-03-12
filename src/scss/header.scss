@@ -222,6 +222,9 @@
     display: flex;
     flex-direction: column;
     flex: 1 1 30%;
+    @media (max-width: em(1279)) {
+      padding-left: 5px;
+    }
   }
 
   &__item {
