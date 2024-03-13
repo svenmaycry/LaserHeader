@@ -32,12 +32,13 @@ iconMenuButton.addEventListener('click', onIconMenuClick);
 //========================================================================================================================================================
 // ? Изменение иконки стрелки в крестик
 // const mainNavButton = document.querySelector('.main-nav-item__button');
-// const mainNavIcon = document.querySelector('#nav-icon');
+// const mainNavIcon = document.querySelector('.nav-icon');
 
 // const changeIconPath = () => {
-//   mainNavIcon.setAttribute('xlink:href', '#icon-cross');
-
-//   if (mainNavButton.classList.contains('--spoller-active')) {
+//   if (mainNavButton) {
+//     mainNavIcon.setAttribute('xlink:href', '#icon-cross');
+//   }
+//   if (mainNavButton.classList.contains('--spoiler-active')) {
 //     mainNavIcon.setAttribute('xlink:href', '#icon-arrow-down');
 //   }
 // };

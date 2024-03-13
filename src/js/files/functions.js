@@ -232,16 +232,16 @@ export function spoilers() {
       initSpoilers(spoilersRegular);
     }
     // Получение слойлеров с медиа запросами
-    let mdQueriesArray = dataMediaQueries(spoilersArray, 'spoilers');
-    if (mdQueriesArray && mdQueriesArray.length) {
-      mdQueriesArray.forEach((mdQueriesItem) => {
-        // Событие
-        mdQueriesItem.matchMedia.addEventListener('change', function () {
-          initSpoilers(mdQueriesItem.itemsArray, mdQueriesItem.matchMedia);
-        });
-        initSpoilers(mdQueriesItem.itemsArray, mdQueriesItem.matchMedia);
-      });
-    }
+    //  let mdQueriesArray = dataMediaQueries(spoilersArray, 'spoilers');
+    //  if (mdQueriesArray && mdQueriesArray.length) {
+    //    mdQueriesArray.forEach((mdQueriesItem) => {
+    //      // Событие
+    //      mdQueriesItem.matchMedia.addEventListener('change', function () {
+    //        initSpoilers(mdQueriesItem.itemsArray, mdQueriesItem.matchMedia);
+    //      });
+    //      initSpoilers(mdQueriesItem.itemsArray, mdQueriesItem.matchMedia);
+    //    });
+    //  }
     // Инициализация
     function initSpoilers(spoilersArray, matchMedia = false) {
       spoilersArray.forEach((spoilersBlock) => {
@@ -358,56 +358,56 @@ export function tabs() {
   const tabs = document.querySelectorAll('[data-tabs]');
   let tabsActiveHash = [];
 
-  if (tabs.length > 0) {
-    const hash = getHash();
-    if (hash && hash.startsWith('tab-')) {
-      tabsActiveHash = hash.replace('tab-', '').split('-');
-    }
-    tabs.forEach((tabsBlock, index) => {
-      tabsBlock.classList.add('--tab-init');
-      tabsBlock.setAttribute('data-tabs-index', index);
-      tabsBlock.addEventListener('mouseover', setTabsAction);
-      initTabs(tabsBlock);
-    });
+  //   if (tabs.length > 0) {
+  //  const hash = getHash();
+  //  if (hash && hash.startsWith('tab-')) {
+  //    tabsActiveHash = hash.replace('tab-', '').split('-');
+  //  }
+  tabs.forEach((tabsBlock, index) => {
+    tabsBlock.classList.add('--tab-init');
+    tabsBlock.setAttribute('data-tabs-index', index);
+    tabsBlock.addEventListener('mouseover', setTabsAction);
+    initTabs(tabsBlock);
+  });
 
-    // Получение слойлеров с медиа запросами
-    let mdQueriesArray = dataMediaQueries(tabs, 'tabs');
-    if (mdQueriesArray && mdQueriesArray.length) {
-      mdQueriesArray.forEach((mdQueriesItem) => {
-        // Событие
-        mdQueriesItem.matchMedia.addEventListener('change', function () {
-          setTitlePosition(mdQueriesItem.itemsArray, mdQueriesItem.matchMedia);
-        });
-        setTitlePosition(mdQueriesItem.itemsArray, mdQueriesItem.matchMedia);
-      });
-    }
-  }
+  // Получение слойлеров с медиа запросами
+  //     let mdQueriesArray = dataMediaQueries(tabs, 'tabs');
+  //     if (mdQueriesArray && mdQueriesArray.length) {
+  //       mdQueriesArray.forEach((mdQueriesItem) => {
+  //         // Событие
+  //         mdQueriesItem.matchMedia.addEventListener('change', function () {
+  //           setTitlePosition(mdQueriesItem.itemsArray, mdQueriesItem.matchMedia);
+  //         });
+  //         setTitlePosition(mdQueriesItem.itemsArray, mdQueriesItem.matchMedia);
+  //       });
+  //     }
+  //   }
   // Установка позиций заголовков
-  function setTitlePosition(tabsMediaArray, matchMedia) {
-    tabsMediaArray.forEach((tabsMediaItem) => {
-      tabsMediaItem = tabsMediaItem.item;
-      let tabsTitles = tabsMediaItem.querySelector('[data-tabs-titles]');
-      let tabsTitleItems = tabsMediaItem.querySelectorAll('[data-tabs-title]');
-      let tabsContent = tabsMediaItem.querySelector('[data-tabs-body]');
-      let tabsContentItems = tabsMediaItem.querySelectorAll('[data-tabs-item]');
-      tabsTitleItems = Array.from(tabsTitleItems).filter(
-        (item) => item.closest('[data-tabs]') === tabsMediaItem
-      );
-      tabsContentItems = Array.from(tabsContentItems).filter(
-        (item) => item.closest('[data-tabs]') === tabsMediaItem
-      );
-      tabsContentItems.forEach((tabsContentItem, index) => {
-        if (matchMedia.matches) {
-          tabsContent.append(tabsTitleItems[index]);
-          tabsContent.append(tabsContentItem);
-          tabsMediaItem.classList.add('--tab-spoiler');
-        } else {
-          tabsTitles.append(tabsTitleItems[index]);
-          tabsMediaItem.classList.remove('--tab-spoiler');
-        }
-      });
-    });
-  }
+  //   function setTitlePosition(tabsMediaArray, matchMedia) {
+  //     tabsMediaArray.forEach((tabsMediaItem) => {
+  //       tabsMediaItem = tabsMediaItem.item;
+  //       let tabsTitles = tabsMediaItem.querySelector('[data-tabs-titles]');
+  //       let tabsTitleItems = tabsMediaItem.querySelectorAll('[data-tabs-title]');
+  //       let tabsContent = tabsMediaItem.querySelector('[data-tabs-body]');
+  //       let tabsContentItems = tabsMediaItem.querySelectorAll('[data-tabs-item]');
+  //       tabsTitleItems = Array.from(tabsTitleItems).filter(
+  //         (item) => item.closest('[data-tabs]') === tabsMediaItem
+  //       );
+  //       tabsContentItems = Array.from(tabsContentItems).filter(
+  //         (item) => item.closest('[data-tabs]') === tabsMediaItem
+  //       );
+  //       tabsContentItems.forEach((tabsContentItem, index) => {
+  //         if (matchMedia.matches) {
+  //           tabsContent.append(tabsTitleItems[index]);
+  //           tabsContent.append(tabsContentItem);
+  //           tabsMediaItem.classList.add('--tab-spoiler');
+  //         } else {
+  //           tabsTitles.append(tabsTitleItems[index]);
+  //           tabsMediaItem.classList.remove('--tab-spoiler');
+  //         }
+  //       });
+  //     });
+  //   }
   // Работа с контентом
   function initTabs(tabsBlock) {
     let tabsTitles = tabsBlock.querySelectorAll('[data-tabs-titles]>*');
@@ -443,7 +443,7 @@ export function tabs() {
   function setTabsStatus(tabsBlock) {
     let tabsTitles = tabsBlock.querySelectorAll('[data-tabs-title]');
     let tabsContent = tabsBlock.querySelectorAll('[data-tabs-item]');
-    const tabsBlockIndex = tabsBlock.dataset.tabsIndex;
+    //  const tabsBlockIndex = tabsBlock.dataset.tabsIndex;
     function isTabsAnamate(tabsBlock) {
       if (tabsBlock.hasAttribute('data-tabs-animate')) {
         return tabsBlock.dataset.tabsAnimate > 0
@@ -453,7 +453,7 @@ export function tabs() {
     }
     const tabsBlockAnimate = isTabsAnamate(tabsBlock);
     if (tabsContent.length > 0) {
-      const isHash = tabsBlock.hasAttribute('data-tabs-hash');
+      // const isHash = tabsBlock.hasAttribute('data-tabs-hash');
       tabsContent = Array.from(tabsContent).filter(
         (item) => item.closest('[data-tabs]') === tabsBlock
       );
@@ -467,9 +467,9 @@ export function tabs() {
           } else {
             tabsContentItem.hidden = false;
           }
-          if (isHash && !tabsContentItem.closest('.popup')) {
-            setHash(`tab-${tabsBlockIndex}-${index}`);
-          }
+          //  if (isHash && !tabsContentItem.closest('.popup')) {
+          //    setHash(`tab-${tabsBlockIndex}-${index}`);
+          //  }
         } else {
           if (tabsBlockAnimate) {
             _slideUp(tabsContentItem, tabsBlockAnimate);
