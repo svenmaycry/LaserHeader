@@ -1,7 +1,6 @@
 const iconMenuButton = document.querySelector('.icon-menu');
 const inputButton = document.querySelector('.search-header__button');
 const inputWrapper = document.querySelector('.input-wrapper');
-// const input = document.querySelector('#search-input');
 
 // ? Закрытие меню-бургер при клике на поиск.
 const closeBurgerMenu = () => {
@@ -28,19 +27,3 @@ const onIconMenuClick = () => {
 
 inputButton.addEventListener('click', onInputClick);
 iconMenuButton.addEventListener('click', onIconMenuClick);
-
-//========================================================================================================================================================
-// ? Изменение иконки стрелки в крестик
-// const mainNavButton = document.querySelector('.main-nav-item__button');
-// const mainNavIcon = document.querySelector('.nav-icon');
-
-// const changeIconPath = () => {
-//   if (mainNavButton) {
-//     mainNavIcon.setAttribute('xlink:href', '#icon-cross');
-//   }
-//   if (mainNavButton.classList.contains('--spoiler-active')) {
-//     mainNavIcon.setAttribute('xlink:href', '#icon-arrow-down');
-//   }
-// };
-
-// mainNavButton.addEventListener('click', changeIconPath);

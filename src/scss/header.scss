@@ -1,6 +1,7 @@
 .main-header {
   border-bottom: 1px solid $greyBorderColor;
-  position: relative;
+  //   position: relative;
+  position: sticky;
 
   @media (max-width: em(1279)) {
     padding: 13px 0;
@@ -96,16 +97,15 @@
 
     &::before {
       content: '';
-      display: none;
+      visibility: hidden;
       position: absolute;
       width: 13px;
       height: 13px;
-      right: 6px;
+      top: 35px;
+      right: 10px;
+      transform: rotate(180deg);
       background: url('@img/header-arrow-down.svg') 0 0 / contain no-repeat;
-      @media (max-width: em(1279)) {
-        top: 0;
-        right: -4px;
-      }
+      transition: transform 0.3s ease 0s;
     }
 
     &::after {
@@ -115,11 +115,7 @@
       height: 2px;
       right: 0;
       position: absolute;
-      background: linear-gradient(
-        to left,
-        $mainBlackColor,
-        $blueGradientColor 100%
-      );
+      background: linear-gradient(to left, $redColor, $blueGradientColor 100%);
       transition: width 0.3s ease 0s, right 0.3s ease 0s;
       width: 0;
     }
@@ -139,12 +135,18 @@
         right: 0;
       }
       &::before {
-        display: block;
+        visibility: visible;
         transform: rotate(90deg);
+        top: 31px;
+        right: 6px;
+        @media (max-width: em(1279)) {
+          top: 0;
+          right: -4px;
+        }
       }
 
       svg {
-        transition: transform 0.1s ease 0s;
+        transition: transform 0.3s ease 0s;
         transform: rotate(-90deg);
       }
     }
@@ -182,7 +184,7 @@
     left: 0;
     top: 76px;
     width: 100%;
-    box-shadow: 0px 20px 10px $shadowLowColor;
+    box-shadow: 0px 12px 11px $shadowLowColor;
     background-color: $mainWhiteColor;
     padding: 20px 0px;
 
@@ -196,6 +198,9 @@
 
   &__container {
     display: flex;
+    position: relative;
+    box-sizing: content-box;
+    margin: 0 auto;
     column-gap: 30px;
     max-width: 1320px;
     padding: 0 30px;
@@ -253,11 +258,21 @@
 }
 
 .products-item {
+  opacity: 0.6;
+
+  @media (max-width: em(1279)) {
+    opacity: 1;
+  }
+
   &.--tab-active {
+    opacity: 1;
     color: $blueColor;
     .products-item__arrow {
       visibility: visible;
       fill: $blueColor;
+    }
+    .products-item__image {
+      transform: scale(1.3);
     }
 
     @media (max-width: em(1279)) {
@@ -265,13 +280,16 @@
       .products-item__arrow {
         visibility: hidden;
       }
+      .products-item__image {
+        transform: scale(1);
+      }
     }
   }
 
   &__link {
     display: flex;
     align-items: center;
-    padding: 10px 0;
+    padding: 7px 0;
 
     @media (any-hover: hover) {
       &:hover {
@@ -279,17 +297,19 @@
           transform: scale(1.3);
         }
         .products-item__image-wrapper {
-          &::before {
-            content: '';
-            background-color: $blueColor;
-            box-shadow: 1px 2px 7px $shadowHighColor;
-          }
+          // ? Синий дэкграунд при наведении на айтемы Товаров
+
+          //  &::before {
+          //    content: '';
+          //    background-color: $blueColor;
+          //    box-shadow: 1px 2px 7px $shadowHighColor;
+          //  }
         }
       }
     }
 
     @media (max-width: em(1279)) {
-      padding: 9px 0;
+      padding: 5px 0;
     }
   }
 
@@ -311,26 +331,28 @@
       height: 30px;
     }
 
-    &::before {
-      content: '';
-      top: -3px;
-      left: 0px;
-      width: 45px;
-      height: 45px;
-      position: absolute;
-      border-radius: 50%;
-      z-index: 1;
-      box-shadow: 1px 2px 6px $shadowLowColor;
-      transition: background-color 0.3s ease 0s;
+    // ? Кружочки айтемов Товаров
 
-      @media (max-width: em(1279)) {
-        width: 35px;
-        height: 35px;
-      }
-      @media (max-width: em(479)) {
-        left: -2px;
-      }
-    }
+    //  &::before {
+    //    content: '';
+    //    top: -3px;
+    //    left: 0px;
+    //    width: 45px;
+    //    height: 45px;
+    //    position: absolute;
+    //    border-radius: 50%;
+    //    z-index: 1;
+    //    box-shadow: 1px 2px 6px $shadowLowColor;
+    //    transition: background-color 0.3s ease 0s;
+
+    //    @media (max-width: em(1279)) {
+    //      width: 35px;
+    //      height: 35px;
+    //    }
+    //    @media (max-width: em(479)) {
+    //      left: -2px;
+    //    }
+    //  }
   }
 
   &__image {
@@ -381,6 +403,11 @@
     font-size: 20px;
     color: $greyColor;
     max-width: 500px;
+    margin-bottom: 20px;
+  }
+
+  &__link {
+    margin-bottom: 20px;
   }
 
   @media (max-width: em(1279)) {
@@ -472,25 +499,6 @@
   }
 
   &__link {
-    text-transform: uppercase;
-    border: 1px solid $mainBlackColor;
-    border-radius: 15px;
-    padding: 8px 10px;
-    font-weight: 600;
-    transition: color 0.3s ease 0s, border 0.3s ease 0s;
-    color: $blueColor;
-    @media (any-hover: hover) {
-      &:hover {
-        color: $redColor;
-        border: 1px solid $blueColor;
-      }
-    }
-    @media (max-width: em(1279)) {
-      display: block;
-      max-width: 140px;
-      text-align: center;
-      margin: 0 auto;
-    }
   }
 }
 
@@ -555,9 +563,10 @@
 
   &__link {
     p {
-      @include adaptiveValue('font-size', 13, 12);
+      font-size: 13px;
       text-transform: uppercase;
       @include adaptiveValue('margin-bottom', 25, 10);
+      margin-bottom: 25;
       color: $greyColor;
       letter-spacing: 1px;
     }
@@ -949,6 +958,9 @@
   text-align: center;
   z-index: 10;
   background-color: $mainWhiteColor;
+  @media (max-width: em(1279)) {
+    top: 75px;
+  }
 
   input {
     margin: 30px 0;
@@ -1031,6 +1043,44 @@
 }
 
 //====================================================================================================
+
+.main-button {
+  text-transform: uppercase;
+  background: linear-gradient(to left, $redColor, $blueGradientColor 100%);
+  border: 1px solid $mainBlackColor;
+  border-radius: 5px;
+  padding: 8px 10px;
+  font-weight: 600;
+  transition: background 0.3s ease 0s;
+  color: $mainBlackColor;
+  letter-spacing: 1px;
+
+  @media (any-hover: hover) {
+    &:hover {
+      background: linear-gradient(to left, $blueGradientColor, $redColor 100%);
+    }
+  }
+
+  @media (max-width: em(1279)) {
+    display: block;
+    max-width: 145px;
+    text-align: center;
+    margin: 0 auto;
+  }
+}
+//========================================================================================================================================================
+// .overlay {
+//   //   display: none;
+//   position: fixed;
+//   top: 76px;
+//   left: 0;
+//   z-index: 20;
+//   width: 100%;
+//   height: 100%;
+//   background-color: rgba(0, 0, 0, 0.8);
+//   //   opacity: 0;
+// }
+//========================================================================================================================================================
 
 .icon-menu {
   display: none;
