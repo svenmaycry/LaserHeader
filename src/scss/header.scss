@@ -15,7 +15,7 @@
   }
 
   &__logo {
-    @include adaptiveValue('margin-right', 15, 0);
+    margin-right: 15px;
 
     img {
       width: auto;
@@ -85,14 +85,27 @@
     position: relative;
     display: flex;
     align-items: center;
-    column-gap: 3px;
     height: 100%;
     transition: background-color 0.3s ease 0s;
-    @include adaptiveValue('padding-right', 15, 0);
-    @include adaptiveValue('padding-left', 15, 0);
+    padding: 0 10px;
+    white-space: nowrap;
 
     &--special {
       color: $redColor;
+    }
+
+    &::before {
+      content: '';
+      display: none;
+      position: absolute;
+      width: 13px;
+      height: 13px;
+      right: 6px;
+      background: url('@img/header-arrow-down.svg') 0 0 / contain no-repeat;
+      @media (max-width: em(1279)) {
+        top: 0;
+        right: -4px;
+      }
     }
 
     &::after {
@@ -112,6 +125,10 @@
     }
 
     svg {
+      flex: 1 0 auto;
+      width: 13px;
+      height: 13px;
+      margin-left: 5px;
       transition: transform 0.3s ease 0s;
     }
 
@@ -121,25 +138,14 @@
         width: 100%;
         right: 0;
       }
-      // &::before {
-      //   content: '';
-      //   right: 0;
-      //   @include adaptiveValue('margin-right', 15, 0);
-      //   width: 18px;
-      //   height: 15px;
-      //   position: absolute;
-      //   background: url('@img/close-icon.svg') 0 0 no-repeat;
-      //   @media (max-width: em(1279)) {
-      //     right: 0;
-      //   }
-      // }
+      &::before {
+        display: block;
+        transform: rotate(90deg);
+      }
 
       svg {
-        transition: transform 0.3s ease 0s;
-        // ? Тут нужно отобразить стрелку зеркально!
-        transform: rotate(-180deg);
-        //   transform: scale(1, -1);
-        //   visibility: hidden;
+        transition: transform 0.1s ease 0s;
+        transform: rotate(-90deg);
       }
     }
 
