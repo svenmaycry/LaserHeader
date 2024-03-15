@@ -294,7 +294,6 @@ export function spoilers() {
           ) {
             hideSpoilersBody(spoilersBlock);
           }
-          //  overlay.setAttribute('style', 'display:block');
           overlay.classList.toggle('--active');
           spoilerTitle.classList.toggle('--spoiler-active');
           _slideToggle(spoilerTitle.nextElementSibling, spoilerSpeed);
@@ -332,7 +331,6 @@ export function spoilers() {
             const spoilerSpeed = spoilersBlock.dataset.spoilersSpeed
               ? parseInt(spoilersBlock.dataset.spoilersSpeed)
               : 0;
-            // overlay.setAttribute('style', 'display:none');
             overlay.classList.remove('--active');
             spoilerClose.classList.remove('--spoiler-active');
             _slideUp(spoilerClose.nextElementSibling, spoilerSpeed);
@@ -346,7 +344,6 @@ export function spoilers() {
             const spoilerSpeed = spoilersBlock.dataset.spoilersSpeed
               ? parseInt(spoilersBlock.dataset.spoilersSpeed)
               : 0;
-            // overlay.setAttribute('style', 'display:none');
             overlay.classList.remove('--active');
             spoilerClose.classList.remove('--spoiler-active');
             _slideUp(spoilerClose.nextElementSibling, spoilerSpeed);
