@@ -1,8 +1,11 @@
 .main-header {
   border-bottom: 1px solid $greyBorderColor;
-  //   position: relative;
-  position: sticky;
   z-index: 22;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: $mainWhiteColor;
+  transition: top 0.3s ease 0s;
 
   @media (max-width: em(1279)) {
     padding: 13px 0;

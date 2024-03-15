@@ -286,7 +286,7 @@ export function spoilers() {
         const oneSpoiler = spoilersBlock.hasAttribute('data-one-spoiler');
         const spoilerSpeed = spoilersBlock.dataset.spoilersSpeed
           ? parseInt(spoilersBlock.dataset.spoilersSpeed)
-          : 100;
+          : 0;
         if (!spoilersBlock.querySelectorAll('._slide').length) {
           if (
             oneSpoiler &&
@@ -307,7 +307,7 @@ export function spoilers() {
       );
       const spoilerSpeed = spoilersBlock.dataset.spoilersSpeed
         ? parseInt(spoilersBlock.dataset.spoilersSpeed)
-        : 100;
+        : 0;
       if (
         spoilerActiveTitle &&
         !spoilersBlock.querySelectorAll('._slide').length
@@ -330,7 +330,7 @@ export function spoilers() {
             const spoilersBlock = spoilerClose.closest('[data-spoilers]');
             const spoilerSpeed = spoilersBlock.dataset.spoilersSpeed
               ? parseInt(spoilersBlock.dataset.spoilersSpeed)
-              : 100;
+              : 0;
             overlay.classList.remove('--active');
             spoilerClose.classList.remove('--spoiler-active');
             _slideUp(spoilerClose.nextElementSibling, spoilerSpeed);
@@ -343,7 +343,7 @@ export function spoilers() {
             const spoilersBlock = spoilerClose.closest('[data-spoilers]');
             const spoilerSpeed = spoilersBlock.dataset.spoilersSpeed
               ? parseInt(spoilersBlock.dataset.spoilersSpeed)
-              : 100;
+              : 0;
             overlay.classList.remove('--active');
             spoilerClose.classList.remove('--spoiler-active');
             _slideUp(spoilerClose.nextElementSibling, spoilerSpeed);
