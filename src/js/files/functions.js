@@ -218,6 +218,7 @@ export let bodyLock = (delay = 0) => {
 */
 export function spoilers() {
   const spoilersArray = document.querySelectorAll('[data-spoilers]');
+  const overlay = document.querySelector('.overlay');
   if (spoilersArray.length > 0) {
     // Получение обычных слойлеров
     const spoilersRegular = Array.from(spoilersArray).filter(function (
@@ -293,6 +294,7 @@ export function spoilers() {
           ) {
             hideSpoilersBody(spoilersBlock);
           }
+          overlay.classList.toggle('--active');
           spoilerTitle.classList.toggle('--spoiler-active');
           _slideToggle(spoilerTitle.nextElementSibling, spoilerSpeed);
         }
@@ -310,6 +312,7 @@ export function spoilers() {
         spoilerActiveTitle &&
         !spoilersBlock.querySelectorAll('._slide').length
       ) {
+        overlay.classList.remove('--active');
         spoilerActiveTitle.classList.remove('--spoiler-active');
         _slideUp(spoilerActiveTitle.nextElementSibling, spoilerSpeed);
       }
@@ -328,6 +331,7 @@ export function spoilers() {
             const spoilerSpeed = spoilersBlock.dataset.spoilersSpeed
               ? parseInt(spoilersBlock.dataset.spoilersSpeed)
               : 100;
+            overlay.classList.remove('--active');
             spoilerClose.classList.remove('--spoiler-active');
             _slideUp(spoilerClose.nextElementSibling, spoilerSpeed);
           });
@@ -340,6 +344,7 @@ export function spoilers() {
             const spoilerSpeed = spoilersBlock.dataset.spoilersSpeed
               ? parseInt(spoilersBlock.dataset.spoilersSpeed)
               : 100;
+            overlay.classList.remove('--active');
             spoilerClose.classList.remove('--spoiler-active');
             _slideUp(spoilerClose.nextElementSibling, spoilerSpeed);
           });
