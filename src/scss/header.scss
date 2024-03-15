@@ -24,6 +24,9 @@
 
     img {
       width: auto;
+      @media (min-width: em(1279)) {
+        @include adaptiveValue('width', 160, 25);
+      }
       height: auto;
     }
   }
@@ -1076,7 +1079,7 @@
 //========================================================================================================================================================
 .overlay {
   display: none;
-  //   opacity: 0;
+  opacity: 0;
   position: fixed;
   top: 76px;
   left: 0;
@@ -1087,7 +1090,7 @@
   transition: opacity 0.3s ease 0s;
   &.--active {
     display: block;
-    //  opacity: 1;
+    opacity: 1;
   }
 }
 
