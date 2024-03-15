@@ -760,7 +760,7 @@
       grid-column: 3 span;
     }
 
-    @media (max-width: em(479)) {
+    @media (max-width: em(767)) {
       > * {
         grid-column: 6 span;
       }
