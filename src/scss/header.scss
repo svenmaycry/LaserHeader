@@ -216,7 +216,10 @@
       position: static;
       box-shadow: none;
       font-size: 14px;
-      padding: 0px 0;
+      padding: 0px 0px;
+      transition: position 0.3s ease 0s, left 0.3s ease 0s, top 0.3s ease 0s,
+        background-color 0.3s ease 0s, box-shadow 0.3s ease 0s,
+        max-height 0.3s ease 0s, opacity 0.3s ease 0s, visibility 0.3s ease 0s;
     }
   }
 
@@ -233,7 +236,7 @@
     padding: 0 30px;
     row-gap: 7px;
     @media (max-width: em(1279)) {
-      padding: 10px 0;
+      padding: 10px 15px;
     }
   }
 
@@ -269,6 +272,7 @@
 .main-nav-products {
   &__wrapper {
     column-gap: 80px;
+    padding: 10px 0px;
   }
 
   &__list {
