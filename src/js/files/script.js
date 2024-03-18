@@ -3,20 +3,28 @@ const inputButton = document.querySelector('.search-header__button');
 const inputWrapper = document.querySelector('.input-wrapper');
 const overlay = document.querySelector('.overlay');
 const mainHeader = document.querySelector('.main-header');
+const headerContainer = document.querySelector('.main-header__container');
 
-// ? Закрытие меню-бургер при клике на поиск.
+// ? При клике на поиск закрытие Меню-бургер.
 const closeBurgerMenu = () => {
   if (document.documentElement.classList.contains('main-nav-open')) {
     document.documentElement.classList.remove('main-nav-open', 'lock');
   }
 };
 
-//? Удаление класса --active оверлея.
+//? При клике на поиск добавлять/убирать оверлей.
+const overlayClassAdd = () => {
+  if (window.innerWidth <= 1279) {
+    overlay.classList.toggle('--active');
+  }
+};
+
+//? При клике на меню удаление класса --active оверлея.
 const overlayClose = () => {
   overlay.classList.remove('--active');
 };
 
-//? Закрытие поиска при клике на меню-бургер.
+//? При клике на меню закрытие поиска.
 const closeSearchWrapper = () => {
   if (inputButton.classList.contains('--spoiler-active')) {
     inputButton.classList.remove('--spoiler-active');
@@ -24,7 +32,7 @@ const closeSearchWrapper = () => {
   }
 };
 
-//? Показ и скрытие шапки при скролле на странице.
+//? При скролле страницы показ и скрытие шапки.
 let prevScrollPos = window.scrollY;
 const headerHeight = mainHeader.offsetHeight;
 const scrollThreshold = 200;
@@ -41,8 +49,20 @@ const showAndHideHeader = () => {
   prevScrollPos = currentScrollPos;
 };
 
+//? Удалить атрибут у контейнера шапки при max-width = 1279.
+const removeContainerAttribute = () => {
+  if (window.innerWidth <= 1279) {
+    headerContainer.removeAttribute('data-one-spoiler');
+  } else {
+    if (window.innerWidth >= 1279) {
+      headerContainer.setAttribute('data-one-spoiler', '');
+    }
+  }
+};
+
 const onInputClick = () => {
   closeBurgerMenu();
+  overlayClassAdd();
 };
 
 const onIconMenuClick = (e) => {
@@ -54,6 +74,12 @@ const onDocumentScroll = () => {
   showAndHideHeader();
 };
 
+const onDocumentResize = () => {
+  removeContainerAttribute();
+};
+
 inputButton.addEventListener('click', onInputClick);
 iconMenuButton.addEventListener('click', onIconMenuClick);
 document.addEventListener('scroll', onDocumentScroll);
+window.addEventListener('resize', onDocumentResize);
+window.addEventListener('load', onDocumentResize);

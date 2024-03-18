@@ -315,8 +315,13 @@ export function spoilers() {
           ) {
             hideSpoilersBody(spoilersBlock);
           }
-          overlay.classList.toggle('--active');
+
+          if (window.innerWidth >= 1279) {
+            overlay.classList.toggle('--active');
+          }
+
           spoilerTitle.classList.toggle('--spoiler-active');
+
           //  _slideToggle(spoilerTitle.nextElementSibling, spoilerSpeed);
         }
         e.preventDefault();
