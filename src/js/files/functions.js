@@ -259,34 +259,55 @@ export function spoilers() {
       });
     }
     // Работа с контентом
-    function initSpoilerBody(spoilersBlock, hideSpoilerBody = true) {
+    function initSpoilerBody(spoilersBlock) {
       let spoilerTitles = spoilersBlock.querySelectorAll('[data-spoiler]');
       if (spoilerTitles.length) {
         spoilerTitles = Array.from(spoilerTitles).filter(
           (item) => item.closest('[data-spoilers]') === spoilersBlock
         );
-        spoilerTitles.forEach((spoilerTitle) => {
-          if (hideSpoilerBody) {
-            spoilerTitle.removeAttribute('tabindex');
-            if (!spoilerTitle.classList.contains('--spoiler-active')) {
-              spoilerTitle.nextElementSibling.hidden = true;
-            }
-          } else {
-            spoilerTitle.setAttribute('tabindex', '-1');
-            spoilerTitle.nextElementSibling.hidden = false;
-          }
-        });
+        //   spoilerTitles.forEach((spoilerTitle) => {
+        //     if (hideSpoilerBody) {
+        //       spoilerTitle.removeAttribute('tabindex');
+        //       if (!spoilerTitle.classList.contains('--spoiler-active')) {
+        //         spoilerTitle.nextElementSibling.hidden = true;
+        //       }
+        //     } else {
+        //       spoilerTitle.setAttribute('tabindex', '-1');
+        //       spoilerTitle.nextElementSibling.hidden = false;
+        //     }
+        //   });
       }
     }
+    // ! Раскомментить
+    //  function initSpoilerBody(spoilersBlock, hideSpoilerBody = true) {
+    //    let spoilerTitles = spoilersBlock.querySelectorAll('[data-spoiler]');
+    //    if (spoilerTitles.length) {
+    //      spoilerTitles = Array.from(spoilerTitles).filter(
+    //        (item) => item.closest('[data-spoilers]') === spoilersBlock
+    //      );
+    //      spoilerTitles.forEach((spoilerTitle) => {
+    //        if (hideSpoilerBody) {
+    //          spoilerTitle.removeAttribute('tabindex');
+    //          if (!spoilerTitle.classList.contains('--spoiler-active')) {
+    //            spoilerTitle.nextElementSibling.hidden = true;
+    //          }
+    //        } else {
+    //          spoilerTitle.setAttribute('tabindex', '-1');
+    //          spoilerTitle.nextElementSibling.hidden = false;
+    //        }
+    //      });
+    //    }
+    //  }
+
     function setSpoilerAction(e) {
       const el = e.target;
       if (el.closest('[data-spoiler]')) {
         const spoilerTitle = el.closest('[data-spoiler]');
         const spoilersBlock = spoilerTitle.closest('[data-spoilers]');
         const oneSpoiler = spoilersBlock.hasAttribute('data-one-spoiler');
-        const spoilerSpeed = spoilersBlock.dataset.spoilersSpeed
-          ? parseInt(spoilersBlock.dataset.spoilersSpeed)
-          : 0;
+        //   const spoilerSpeed = spoilersBlock.dataset.spoilersSpeed
+        //     ? parseInt(spoilersBlock.dataset.spoilersSpeed)
+        //     : 100;
         if (!spoilersBlock.querySelectorAll('._slide').length) {
           if (
             oneSpoiler &&
@@ -296,7 +317,7 @@ export function spoilers() {
           }
           overlay.classList.toggle('--active');
           spoilerTitle.classList.toggle('--spoiler-active');
-          _slideToggle(spoilerTitle.nextElementSibling, spoilerSpeed);
+          //  _slideToggle(spoilerTitle.nextElementSibling, spoilerSpeed);
         }
         e.preventDefault();
       }
@@ -305,16 +326,16 @@ export function spoilers() {
       const spoilerActiveTitle = spoilersBlock.querySelector(
         '[data-spoiler].--spoiler-active'
       );
-      const spoilerSpeed = spoilersBlock.dataset.spoilersSpeed
-        ? parseInt(spoilersBlock.dataset.spoilersSpeed)
-        : 0;
+      // const spoilerSpeed = spoilersBlock.dataset.spoilersSpeed
+      //   ? parseInt(spoilersBlock.dataset.spoilersSpeed)
+      //   : 500;
       if (
         spoilerActiveTitle &&
         !spoilersBlock.querySelectorAll('._slide').length
       ) {
         overlay.classList.remove('--active');
         spoilerActiveTitle.classList.remove('--spoiler-active');
-        _slideUp(spoilerActiveTitle.nextElementSibling, spoilerSpeed);
+        //   _slideUp(spoilerActiveTitle.nextElementSibling, spoilerSpeed);
       }
     }
 
@@ -327,26 +348,26 @@ export function spoilers() {
       document.addEventListener('click', function (e) {
         if (!e.target.closest('[data-spoilers]')) {
           spoilersClose.forEach((spoilerClose) => {
-            const spoilersBlock = spoilerClose.closest('[data-spoilers]');
-            const spoilerSpeed = spoilersBlock.dataset.spoilersSpeed
-              ? parseInt(spoilersBlock.dataset.spoilersSpeed)
-              : 0;
+            // const spoilersBlock = spoilerClose.closest('[data-spoilers]');
+            // const spoilerSpeed = spoilersBlock.dataset.spoilersSpeed
+            //   ? parseInt(spoilersBlock.dataset.spoilersSpeed)
+            //   : 500;
             overlay.classList.remove('--active');
             spoilerClose.classList.remove('--spoiler-active');
-            _slideUp(spoilerClose.nextElementSibling, spoilerSpeed);
+            // _slideUp(spoilerClose.nextElementSibling, spoilerSpeed);
           });
         }
       });
       document.addEventListener('keydown', function (e) {
         if (!e.target.closest('[data-spoilers]') || isEscapeKey(e)) {
           spoilersClose.forEach((spoilerClose) => {
-            const spoilersBlock = spoilerClose.closest('[data-spoilers]');
-            const spoilerSpeed = spoilersBlock.dataset.spoilersSpeed
-              ? parseInt(spoilersBlock.dataset.spoilersSpeed)
-              : 0;
+            // const spoilersBlock = spoilerClose.closest('[data-spoilers]');
+            // const spoilerSpeed = spoilersBlock.dataset.spoilersSpeed
+            //   ? parseInt(spoilersBlock.dataset.spoilersSpeed)
+            //   : 500;
             overlay.classList.remove('--active');
             spoilerClose.classList.remove('--spoiler-active');
-            _slideUp(spoilerClose.nextElementSibling, spoilerSpeed);
+            // _slideUp(spoilerClose.nextElementSibling, spoilerSpeed);
           });
         }
       });

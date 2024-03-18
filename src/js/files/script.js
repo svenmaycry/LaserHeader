@@ -20,7 +20,7 @@ const overlayClose = () => {
 const closeSearchWrapper = () => {
   if (inputButton.classList.contains('--spoiler-active')) {
     inputButton.classList.remove('--spoiler-active');
-    inputWrapper.setAttribute('hidden', '');
+    //  inputWrapper.setAttribute('hidden', '');
   }
 };
 
