@@ -5,7 +5,7 @@ const overlay = document.querySelector('.overlay');
 const mainHeader = document.querySelector('.main-header');
 const headerContainer = document.querySelector('.main-header__container');
 
-// ? При клике на поиск закрытие Меню-бургер.
+//? При клике на поиск закрытие Меню-бургер.
 const closeBurgerMenu = () => {
   if (document.documentElement.classList.contains('main-nav-open')) {
     document.documentElement.classList.remove('main-nav-open', 'lock');
@@ -50,7 +50,7 @@ const showAndHideHeader = () => {
 };
 
 //? Удалить атрибут у контейнера шапки при max-width = 1279.
-const removeContainerAttribute = () => {
+const changeContainerAttribute = () => {
   if (window.innerWidth <= 1279) {
     headerContainer.removeAttribute('data-one-spoiler');
   } else {
@@ -75,7 +75,7 @@ const onDocumentScroll = () => {
 };
 
 const onDocumentResize = () => {
-  removeContainerAttribute();
+  changeContainerAttribute();
 };
 
 inputButton.addEventListener('click', onInputClick);
