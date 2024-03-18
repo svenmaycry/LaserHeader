@@ -49,7 +49,7 @@ const showAndHideHeader = () => {
   prevScrollPos = currentScrollPos;
 };
 
-//? Удалить атрибут у контейнера шапки при max-width = 1279.
+//? Изменить атрибут у контейнера шапки для изменения работы логики Спойлеров.
 const changeContainerAttribute = () => {
   if (window.innerWidth <= 1279) {
     headerContainer.removeAttribute('data-one-spoiler');
