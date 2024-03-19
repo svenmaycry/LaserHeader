@@ -116,7 +116,12 @@
       right: 10px;
       transform: rotate(180deg);
       background: url('@img/header-arrow-down.svg') 0 0 / contain no-repeat;
-      transition: transform 0.3s ease 0s;
+      transition: transform 0.3s ease 0s, right 0.3s ease 0s, top 0.1s ease 0s,
+        visibility 0.2s ease 0s;
+      @media (max-width: em(1279)) {
+        top: 4px;
+        right: 0px;
+      }
     }
 
     &::after {
@@ -150,6 +155,7 @@
         transform: rotate(90deg);
         top: 31px;
         right: 6px;
+        transition: transform 0.3s ease 0s, right 0.1s ease 0s, top 0.3s ease 0s;
         @media (max-width: em(1279)) {
           top: 0;
           right: -4px;
