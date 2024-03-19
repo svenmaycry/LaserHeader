@@ -511,6 +511,7 @@ export function tabs() {
       });
     }
   }
+
   function setTabsAction(e) {
     const el = e.target;
     if (el.closest('[data-tabs-title]')) {
