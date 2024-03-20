@@ -163,10 +163,10 @@
         opacity: 1;
         visibility: visible;
         max-height: 1000px;
-        transition: opacity 0.3s ease;
+        transition: opacity 0.3s;
 
         .main-nav-item__container {
-          transition: top 0.3s ease;
+          transition: top 0.3s;
           top: 0px;
           @media (max-width: em(1279)) {
             top: -10px;
@@ -1010,7 +1010,7 @@
 
     &.--spoiler-active {
       + .search-header__input-wrapper {
-        transition: opacity 0.3s ease;
+        transition: opacity 0.3s;
         opacity: 1;
         visibility: visible;
         max-height: 1000px;
