@@ -13,7 +13,7 @@ const closeBurgerMenu = () => {
 };
 
 //? При клике на поиск добавлять/убирать оверлей.
-const overlayClassAdd = () => {
+const overlayClassToggle = () => {
   if (window.innerWidth <= 1279) {
     overlay.classList.toggle('--active');
   }
@@ -62,7 +62,7 @@ const changeContainerAttribute = () => {
 
 const onInputClick = () => {
   closeBurgerMenu();
-  overlayClassAdd();
+  overlayClassToggle();
 };
 
 const onIconMenuClick = (e) => {
