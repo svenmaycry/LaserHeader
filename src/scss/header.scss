@@ -217,16 +217,14 @@
     opacity: 0;
     visibility: hidden;
     max-height: 0;
-    transition: left 0.3s, top 0.3s, background-color 0.3s, box-shadow 0.3s,
-      max-height 0.3s;
+    transition: left 0.3s, top 0.3s, width 0.3s, box-shadow 0.3s,
+      background-color 0.3s, opacity 0.3s, max-height 0.3s, padding 0.3s;
 
     @media (max-width: em(1279)) {
       position: static;
       box-shadow: none;
       font-size: 14px;
       padding: 0px 0px;
-      transition: left 0.3s, top 0.3s, background-color 0.3s, box-shadow 0.3s,
-        max-height 0.3s, opacity 0.3s;
     }
   }
 
