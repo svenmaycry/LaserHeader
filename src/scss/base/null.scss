@@ -10,11 +10,11 @@
 }
 :focus,
 :active {
-  // outline: none;
+  outline: none;
 }
 a:focus,
 a:active {
-  // outline: none;
+  outline: none;
 }
 html,
 body {
@@ -68,4 +68,8 @@ h5,
 h6 {
   font-weight: inherit;
   font-size: inherit;
+}
+a,
+button {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
