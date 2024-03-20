@@ -85,7 +85,6 @@
 //========================================================================================================================================================
 .main-nav-item {
   @media (max-width: em(1279)) {
-    //  padding: 10px 0;
     border-bottom: 1px solid $greyBorderColor;
   }
 
@@ -1272,3 +1271,73 @@
   display: none;
 }
 //========================================================================================================================================================
+
+// /* icons */
+
+// .sl3-icon {
+//   margin: 100px 0px 0px 0px;
+// }
+
+// .switch-icon__icon {
+//   display: block;
+//   margin: 100px 0px 0px 0px;
+//   height: 25px;
+//   width: 25px;
+// }
+
+// .switch-icon__icon--a {
+//   opacity: 1;
+// }
+
+// .switch-icon__icon--b {
+//   position: absolute;
+//   top: 0px;
+//   left: 3px;
+//   opacity: 0;
+// }
+
+// .switch-icon--state-b .switch-icon__icon--a,
+// .switch-icon--hover:hover .switch-icon__icon--a {
+//   opacity: 0;
+// }
+// .switch-icon--state-b .switch-icon__icon--b,
+// .switch-icon--hover:hover .switch-icon__icon--b {
+//   opacity: 1;
+// }
+
+// .switch-icon--scale.switch-icon--state-b .switch-icon__icon--a,
+// .switch-icon--scale.switch-icon--hover:hover .switch-icon__icon--a {
+//   -webkit-transform: scale(0.8);
+//   transform: scale(0.8);
+// }
+// .switch-icon--scale.switch-icon--state-b .switch-icon__icon--b,
+// .switch-icon--scale.switch-icon--hover:hover .switch-icon__icon--b {
+//   -webkit-transform: scale(1);
+//   transform: scale(1);
+// }
+
+// /* --rotate */
+// .switch-icon--rotate .switch-icon__icon {
+//   transition: opacity 0s 0.2s, -webkit-transform 0.4s;
+//   transition: opacity 0s 0.2s, transform 0.4s;
+//   transition: opacity 0s 0.2s, transform 0.4s, -webkit-transform 0.4s;
+// }
+// .switch-icon--rotate .switch-icon__icon--a {
+//   -webkit-transform: rotate(0);
+//   transform: rotate(0);
+// }
+// .switch-icon--rotate .switch-icon__icon--b {
+//   -webkit-transform: rotate(90deg);
+//   transform: rotate(90deg);
+// }
+
+// .switch-icon--rotate.switch-icon--state-b .switch-icon__icon--a,
+// .switch-icon--rotate.switch-icon--hover:hover .switch-icon__icon--a {
+//   -webkit-transform: rotate(-90deg);
+//   transform: rotate(-90deg);
+// }
+// .switch-icon--rotate.switch-icon--state-b .switch-icon__icon--b,
+// .switch-icon--rotate.switch-icon--hover:hover .switch-icon__icon--b {
+//   -webkit-transform: rotate(0);
+//   transform: rotate(0);
+// }
