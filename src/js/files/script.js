@@ -49,7 +49,7 @@ const showAndHideHeader = () => {
   prevScrollPos = currentScrollPos;
 };
 
-//? Изменить атрибут у контейнера шапки для изменения работы логики Спойлеров.
+//? Изменить атрибут у контейнера шапки для изменения логики работы Спойлеров.
 const changeContainerAttribute = () => {
   if (window.innerWidth <= 1279) {
     headerContainer.removeAttribute('data-one-spoiler');
