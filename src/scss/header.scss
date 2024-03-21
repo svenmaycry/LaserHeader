@@ -113,7 +113,7 @@
       background: url('@img/header-arrow-down.svg') 0 0 / contain no-repeat;
       transition: transform 0.3s, right 0.1s, top 0.1s, opacity 0.3s ease 0.1s;
       @media (max-width: em(1279)) {
-        top: 17px;
+        top: 14px;
         right: 0px;
       }
     }
@@ -150,7 +150,7 @@
         top: 31px;
         right: 6px;
         @media (max-width: em(1279)) {
-          top: 13px;
+          top: 10px;
           right: -4px;
         }
       }
@@ -163,10 +163,8 @@
         opacity: 1;
         visibility: visible;
         max-height: 1000px;
-        transition: opacity 0.3s;
 
         .main-nav-item__container {
-          transition: top 0.3s;
           top: 0px;
           @media (max-width: em(1279)) {
             top: -10px;
@@ -180,6 +178,8 @@
       width: 100%;
       height: 100%;
       padding: 10px 0;
+      display: block;
+      text-align: left;
 
       svg {
         position: absolute;
@@ -217,14 +217,14 @@
     opacity: 0;
     visibility: hidden;
     max-height: 0;
-    transition: left 0.3s, top 0.3s, width 0.3s, box-shadow 0.3s,
-      background-color 0.3s, opacity 0.3s, max-height 0.3s, padding 0.3s;
+    transition: opacity 0.3s;
 
     @media (max-width: em(1279)) {
       position: static;
       box-shadow: none;
       font-size: 14px;
       padding: 0px 0px;
+      transition: opacity 0.3s, max-height 0.3s, visibility 0.3s;
     }
   }
 
@@ -240,6 +240,7 @@
     max-width: 1320px;
     padding: 0 30px;
     row-gap: 7px;
+    transition: top 0.3s, opacity 0.3s;
     @media (max-width: em(1279)) {
       padding: 10px 8px;
     }
@@ -284,7 +285,9 @@
     grid-template-columns: repeat(12, 1fr);
     grid-auto-rows: auto; // or 1fr если нужно, чтобы блоки были одинаковой высоты
     gap: 10px;
-    padding: 10px 0px;
+    @media (max-width: em(1279)) {
+      padding: 10px 0;
+    }
     > * {
       grid-column: 3 span;
     }
