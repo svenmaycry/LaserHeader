@@ -494,7 +494,7 @@ export function tabs() {
       tabsContent.forEach((tabsContentItem, index) => {
         if (tabsTitles[index].classList.contains('--tab-active')) {
           if (tabsBlockAnimate) {
-            _slideDown(tabsContentItem, tabsBlockAnimate);
+            // _slideDown(tabsContentItem, tabsBlockAnimate);
           } else {
             tabsContentItem.hidden = false;
           }
@@ -503,7 +503,7 @@ export function tabs() {
           //  }
         } else {
           if (tabsBlockAnimate) {
-            _slideUp(tabsContentItem, tabsBlockAnimate);
+            // _slideUp(tabsContentItem, tabsBlockAnimate);
           } else {
             tabsContentItem.hidden = true;
           }
