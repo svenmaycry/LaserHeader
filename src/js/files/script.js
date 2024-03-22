@@ -1,6 +1,5 @@
 const iconMenuButton = document.querySelector('.icon-menu');
 const inputButton = document.querySelector('.search-header__button');
-const inputWrapper = document.querySelector('.input-wrapper');
 const overlay = document.querySelector('.overlay');
 const mainHeader = document.querySelector('.main-header');
 const headerContainer = document.querySelector('.main-header__container');
@@ -28,7 +27,6 @@ const overlayClose = () => {
 const closeSearchWrapper = () => {
   if (inputButton.classList.contains('--spoiler-active')) {
     inputButton.classList.remove('--spoiler-active');
-    //  inputWrapper.setAttribute('hidden', '');
   }
 };
 
