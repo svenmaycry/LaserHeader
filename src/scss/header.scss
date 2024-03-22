@@ -915,8 +915,7 @@
 .mobile-contacts {
   @media (min-width: em(1279)) {
     margin-left: auto;
-    //  margin-right: 40px;
-    @include adaptiveValue('margin-right', 40, 5, 1920, 1279);
+    margin-right: 40px;
     align-self: center;
   }
   &__link {
