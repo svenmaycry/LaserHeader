@@ -10,10 +10,10 @@
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
   transition: top 0.3s ease 0.1s;
 
-  @media (max-width: em(1279)) {
+  @media (max-width: 1279px) {
     padding: 13px 0;
   }
-  @media (max-width: em(767)) {
+  @media (max-width: 767px) {
     padding: 17px 0;
   }
 
@@ -27,8 +27,8 @@
 
     img {
       width: auto;
-      @media (min-width: em(1279)) {
-        @include adaptiveValue('width', 160, 25);
+      @media (min-width: 1279px) {
+        width: 160px;
       }
       height: auto;
     }
@@ -42,7 +42,7 @@
   &__wrapper {
     background-color: $mainWhiteColor;
     display: flex;
-    @media (max-width: em(1279)) {
+    @media (max-width: 1279px) {
       display: flex;
       flex-direction: column;
       position: fixed;
@@ -57,12 +57,12 @@
       .main-nav-open & {
         box-shadow: 0px 20px 10px $shadowLowColor;
         left: 0;
-        @media (max-width: em(1279)) {
+        @media (max-width: 1279px) {
           padding-left: 16px;
           padding-right: 16px;
           padding-bottom: 450px;
         }
-        @media (max-width: em(767)) {
+        @media (max-width: 767px) {
           padding-left: 16px;
           padding-right: 16px;
           padding-bottom: 50px;
@@ -76,7 +76,7 @@
     min-height: 74px;
     margin-right: 5px;
 
-    @media (max-width: em(1279)) {
+    @media (max-width: 1279px) {
       margin-bottom: 20px;
       display: block;
       min-height: auto;
@@ -89,7 +89,7 @@
 
 //========================================================================================================================================================
 .main-nav-item {
-  @media (max-width: em(1279)) {
+  @media (max-width: 1279px) {
     border-bottom: 1px solid $greyBorderColor;
   }
 
@@ -117,7 +117,7 @@
       transform: rotate(180deg);
       background: url('@img/header-arrow-down.svg') 0 0 / contain no-repeat;
       transition: transform 0.3s, right 0.1s, top 0.1s, opacity 0.3s ease 0.1s;
-      @media (max-width: em(1279)) {
+      @media (max-width: 1279px) {
         top: 14px;
         right: 0px;
       }
@@ -154,7 +154,7 @@
         transform: rotate(90deg);
         top: 31px;
         right: 6px;
-        @media (max-width: em(1279)) {
+        @media (max-width: 1279px) {
           top: 10px;
           right: -4px;
         }
@@ -171,14 +171,14 @@
 
         .main-nav-item__container {
           top: 0px;
-          @media (max-width: em(1279)) {
+          @media (max-width: 1279px) {
             top: -10px;
           }
         }
       }
     }
 
-    @media (max-width: em(1279)) {
+    @media (max-width: 1279px) {
       font-weight: 600;
       width: 100%;
       height: 100%;
@@ -198,7 +198,7 @@
         }
       }
     }
-    @media (min-width: em(1279)) {
+    @media (min-width: 1279px) {
       &:focus {
         background-color: $blueBackColor;
       }
@@ -224,7 +224,7 @@
     max-height: 0;
     transition: opacity 0.3s;
 
-    @media (max-width: em(1279)) {
+    @media (max-width: 1279px) {
       position: static;
       box-shadow: none;
       font-size: 14px;
@@ -246,7 +246,7 @@
     padding: 0 30px;
     row-gap: 7px;
     transition: top 0.3s, opacity 0.3s;
-    @media (max-width: em(1279)) {
+    @media (max-width: 1279px) {
       padding: 10px 8px;
     }
   }
@@ -267,19 +267,19 @@
         }
       }
 
-      @media (min-width: em(1279)) {
+      @media (min-width: 1279px) {
         &:focus {
           color: $blueColor;
         }
       }
-      @media (max-width: em(1279)) {
+      @media (max-width: 1279px) {
         display: block;
         width: 100%;
         font-size: 14px;
         padding: 8px 0;
         letter-spacing: 0px;
       }
-      @media (max-width: em(767)) {
+      @media (max-width: 767px) {
         font-size: 12px;
       }
     }
@@ -290,7 +290,7 @@
     grid-template-columns: repeat(12, 1fr);
     grid-auto-rows: auto; // or 1fr если нужно, чтобы блоки были одинаковой высоты
     gap: 10px;
-    @media (max-width: em(1279)) {
+    @media (max-width: 1279px) {
       padding: 10px 0;
     }
     > * {
@@ -304,7 +304,7 @@
   &__wrapper {
     column-gap: 0px;
     padding: 10px 20px;
-    @media (max-width: em(1279)) {
+    @media (max-width: 1279px) {
       padding: 10px 0px;
     }
   }
@@ -323,7 +323,7 @@
   opacity: 0.6;
   padding: 0 4px;
 
-  @media (max-width: em(1279)) {
+  @media (max-width: 1279px) {
     opacity: 1;
   }
 
@@ -339,7 +339,7 @@
       transform: scale(1.3);
     }
 
-    @media (max-width: em(1279)) {
+    @media (max-width: 1279px) {
       color: inherit;
       .products-item__arrow {
         visibility: hidden;
@@ -348,7 +348,7 @@
         transform: scale(1);
       }
     }
-    @media (min-width: em(1279)) {
+    @media (min-width: 1279px) {
       background-color: $beigeColor;
       border-radius: 10px;
       font-weight: 700;
@@ -360,7 +360,7 @@
     align-items: center;
     padding: 7px 0;
 
-    @media (min-width: em(1279)) {
+    @media (min-width: 1279px) {
       &:focus {
         .products-item & {
           color: $blueColor;
@@ -388,7 +388,7 @@
       }
     }
 
-    @media (max-width: em(1279)) {
+    @media (max-width: 1279px) {
       padding: 5px 0;
     }
   }
@@ -407,7 +407,7 @@
     height: 40px;
     margin-right: 8px;
 
-    @media (max-width: em(1279)) {
+    @media (max-width: 1279px) {
       width: 40px;
       height: 30px;
     }
@@ -426,11 +426,11 @@
     //    box-shadow: 1px 2px 6px $shadowLowColor;
     //    transition: background-color 0.3s;
 
-    //    @media (max-width: em(1279)) {
+    //    @media (max-width: 1279px) {
     //      width: 35px;
     //      height: 35px;
     //    }
-    //    @media (max-width: em(479)) {
+    //    @media (max-width: 479px) {
     //      left: -2px;
     //    }
     //  }
@@ -491,7 +491,7 @@
   &__link {
   }
 
-  @media (max-width: em(1279)) {
+  @media (max-width: 1279px) {
     display: none;
   }
 }
@@ -500,12 +500,12 @@
 
 .main-nav-service {
   text-align: center;
-  @media (max-width: em(1279)) {
+  @media (max-width: 1279px) {
     text-align: left;
   }
 
   &__wrapper {
-    @media (max-width: em(1279)) {
+    @media (max-width: 1279px) {
       flex-direction: column-reverse;
     }
   }
@@ -513,7 +513,7 @@
   &__list {
     flex: 1 1 70%;
     align-self: center;
-    @media (max-width: em(1279)) {
+    @media (max-width: 1279px) {
       align-self: flex-start;
     }
   }
@@ -531,7 +531,7 @@
       object-fit: contain;
       width: 100%;
       height: 100%;
-      @media (max-width: em(1279)) {
+      @media (max-width: 1279px) {
         position: static;
       }
     }
@@ -541,7 +541,7 @@
 
 .main-nav-exhibitions {
   &__wrapper {
-    @media (max-width: em(1279)) {
+    @media (max-width: 1279px) {
       flex-direction: column;
     }
   }
@@ -556,11 +556,11 @@
     a {
       font-size: 16px;
       letter-spacing: 0px;
-      @media (max-width: em(1279)) {
+      @media (max-width: 1279px) {
         font-size: 14px;
         padding: 8px 0;
       }
-      @media (max-width: em(767)) {
+      @media (max-width: 767px) {
         font-size: 12px;
       }
     }
@@ -588,12 +588,12 @@
 .main-nav-delivery {
   text-align: center;
 
-  @media (max-width: em(1279)) {
+  @media (max-width: 1279px) {
     text-align: left;
   }
 
   &__wrapper {
-    @media (max-width: em(1279)) {
+    @media (max-width: 1279px) {
       flex-direction: column-reverse;
     }
   }
@@ -601,7 +601,7 @@
   &__list-container {
     flex: 1 1 30%;
     align-self: center;
-    @media (max-width: em(1279)) {
+    @media (max-width: 1279px) {
       align-self: flex-start;
     }
   }
@@ -630,12 +630,12 @@
 .main-nav-about {
   text-align: center;
 
-  @media (max-width: em(1279)) {
+  @media (max-width: 1279px) {
     text-align: left;
   }
 
   &__wrapper {
-    @media (max-width: em(1279)) {
+    @media (max-width: 1279px) {
       flex-direction: column;
     }
   }
@@ -643,7 +643,7 @@
   &__list-container {
     flex: 1 1 70%;
     align-self: center;
-    @media (max-width: em(1279)) {
+    @media (max-width: 1279px) {
       align-self: flex-start;
     }
   }
@@ -671,7 +671,7 @@
 
 .main-nav-blog {
   &__list {
-    @media (max-width: em(767)) {
+    @media (max-width: 767px) {
       > * {
         grid-column: 6 span;
       }
@@ -689,38 +689,44 @@
     margin-bottom: 10px;
     max-width: 180px;
     height: auto;
-    @media (max-width: em(479)) {
+    @media (max-width: 479px) {
       width: 140px;
     }
   }
 
   &__date {
-    @include adaptiveValue('font-size', 16, 12);
-    margin-bottom: 5px;
     display: block;
+    margin-bottom: 5px;
     color: $greyColor;
+
+    @media (max-width: 1279px) {
+      font-size: 12px;
+    }
   }
 
   &__link {
-    @include adaptiveValue('font-size', 16, 12);
-    @include adaptiveValue('line-height', 18, 14);
+    line-height: 18px;
     max-width: 180px;
     font-weight: 700;
     transition: color 0.3s;
     color: $blueColor;
 
-    @media (any-hover: hover) {
-      &:hover {
-        color: $redColor;
-      }
-    }
-    @media (min-width: em(1279)) {
+    @media (min-width: 1279px) {
       &:focus {
         color: $redColor;
       }
     }
-    @media (max-width: em(479)) {
+    @media (max-width: 1279) {
+      font-size: 12px;
+      line-height: 14px;
+    }
+    @media (max-width: 479px) {
       max-width: 140px;
+    }
+    @media (any-hover: hover) {
+      &:hover {
+        color: $redColor;
+      }
     }
   }
 }
@@ -729,12 +735,12 @@
 
 .main-nav-contacts {
   &__list {
-    @media (max-width: em(1279)) {
+    @media (max-width: 1279px) {
       > * {
         grid-column: 4 span;
       }
     }
-    @media (max-width: em(767)) {
+    @media (max-width: 767px) {
       > * {
         grid-column: 6 span;
       }
@@ -747,31 +753,36 @@
 
 .contacts-card {
   &--krasnodar {
-    @media (min-width: em(1277)) {
+    @media (min-width: 1277px) {
       grid-column: 4/7;
     }
-    @media (max-width: em(767)) {
+    @media (max-width: 767px) {
       grid-column: 6 span;
     }
   }
 
   &__link {
-    @include adaptiveValue('font-size', 16, 13);
-    @include adaptiveValue('margin-bottom', 10, 6);
     max-width: 210px;
     color: $blueColor;
     height: 100%;
     display: block;
     font-weight: 700;
     transition: color 0.3s;
-    @media (any-hover: hover) {
-      &:hover {
+    margin-bottom: 10;
+
+    @media (min-width: 1279px) {
+      &:focus {
         color: $redColor;
       }
     }
 
-    @media (min-width: em(1279)) {
-      &:focus {
+    @media (max-width: 1279px) {
+      font-size: 13px;
+      margin-bottom: 6;
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
         color: $redColor;
       }
     }
@@ -784,14 +795,19 @@
     width: 180px;
     height: auto;
     border-radius: 8px;
-    @include adaptiveValue('margin-bottom', 10, 5);
-    @media (max-width: em(479)) {
+    margin-bottom: 10px;
+
+    @media (max-width: 1279px) {
+      margin-bottom: 5px;
+    }
+
+    @media (max-width: 479px) {
       width: 140px;
     }
   }
 
   &__list {
-    @media (max-width: em(479)) {
+    @media (max-width: 479px) {
       width: 140px;
     }
   }
@@ -802,23 +818,30 @@
   }
 
   &__address {
-    @include adaptiveValue('font-size', 16, 12);
-    @include adaptiveValue('margin-bottom', 12, 5);
     max-width: 180px;
+    margin-bottom: 12px;
+
+    @media (max-width: 1279px) {
+      font-size: 12px;
+      margin-bottom: 5px;
+    }
   }
 
   &__phone {
-    @include adaptiveValue('font-size', 16, 12);
+    @media (min-width: 1279px) {
+      &:focus {
+        color: $blueColor;
+      }
+    }
+
+    @media (max-width: 1279px) {
+      font-size: 12px;
+    }
     a {
       font-weight: 700;
       transition: color 0.3s;
       @media (any-hover: hover) {
         &:hover {
-          color: $blueColor;
-        }
-      }
-      @media (min-width: em(1279)) {
-        &:focus {
           color: $blueColor;
         }
       }
@@ -830,7 +853,7 @@
 
 .main-nav-offers {
   &__list {
-    @media (max-width: em(767)) {
+    @media (max-width: 767px) {
       > * {
         grid-column: 6 span;
       }
@@ -848,10 +871,15 @@
   &__img-wrapper {
     display: block;
     max-width: 250px;
-    @include adaptiveValue('margin-bottom', 10, 3);
+    margin-bottom: 10px;
     overflow: hidden;
     border-radius: 8px;
-    @media (min-width: em(1279)) {
+
+    @media (max-width: 1279px) {
+      margin-bottom: 3px;
+    }
+
+    @media (min-width: 1279px) {
       &:focus {
         .offers-card__img {
           transform: scale(1.1);
@@ -879,41 +907,51 @@
 
   &__date {
     display: inline-block;
-    @include adaptiveValue('font-size', 16, 11);
-    @include adaptiveValue('margin-bottom', 10, 3);
     font-weight: 700;
     color: $redColor;
+    margin-bottom: 10px;
+
+    @media (max-width: 1279px) {
+      font-size: 11px;
+      margin-bottom: 3px;
+    }
   }
 
   &__title-wrapper {
     display: block;
-    @include adaptiveValue('font-size', 16, 11);
     font-weight: 700;
     line-height: 1.15;
     transition: color 0.3s;
     color: $blueColor;
     max-width: 250px;
-    @media (any-hover: hover) {
-      &:hover {
+
+    @media (min-width: 1279px) {
+      &:focus {
         color: $redColor;
       }
     }
-    @media (min-width: em(1279)) {
-      &:focus {
+    @media (max-width: 1279px) {
+      font-size: 11px;
+    }
+    @media (any-hover: hover) {
+      &:hover {
         color: $redColor;
       }
     }
   }
 
   &__title {
-    @include adaptiveValue('line-height', 18, 12);
+    line-height: 18px;
+    @media (max-width: 1279px) {
+      line-height: 12px;
+    }
   }
 }
 
 //========================================================================================================================================================
 
 .mobile-contacts {
-  @media (min-width: em(1279)) {
+  @media (min-width: 1279px) {
     margin-left: auto;
     margin-right: 40px;
     align-self: center;
@@ -922,7 +960,7 @@
   }
 
   &__list {
-    @media (min-width: em(1279)) {
+    @media (min-width: 1279px) {
       display: none;
     }
   }
@@ -954,7 +992,7 @@
 }
 
 .social {
-  @media (max-width: em(1279)) {
+  @media (max-width: 1279px) {
     margin-bottom: 20px;
   }
 
@@ -965,7 +1003,7 @@
 
   &__item {
     &--vk {
-      @media (min-width: em(1279)) {
+      @media (min-width: 1279px) {
         display: none;
       }
       svg {
@@ -980,7 +1018,7 @@
       }
     }
     &--whatsapp {
-      @media (min-width: em(1279)) {
+      @media (min-width: 1279px) {
         display: none;
       }
     }
@@ -995,7 +1033,7 @@
 .info-header {
   display: flex;
   align-items: center;
-  @media (max-width: em(1279)) {
+  @media (max-width: 1279px) {
     margin-right: 45px;
   }
 }
@@ -1008,7 +1046,7 @@
   &__input-block {
   }
 
-  @media (max-width: em(767)) {
+  @media (max-width: 767px) {
     margin-right: 0px;
     order: 2;
   }
@@ -1027,12 +1065,12 @@
         opacity: 1;
         visibility: visible;
         max-height: 1000px;
-        @media (max-width: em(1279)) {
+        @media (max-width: 1279px) {
           display: block;
         }
         .main-nav-item__container {
           top: 0px;
-          @media (max-width: em(1279)) {
+          @media (max-width: 1279px) {
             top: -10px;
           }
         }
@@ -1063,7 +1101,7 @@
         background-color: $blueBackColor;
       }
     }
-    @media (min-width: em(1279)) {
+    @media (min-width: 1279px) {
       &:focus {
         background-color: $blueBackColor;
       }
@@ -1094,13 +1132,17 @@
   }
 
   input {
-    @include adaptiveValue('width', 400, 250);
+    width: 400px;
     margin: 30px 0;
     border: 1px solid $inputBorder;
     padding: 8px 13px;
     border-radius: 8px;
     background-color: $inputBackColor;
     transition: background-color 0.3s;
+
+    @media (max-width: 767px) {
+      width: 250px;
+    }
     &:focus {
       border: 1px solid #00000000;
       background-color: $mainWhiteColor;
@@ -1132,13 +1174,13 @@
       }
     }
 
-    @media (min-width: em(1279)) {
+    @media (min-width: 1279px) {
       &:focus {
         color: $blueColor;
       }
     }
 
-    @media (max-width: em(767)) {
+    @media (max-width: 767px) {
       font-size: 14px;
     }
 
@@ -1155,7 +1197,7 @@
 
   &__mail {
     position: relative;
-    @media (max-width: em(767)) {
+    @media (max-width: 767px) {
       display: none;
     }
   }
@@ -1180,7 +1222,7 @@
         color: $blueColor;
       }
     }
-    @media (min-width: em(1279)) {
+    @media (min-width: 1279px) {
       &:focus {
         color: $blueColor;
       }
@@ -1207,7 +1249,7 @@
     box-shadow: 4px 3px 5px $shadowMiddleColor;
   }
 
-  @media (max-width: em(1279)) {
+  @media (max-width: 1279px) {
     display: block;
     max-width: 160px;
     text-align: center;
@@ -1220,9 +1262,13 @@
 .main-nav-title {
   font-size: 13px;
   text-transform: uppercase;
-  @include adaptiveValue('margin-bottom', 15, 10);
+  margin-bottom: 15px;
   color: $greyColor;
   letter-spacing: 1px;
+
+  @media (max-width: 1279px) {
+    margin-bottom: 10px;
+  }
 }
 
 //========================================================================================================================================================
@@ -1255,7 +1301,7 @@
     top: 28px;
     right: 20px;
     width: 30px;
-    height: rem(18);
+    height: 18px;
     cursor: pointer;
     z-index: 5;
     span,
@@ -1266,7 +1312,7 @@
       right: 0;
       position: absolute;
       width: 100%;
-      height: rem(2);
+      height: 2px;
       background-color: $mainBlackColor;
     }
     &::before {
@@ -1276,18 +1322,18 @@
       bottom: 0;
     }
     span {
-      top: calc(50% - rem(1));
+      top: calc(50% - 0.0625rem);
     }
     .main-nav-open & {
       span {
         width: 0;
       }
       &::before {
-        top: calc(50% - rem(1));
+        top: calc(50% - 0.0625rem);
         transform: rotate(-45deg);
       }
       &::after {
-        bottom: calc(50% - rem(1));
+        bottom: calc(50% - 0.0625rem);
         transform: rotate(45deg);
       }
     }

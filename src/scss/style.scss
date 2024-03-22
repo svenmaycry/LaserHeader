@@ -1,25 +1,18 @@
 @use 'sass:math';
 
-//! Подключение миксинов
-
-@import 'base/mixins';
-
 //! Подключение шрифтов
 //&display=swap - добавить при подключении через плагин
 
 @import url(https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900&display=swap);
 @import url(https://fonts.googleapis.com/css?family=Ubuntu:300,300italic,regular,italic,500,500italic,600,700,700italic);
 
-// Подключить если есть локальные файлы шрифтов
-// @import 'fonts/fonts';
-
-//! Шрифт по умолчанию
+//! Шрифт по умолчанию, (в null файле)
 
 $fontFamily: 'Inter';
-$fontSize: rem(16); // где 14(px) - размер шрифта по умолчанию из макета
+$fontSize: 16px;
 
 //! Основные цвета
-$mainBlackColor: #000; // Цвет шрифта по умолчанию
+$mainBlackColor: #000;
 $shadowLowColor: rgba(0, 0, 0, 0.4);
 $shadowHighColor: rgba(0, 0, 0, 1);
 $shadowMiddleColor: rgba(0, 0, 0, 0.8);
@@ -41,18 +34,13 @@ $tgColor: #25a0dd;
 
 // Минимальная ширина страницы
 $minWidth: 320;
-// Ширина полотна (макета)
-$maxWidth: 1920;
+
 // Ширина ограничивающего контейнера (0 = нет ограничения)
 $maxWidthContainer: 1750;
+
 // Общий отступ у контейнера
 // (30 = по 15px слева и справа, 0 = нет отступа)
 $containerPadding: 30;
-
-// Ширина срабатывания первого брейкпоинта
-$containerWidth: $maxWidthContainer + $containerPadding;
-
-$responsiveType: 1;
 
 //! Обнуление и общие параметры
 
@@ -75,25 +63,19 @@ body {
   .lock & {
     overflow: hidden;
   }
-  // Сайт загружен
-  .loaded & {
-  }
 }
 
 /*
 ! (i) Стили будут применяться ко всем классам содержащим *  container
 */
-@if ($responsiveType==1) {
-  // Отзывчивая
-  [class*=' container'] {
-    @if ($maxWidthContainer>0) {
-      max-width: rem($maxWidthContainer);
-      box-sizing: content-box;
-      margin: 0 auto;
-    }
-    @if ($containerPadding>0) {
-      padding: 0 rem(math.div($containerPadding, 2));
-    }
+[class*=' container'] {
+  @if ($maxWidthContainer>0) {
+    max-width: ($maxWidthContainer) + px;
+    box-sizing: content-box;
+    margin: 0 auto;
+  }
+  @if ($containerPadding>0) {
+    padding: 0 (math.div($containerPadding, 2) + px);
   }
 }
 
