@@ -1024,6 +1024,19 @@
   }
 
   &__link {
+    display: block;
+    svg {
+      width: 30px;
+      height: 30px;
+      @media (min-width: 1279px) {
+        transition: transform 0.3s ease 0s;
+        @media (any-hover: hover) {
+          &:hover {
+            transform: scale(1.3);
+          }
+        }
+      }
+    }
   }
 }
 
