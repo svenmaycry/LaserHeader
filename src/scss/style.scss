@@ -13,6 +13,7 @@ $fontSize: 16px;
 
 //! Основные цвета
 $mainBlackColor: #000;
+$shadowVeryLowColor: rgba(0, 0, 0, 0.2);
 $shadowLowColor: rgba(0, 0, 0, 0.4);
 $shadowHighColor: rgba(0, 0, 0, 1);
 $shadowMiddleColor: rgba(0, 0, 0, 0.8);
@@ -51,7 +52,7 @@ body {
   flex-direction: column;
   // Прижимаем footer
   > main {
-    margin-top: 76px;
+    //  margin-top: 76px;
     //  flex: 1 1 auto;
     //  overflow: auto;
   }
