@@ -100,6 +100,7 @@
     transition: background-color 0.3s;
     padding: 0 10px;
     white-space: nowrap;
+    font-size: 14px;
 
     &--special {
       color: $redColor;
@@ -167,7 +168,7 @@
         opacity: 1;
         visibility: visible;
         @media (max-width: 1279px) {
-          max-height: 1000px;
+          max-height: 3000px;
         }
 
         .main-nav-item__container {
@@ -217,7 +218,7 @@
     left: 0;
     top: 75px;
     width: 100%;
-    max-height: 700px;
+    max-height: 70dvh;
     overflow-y: auto;
     box-shadow: 0px 12px 11px $shadowLowColor;
     background-color: $mainWhiteColor;
@@ -225,10 +226,30 @@
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s;
+    z-index: -1;
+
+    /* Создание кастомной полосы прокрутки */
+    &::-webkit-scrollbar {
+      width: 5px; /* Ширина полосы прокрутки */
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #f1f1f1; /* Цвет фона дорожки полосы прокрутки */
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #888; /* Цвет полосы прокрутки */
+      border-radius: 5px;
+      transition: background 0.3s ease 0s;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: #555; /* Цвет полосы прокрутки при наведении */
+    }
 
     @media (max-width: 1279px) {
       position: static;
-      overflow-y: hidden;
+      overflow: hidden;
       max-height: 0px;
       box-shadow: none;
       font-size: 14px;
@@ -621,6 +642,7 @@
 
 .delivery-media-block {
   flex: 1 1 70%;
+  align-self: center;
   &__image {
     max-width: 100%;
     height: auto;
@@ -663,6 +685,7 @@
 
 .about-company-media-block {
   flex: 1 1 30%;
+  align-self: center;
   &__image {
     max-width: 100%;
     height: auto;
@@ -956,7 +979,7 @@
 .mobile-contacts {
   @media (min-width: 1279px) {
     margin-left: auto;
-    margin-right: 40px;
+    margin-right: 10px;
     align-self: center;
   }
   &__link {
@@ -1175,6 +1198,7 @@
   display: flex;
   flex-direction: column;
   row-gap: 16px;
+  font-size: 14px;
 
   &__phone {
     position: relative;

@@ -50,6 +50,7 @@ $containerPadding: 30;
 body {
   display: flex;
   flex-direction: column;
+
   // Фикс для слайдеров
   > * {
     min-width: 0;
