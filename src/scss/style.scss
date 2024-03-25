@@ -50,19 +50,19 @@ $containerPadding: 30;
 body {
   display: flex;
   flex-direction: column;
-  // Прижимаем footer
-  > main {
-    margin-top: 76px;
-    //  flex: 1 1 auto;
-    //  overflow: auto;
-  }
   // Фикс для слайдеров
   > * {
     min-width: 0;
   }
   // Скролл заблокирован
-  .lock & {
+  &.lock {
     overflow: hidden;
+  }
+  // Прижимаем footer
+  > main {
+    margin-top: 76px;
+    //  flex: 1 1 auto;
+    //  overflow: auto;
   }
 }
 

@@ -1,21 +1,31 @@
 const iconMenuButton = document.querySelector('.icon-menu');
-const inputButton = document.querySelector('.search-header__button');
+const searchButton = document.querySelector('.search-header__button');
 const overlay = document.querySelector('.overlay');
 const mainHeader = document.querySelector('.main-header');
 const headerContainer = document.querySelector('.main-header__container');
+const body = document.querySelector('body');
 
 //? При клике на поиск закрытие Меню-бургер.
 const closeBurgerMenu = () => {
-  if (document.documentElement.classList.contains('main-nav-open')) {
-    document.documentElement.classList.remove('main-nav-open', 'lock');
+  if (body.classList.contains('main-nav-open')) {
+    body.classList.remove('main-nav-open', 'lock');
   }
 };
 
-//? При клике на поиск добавлять/убирать оверлей.
+//? При клике на поиск добавлять/убирать оверлей. Меняем класс lock у body.
 const overlayClassToggle = () => {
   if (window.innerWidth <= 1279) {
     overlay.classList.toggle('--active');
   }
+};
+
+//? При клике на поиск, на max-width: 1279px добавлять и удалять LOCK у body.
+const lockToggle = () => {
+  //   if (!body.classList.contains('main-nav-open')) {
+  //     body.classList.toggle('lock');
+  //   } else {
+  //     body.classList.remove('lock');
+  //   }
 };
 
 //? При клике на меню удаление класса --active оверлея.
@@ -25,8 +35,8 @@ const overlayClose = () => {
 
 //? При клике на меню закрытие поиска.
 const closeSearchWrapper = () => {
-  if (inputButton.classList.contains('--spoiler-active')) {
-    inputButton.classList.remove('--spoiler-active');
+  if (searchButton.classList.contains('--spoiler-active')) {
+    searchButton.classList.remove('--spoiler-active');
   }
 };
 
@@ -58,9 +68,10 @@ const changeContainerAttribute = () => {
   }
 };
 
-const onInputClick = () => {
+const onSearchClick = () => {
   closeBurgerMenu();
   overlayClassToggle();
+  lockToggle();
 };
 
 const onIconMenuClick = (e) => {
@@ -76,7 +87,7 @@ const onDocumentResize = () => {
   changeContainerAttribute();
 };
 
-inputButton.addEventListener('click', onInputClick);
+searchButton.addEventListener('click', onSearchClick);
 iconMenuButton.addEventListener('click', onIconMenuClick);
 document.addEventListener('scroll', onDocumentScroll);
 window.addEventListener('resize', onDocumentResize);

@@ -163,15 +163,16 @@ export let _slideToggle = (target, duration = 500) => {
 };
 // Вспомогательные модули блокировки прокрутки и скочка ====================================================================================================================================================================================================================================================================================
 export let bodyLockStatus = true;
+let body = document.querySelector('body');
+
 export let bodyLockToggle = (delay = 0) => {
-  if (document.documentElement.classList.contains('lock')) {
+  if (body.classList.contains('lock')) {
     bodyUnlock(delay);
   } else {
     bodyLock(delay);
   }
 };
 export let bodyUnlock = (delay = 0) => {
-  let body = document.querySelector('body');
   if (bodyLockStatus) {
     let lock_padding = document.querySelectorAll('[data-lp]');
     setTimeout(() => {
@@ -180,7 +181,7 @@ export let bodyUnlock = (delay = 0) => {
         el.style.paddingRight = '0px';
       }
       body.style.paddingRight = '0px';
-      document.documentElement.classList.remove('lock');
+      body.classList.remove('lock');
     }, delay);
     bodyLockStatus = false;
     setTimeout(function () {
@@ -189,7 +190,6 @@ export let bodyUnlock = (delay = 0) => {
   }
 };
 export let bodyLock = (delay = 0) => {
-  let body = document.querySelector('body');
   if (bodyLockStatus) {
     let lock_padding = document.querySelectorAll('[data-lp]');
     for (let index = 0; index < lock_padding.length; index++) {
@@ -203,7 +203,7 @@ export let bodyLock = (delay = 0) => {
       window.innerWidth -
       document.querySelector('.page__main').offsetWidth +
       'px';
-    document.documentElement.classList.add('lock');
+    body.classList.add('lock');
 
     bodyLockStatus = false;
     setTimeout(function () {
@@ -232,17 +232,7 @@ export function spoilers() {
     if (spoilersRegular.length) {
       initSpoilers(spoilersRegular);
     }
-    // Получение слойлеров с медиа запросами
-    //  let mdQueriesArray = dataMediaQueries(spoilersArray, 'spoilers');
-    //  if (mdQueriesArray && mdQueriesArray.length) {
-    //    mdQueriesArray.forEach((mdQueriesItem) => {
-    //      // Событие
-    //      mdQueriesItem.matchMedia.addEventListener('change', function () {
-    //        initSpoilers(mdQueriesItem.itemsArray, mdQueriesItem.matchMedia);
-    //      });
-    //      initSpoilers(mdQueriesItem.itemsArray, mdQueriesItem.matchMedia);
-    //    });
-    //  }
+
     // Инициализация
     function initSpoilers(spoilersArray, matchMedia = false) {
       spoilersArray.forEach((spoilersBlock) => {
@@ -265,39 +255,8 @@ export function spoilers() {
         spoilerTitles = Array.from(spoilerTitles).filter(
           (item) => item.closest('[data-spoilers]') === spoilersBlock
         );
-        //   spoilerTitles.forEach((spoilerTitle) => {
-        //     if (hideSpoilerBody) {
-        //       spoilerTitle.removeAttribute('tabindex');
-        //       if (!spoilerTitle.classList.contains('--spoiler-active')) {
-        //         spoilerTitle.nextElementSibling.hidden = true;
-        //       }
-        //     } else {
-        //       spoilerTitle.setAttribute('tabindex', '-1');
-        //       spoilerTitle.nextElementSibling.hidden = false;
-        //     }
-        //   });
       }
     }
-    // ! Раскомментить
-    //  function initSpoilerBody(spoilersBlock, hideSpoilerBody = true) {
-    //    let spoilerTitles = spoilersBlock.querySelectorAll('[data-spoiler]');
-    //    if (spoilerTitles.length) {
-    //      spoilerTitles = Array.from(spoilerTitles).filter(
-    //        (item) => item.closest('[data-spoilers]') === spoilersBlock
-    //      );
-    //      spoilerTitles.forEach((spoilerTitle) => {
-    //        if (hideSpoilerBody) {
-    //          spoilerTitle.removeAttribute('tabindex');
-    //          if (!spoilerTitle.classList.contains('--spoiler-active')) {
-    //            spoilerTitle.nextElementSibling.hidden = true;
-    //          }
-    //        } else {
-    //          spoilerTitle.setAttribute('tabindex', '-1');
-    //          spoilerTitle.nextElementSibling.hidden = false;
-    //        }
-    //      });
-    //    }
-    //  }
 
     function setSpoilerAction(e) {
       const el = e.target;
@@ -305,9 +264,7 @@ export function spoilers() {
         const spoilerTitle = el.closest('[data-spoiler]');
         const spoilersBlock = spoilerTitle.closest('[data-spoilers]');
         const oneSpoiler = spoilersBlock.hasAttribute('data-one-spoiler');
-        //   const spoilerSpeed = spoilersBlock.dataset.spoilersSpeed
-        //     ? parseInt(spoilersBlock.dataset.spoilersSpeed)
-        //     : 100;
+
         if (!spoilersBlock.querySelectorAll('._slide').length) {
           if (
             oneSpoiler &&
@@ -320,9 +277,11 @@ export function spoilers() {
             overlay.classList.toggle('--active');
           }
 
-          spoilerTitle.classList.toggle('--spoiler-active');
+          if (window.innerWidth >= 1279) {
+            body.classList.toggle('lock');
+          }
 
-          //  _slideToggle(spoilerTitle.nextElementSibling, spoilerSpeed);
+          spoilerTitle.classList.toggle('--spoiler-active');
         }
         e.preventDefault();
       }
@@ -331,16 +290,17 @@ export function spoilers() {
       const spoilerActiveTitle = spoilersBlock.querySelector(
         '[data-spoiler].--spoiler-active'
       );
-      // const spoilerSpeed = spoilersBlock.dataset.spoilersSpeed
-      //   ? parseInt(spoilersBlock.dataset.spoilersSpeed)
-      //   : 500;
       if (
         spoilerActiveTitle &&
         !spoilersBlock.querySelectorAll('._slide').length
       ) {
         overlay.classList.remove('--active');
+
+        if (window.innerWidth >= 1279) {
+          body.classList.remove('lock');
+        }
+
         spoilerActiveTitle.classList.remove('--spoiler-active');
-        //   _slideUp(spoilerActiveTitle.nextElementSibling, spoilerSpeed);
       }
     }
 
@@ -353,26 +313,26 @@ export function spoilers() {
       document.addEventListener('click', function (e) {
         if (!e.target.closest('[data-spoilers]')) {
           spoilersClose.forEach((spoilerClose) => {
-            // const spoilersBlock = spoilerClose.closest('[data-spoilers]');
-            // const spoilerSpeed = spoilersBlock.dataset.spoilersSpeed
-            //   ? parseInt(spoilersBlock.dataset.spoilersSpeed)
-            //   : 500;
             overlay.classList.remove('--active');
+
+            if (!body.classList.contains('main-nav-open')) {
+              body.classList.remove('lock');
+            }
+
             spoilerClose.classList.remove('--spoiler-active');
-            // _slideUp(spoilerClose.nextElementSibling, spoilerSpeed);
           });
         }
       });
       document.addEventListener('keydown', function (e) {
         if (!e.target.closest('[data-spoilers]') || isEscapeKey(e)) {
           spoilersClose.forEach((spoilerClose) => {
-            // const spoilersBlock = spoilerClose.closest('[data-spoilers]');
-            // const spoilerSpeed = spoilersBlock.dataset.spoilersSpeed
-            //   ? parseInt(spoilersBlock.dataset.spoilersSpeed)
-            //   : 500;
             overlay.classList.remove('--active');
+
+            if (!body.classList.contains('main-nav-open')) {
+              body.classList.remove('lock');
+            }
+
             spoilerClose.classList.remove('--spoiler-active');
-            // _slideUp(spoilerClose.nextElementSibling, spoilerSpeed);
           });
         }
       });
@@ -389,11 +349,6 @@ export function tabs() {
   const tabs = document.querySelectorAll('[data-tabs]');
   let tabsActiveHash = [];
 
-  //   if (tabs.length > 0) {
-  //  const hash = getHash();
-  //  if (hash && hash.startsWith('tab-')) {
-  //    tabsActiveHash = hash.replace('tab-', '').split('-');
-  //  }
   tabs.forEach((tabsBlock, index) => {
     tabsBlock.classList.add('--tab-init');
     tabsBlock.setAttribute('data-tabs-index', index);
@@ -401,44 +356,6 @@ export function tabs() {
     initTabs(tabsBlock);
   });
 
-  // Получение слойлеров с медиа запросами
-  //     let mdQueriesArray = dataMediaQueries(tabs, 'tabs');
-  //     if (mdQueriesArray && mdQueriesArray.length) {
-  //       mdQueriesArray.forEach((mdQueriesItem) => {
-  //         // Событие
-  //         mdQueriesItem.matchMedia.addEventListener('change', function () {
-  //           setTitlePosition(mdQueriesItem.itemsArray, mdQueriesItem.matchMedia);
-  //         });
-  //         setTitlePosition(mdQueriesItem.itemsArray, mdQueriesItem.matchMedia);
-  //       });
-  //     }
-  //   }
-  // Установка позиций заголовков
-  //   function setTitlePosition(tabsMediaArray, matchMedia) {
-  //     tabsMediaArray.forEach((tabsMediaItem) => {
-  //       tabsMediaItem = tabsMediaItem.item;
-  //       let tabsTitles = tabsMediaItem.querySelector('[data-tabs-titles]');
-  //       let tabsTitleItems = tabsMediaItem.querySelectorAll('[data-tabs-title]');
-  //       let tabsContent = tabsMediaItem.querySelector('[data-tabs-body]');
-  //       let tabsContentItems = tabsMediaItem.querySelectorAll('[data-tabs-item]');
-  //       tabsTitleItems = Array.from(tabsTitleItems).filter(
-  //         (item) => item.closest('[data-tabs]') === tabsMediaItem
-  //       );
-  //       tabsContentItems = Array.from(tabsContentItems).filter(
-  //         (item) => item.closest('[data-tabs]') === tabsMediaItem
-  //       );
-  //       tabsContentItems.forEach((tabsContentItem, index) => {
-  //         if (matchMedia.matches) {
-  //           tabsContent.append(tabsTitleItems[index]);
-  //           tabsContent.append(tabsContentItem);
-  //           tabsMediaItem.classList.add('--tab-spoiler');
-  //         } else {
-  //           tabsTitles.append(tabsTitleItems[index]);
-  //           tabsMediaItem.classList.remove('--tab-spoiler');
-  //         }
-  //       });
-  //     });
-  //   }
   // Работа с контентом
   function initTabs(tabsBlock) {
     let tabsTitles = tabsBlock.querySelectorAll('[data-tabs-titles]>*');
@@ -474,7 +391,6 @@ export function tabs() {
   function setTabsStatus(tabsBlock) {
     let tabsTitles = tabsBlock.querySelectorAll('[data-tabs-title]');
     let tabsContent = tabsBlock.querySelectorAll('[data-tabs-item]');
-    //  const tabsBlockIndex = tabsBlock.dataset.tabsIndex;
     function isTabsAnamate(tabsBlock) {
       if (tabsBlock.hasAttribute('data-tabs-animate')) {
         return tabsBlock.dataset.tabsAnimate > 0
@@ -484,7 +400,6 @@ export function tabs() {
     }
     const tabsBlockAnimate = isTabsAnamate(tabsBlock);
     if (tabsContent.length > 0) {
-      // const isHash = tabsBlock.hasAttribute('data-tabs-hash');
       tabsContent = Array.from(tabsContent).filter(
         (item) => item.closest('[data-tabs]') === tabsBlock
       );
@@ -494,16 +409,11 @@ export function tabs() {
       tabsContent.forEach((tabsContentItem, index) => {
         if (tabsTitles[index].classList.contains('--tab-active')) {
           if (tabsBlockAnimate) {
-            // _slideDown(tabsContentItem, tabsBlockAnimate);
           } else {
             tabsContentItem.hidden = false;
           }
-          //  if (isHash && !tabsContentItem.closest('.popup')) {
-          //    setHash(`tab-${tabsBlockIndex}-${index}`);
-          //  }
         } else {
           if (tabsBlockAnimate) {
-            // _slideUp(tabsContentItem, tabsBlockAnimate);
           } else {
             tabsContentItem.hidden = true;
           }
@@ -549,18 +459,18 @@ export function menuInit() {
     document.addEventListener('click', function (e) {
       if (bodyLockStatus && e.target.closest('.icon-menu')) {
         bodyLockToggle();
-        document.documentElement.classList.toggle('main-nav-open');
+        body.classList.toggle('main-nav-open');
       }
     });
   }
 }
 export function menuOpen() {
   bodyLock();
-  document.documentElement.classList.add('main-nav-open');
+  body.classList.add('main-nav-open');
 }
 export function menuClose() {
   bodyUnlock();
-  document.documentElement.classList.remove('main-nav-open');
+  body.classList.remove('main-nav-open');
 }
 // Модуль "показать еще" =======================================================================================================================================================================================================================
 /*
