@@ -50,7 +50,6 @@
       top: 75px;
       left: -120%;
       overflow: auto;
-      z-index: 4;
       transition: left 0.3s;
 
       .main-nav-open & {
@@ -260,7 +259,6 @@
     position: relative;
     top: -15px;
     display: flex;
-    z-index: 1000;
     box-sizing: content-box;
     margin: 0 auto;
     column-gap: 30px;
@@ -471,7 +469,6 @@
     height: 100%;
     display: flex;
     visibility: hidden;
-    overflow: hidden;
     transform: rotate(-90deg);
   }
 }
@@ -740,9 +737,9 @@
         color: $redColor;
       }
     }
-    @media (max-width: 1279) {
+    @media (max-width: 1279px) {
       font-size: 12px;
-      line-height: 14px;
+      line-height: 12px;
     }
     @media (max-width: 479px) {
       max-width: 140px;
@@ -792,7 +789,7 @@
     display: block;
     font-weight: 700;
     transition: color 0.3s;
-    margin-bottom: 10;
+    margin-bottom: 10px;
 
     @media (min-width: 1279px) {
       &:focus {
@@ -802,7 +799,7 @@
 
     @media (max-width: 1279px) {
       font-size: 13px;
-      margin-bottom: 6;
+      margin-bottom: 6px;
     }
 
     @media (any-hover: hover) {
