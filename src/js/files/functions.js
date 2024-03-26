@@ -165,52 +165,50 @@ export let _slideToggle = (target, duration = 500) => {
 export let bodyLockStatus = true;
 let body = document.querySelector('body');
 
-export let bodyLockToggle = (delay = 0) => {
+export let bodyLockToggle = () => {
   if (body.classList.contains('lock')) {
-    bodyUnlock(delay);
+    bodyUnlock();
   } else {
-    bodyLock(delay);
+    bodyLock();
   }
 };
-export let bodyUnlock = (delay = 0) => {
+export let bodyUnlock = () => {
   if (bodyLockStatus) {
-    let lock_padding = document.querySelectorAll('[data-lp]');
-    setTimeout(() => {
-      for (let index = 0; index < lock_padding.length; index++) {
-        const el = lock_padding[index];
-        el.style.paddingRight = '0px';
-      }
-      body.style.paddingRight = '0px';
-      body.classList.remove('lock');
-    }, delay);
-    bodyLockStatus = false;
-    setTimeout(function () {
-      bodyLockStatus = true;
-    }, delay);
+    body.classList.remove('lock');
+    bodyLockStatus = true;
   }
 };
-export let bodyLock = (delay = 0) => {
+export let bodyLock = () => {
   if (bodyLockStatus) {
-    let lock_padding = document.querySelectorAll('[data-lp]');
-    for (let index = 0; index < lock_padding.length; index++) {
-      const el = lock_padding[index];
-      el.style.paddingRight =
-        window.innerWidth -
-        document.querySelector('.page__main').offsetWidth +
-        'px';
-    }
-    body.style.paddingRight =
-      window.innerWidth -
-      document.querySelector('.page__main').offsetWidth +
-      'px';
     body.classList.add('lock');
 
-    bodyLockStatus = false;
-    setTimeout(function () {
-      bodyLockStatus = true;
-    }, delay);
+    bodyLockStatus = true;
   }
 };
+
+// Модуль работы с меню (бургер) =======================================================================================================================================================================================================================
+/*
+Документация по работе в шаблоне: https://template.fls.guru/template-docs/menu-burger.html
+Сниппет (HTML): menu
+*/
+export function menuInit() {
+  if (document.querySelector('.icon-menu')) {
+    document.addEventListener('click', function (e) {
+      if (bodyLockStatus && e.target.closest('.icon-menu')) {
+        bodyLockToggle();
+        body.classList.toggle('main-nav-open');
+      }
+    });
+  }
+}
+export function menuOpen() {
+  bodyLock();
+  body.classList.add('main-nav-open');
+}
+export function menuClose() {
+  bodyUnlock();
+  body.classList.remove('main-nav-open');
+}
 // Модуль работы со спойлерами =======================================================================================================================================================================================================================
 /*
 Документация по работе в шаблоне: https://template.fls.guru/template-docs/modul-spojlery.html
@@ -221,11 +219,7 @@ export function spoilers() {
   const overlay = document.querySelector('.overlay');
   if (spoilersArray.length > 0) {
     // Получение обычных слойлеров
-    const spoilersRegular = Array.from(spoilersArray).filter(function (
-      item,
-      index,
-      self
-    ) {
+    const spoilersRegular = Array.from(spoilersArray).filter(function (item) {
       return !item.dataset.spoilers.split(',')[0];
     });
     // Инициализация обычных слойлеров
@@ -265,24 +259,22 @@ export function spoilers() {
         const spoilersBlock = spoilerTitle.closest('[data-spoilers]');
         const oneSpoiler = spoilersBlock.hasAttribute('data-one-spoiler');
 
-        if (!spoilersBlock.querySelectorAll('._slide').length) {
-          if (
-            oneSpoiler &&
-            !spoilerTitle.classList.contains('--spoiler-active')
-          ) {
-            hideSpoilersBody(spoilersBlock);
-          }
-
-          if (window.innerWidth >= 1279) {
-            overlay.classList.toggle('--active');
-          }
-
-          if (window.innerWidth >= 1279) {
-            body.classList.toggle('lock');
-          }
-
-          spoilerTitle.classList.toggle('--spoiler-active');
+        if (
+          oneSpoiler &&
+          !spoilerTitle.classList.contains('--spoiler-active')
+        ) {
+          hideSpoilersBody(spoilersBlock);
         }
+
+        if (window.innerWidth >= 1279) {
+          overlay.classList.toggle('--active');
+        }
+
+        if (!body.classList.contains('main-nav-open')) {
+          body.classList.toggle('lock');
+        }
+
+        spoilerTitle.classList.toggle('--spoiler-active');
         e.preventDefault();
       }
     }
@@ -290,15 +282,10 @@ export function spoilers() {
       const spoilerActiveTitle = spoilersBlock.querySelector(
         '[data-spoiler].--spoiler-active'
       );
-      if (
-        spoilerActiveTitle &&
-        !spoilersBlock.querySelectorAll('._slide').length
-      ) {
+      if (spoilerActiveTitle) {
         overlay.classList.remove('--active');
 
-        if (window.innerWidth >= 1279) {
-          body.classList.remove('lock');
-        }
+        body.classList.remove('lock');
 
         spoilerActiveTitle.classList.remove('--spoiler-active');
       }
@@ -449,29 +436,7 @@ export function tabs() {
     }
   }
 }
-// Модуль работы с меню (бургер) =======================================================================================================================================================================================================================
-/*
-Документация по работе в шаблоне: https://template.fls.guru/template-docs/menu-burger.html
-Сниппет (HTML): menu
-*/
-export function menuInit() {
-  if (document.querySelector('.icon-menu')) {
-    document.addEventListener('click', function (e) {
-      if (bodyLockStatus && e.target.closest('.icon-menu')) {
-        bodyLockToggle();
-        body.classList.toggle('main-nav-open');
-      }
-    });
-  }
-}
-export function menuOpen() {
-  bodyLock();
-  body.classList.add('main-nav-open');
-}
-export function menuClose() {
-  bodyUnlock();
-  body.classList.remove('main-nav-open');
-}
+
 // Модуль "показать еще" =======================================================================================================================================================================================================================
 /*
 Документация по работе в шаблоне: https://template.fls.guru/template-docs/modul-pokazat-eshhjo.html

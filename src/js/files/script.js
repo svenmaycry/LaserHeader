@@ -5,7 +5,7 @@ const mainHeader = document.querySelector('.main-header');
 const headerContainer = document.querySelector('.main-header__container');
 const body = document.querySelector('body');
 
-//? При клике на поиск закрытие Меню-бургер.
+//? При клике на поиск закрытие Меню-бургер + Сохранение класса lock.
 const closeBurgerMenu = () => {
   if (body.classList.contains('main-nav-open')) {
     body.classList.remove('main-nav-open', 'lock');
@@ -19,24 +19,16 @@ const overlayClassToggle = () => {
   }
 };
 
-//? При клике на поиск, на max-width: 1279px добавлять и удалять LOCK у body.
-const lockToggle = () => {
-  //   if (!body.classList.contains('main-nav-open')) {
-  //     body.classList.toggle('lock');
-  //   } else {
-  //     body.classList.remove('lock');
-  //   }
-};
-
 //? При клике на меню удаление класса --active оверлея.
 const overlayClose = () => {
   overlay.classList.remove('--active');
 };
 
-//? При клике на меню закрытие поиска.
+//? При клике на меню закрытие поиска + Сохранение класса lock.
 const closeSearchWrapper = () => {
   if (searchButton.classList.contains('--spoiler-active')) {
     searchButton.classList.remove('--spoiler-active');
+    body.classList.remove('lock');
   }
 };
 
@@ -71,7 +63,6 @@ const changeContainerAttribute = () => {
 const onSearchClick = () => {
   closeBurgerMenu();
   overlayClassToggle();
-  lockToggle();
 };
 
 const onIconMenuClick = (e) => {
