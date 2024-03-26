@@ -41,7 +41,7 @@ $maxWidthContainer: 1750;
 
 // Общий отступ у контейнера
 // (30 = по 15px слева и справа, 0 = нет отступа)
-$containerPadding: 30;
+$containerPadding: 20;
 
 //! Обнуление и общие параметры
 
@@ -50,6 +50,7 @@ $containerPadding: 30;
 body {
   display: flex;
   flex-direction: column;
+  padding-right: calc(19px - (100vw - 100%));
 
   // Фикс для слайдеров
   > * {
