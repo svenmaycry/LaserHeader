@@ -43,11 +43,11 @@
   flex: 1 1 auto;
 
   &__wrapper {
-    background-color: $mainWhiteColor;
     display: flex;
     @media (max-width: 1279px) {
       display: flex;
       flex-direction: column;
+      background-color: $mainWhiteColor;
       position: fixed;
       width: 100%;
       height: 90dvh;
