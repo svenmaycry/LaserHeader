@@ -1,9 +1,10 @@
+const body = document.querySelector('body');
 const iconMenuButton = document.querySelector('.icon-menu');
 const searchButton = document.querySelector('.search-header__button');
 const overlay = document.querySelector('.overlay');
 const mainHeader = document.querySelector('.main-header');
 const headerContainer = document.querySelector('.main-header__container');
-const body = document.querySelector('body');
+const mainNavItemButton = document.querySelectorAll('.main-nav-item__button');
 
 //? При клике на поиск закрытие Меню-бургер + Сохранение класса lock.
 const closeBurgerMenu = () => {
@@ -29,6 +30,17 @@ const closeSearchWrapper = () => {
   if (searchButton.classList.contains('--spoiler-active')) {
     searchButton.classList.remove('--spoiler-active');
     body.classList.remove('lock');
+  }
+};
+
+//? При клике на меню закрытие всех спойлеров, кроме поиска.
+const closeSpoilersContent = () => {
+  if (body.classList.contains('main-nav-open')) {
+    mainNavItemButton.forEach((oneButton) => {
+      if (oneButton.classList.contains('--spoiler-active')) {
+        oneButton.classList.remove('--spoiler-active');
+      }
+    });
   }
 };
 
@@ -68,6 +80,7 @@ const onSearchClick = () => {
 const onIconMenuClick = (e) => {
   closeSearchWrapper();
   overlayClose(e);
+  closeSpoilersContent();
 };
 
 const onDocumentScroll = () => {
