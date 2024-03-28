@@ -33,7 +33,7 @@ const closeSearchWrapper = () => {
   }
 };
 
-//? При клике на меню закрытие всех спойлеров, кроме поиска.
+//? При клике на меню и поиск закрытие спойлеров мобильного меню.
 const closeSpoilersContent = () => {
   if (body.classList.contains('main-nav-open')) {
     mainNavItemButton.forEach((oneButton) => {
