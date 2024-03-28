@@ -73,6 +73,7 @@ const changeContainerAttribute = () => {
 };
 
 const onSearchClick = () => {
+  closeSpoilersContent();
   closeBurgerMenu();
   overlayClassToggle();
 };

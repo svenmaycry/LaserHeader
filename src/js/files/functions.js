@@ -296,31 +296,28 @@ export function spoilers() {
 
     const isEscapeKey = (e) => e.key === 'Escape';
 
+    const closeBody = () => {
+      spoilersClose.forEach((spoilerClose) => {
+        overlay.classList.remove('--active');
+
+        if (!body.classList.contains('main-nav-open')) {
+          body.classList.remove('lock');
+        }
+
+        spoilerClose.classList.remove('--spoiler-active');
+      });
+    };
+
     if (spoilersClose.length) {
       document.addEventListener('click', function (e) {
         if (!e.target.closest('[data-spoilers]')) {
-          spoilersClose.forEach((spoilerClose) => {
-            overlay.classList.remove('--active');
-
-            if (!body.classList.contains('main-nav-open')) {
-              body.classList.remove('lock');
-            }
-
-            spoilerClose.classList.remove('--spoiler-active');
-          });
+          closeBody();
         }
       });
+
       document.addEventListener('keydown', function (e) {
-        if (!e.target.closest('[data-spoilers]') || isEscapeKey(e)) {
-          spoilersClose.forEach((spoilerClose) => {
-            overlay.classList.remove('--active');
-
-            if (!body.classList.contains('main-nav-open')) {
-              body.classList.remove('lock');
-            }
-
-            spoilerClose.classList.remove('--spoiler-active');
-          });
+        if (isEscapeKey(e)) {
+          closeBody();
         }
       });
     }

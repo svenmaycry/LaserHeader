@@ -26,7 +26,10 @@
   }
 
   &__logo {
-    margin-right: 5px;
+    @media (min-width: 1279px) {
+      padding: 21px 5px;
+      background-color: $mainWhiteColor;
+    }
 
     img {
       width: auto;
@@ -41,6 +44,7 @@
 
 .main-nav {
   flex: 1 1 auto;
+  background-color: $mainWhiteColor;
 
   &__wrapper {
     display: flex;
@@ -227,7 +231,7 @@
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s;
-    z-index: 3;
+    z-index: -1;
 
     /* Создание кастомной полосы прокрутки */
     &::-webkit-scrollbar {
@@ -1078,6 +1082,10 @@
   align-items: center;
   @media (max-width: 1279px) {
     margin-right: 45px;
+  }
+  @media (min-width: 1279px) {
+    padding: 15px 0;
+    background-color: $mainWhiteColor;
   }
 }
 
