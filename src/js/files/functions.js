@@ -349,9 +349,11 @@ export function tabs() {
 
     if (tabsActiveHashBlock) {
       const tabsActiveTitle = tabsBlock.querySelector(
-        '[data-tabs-titles]>.--tab-active'
+        '[data-tabs-titles]>.main-nav-tab-active'
       );
-      tabsActiveTitle ? tabsActiveTitle.classList.remove('--tab-active') : null;
+      tabsActiveTitle
+        ? tabsActiveTitle.classList.remove('main-nav-tab-active')
+        : null;
     }
     if (tabsContent.length) {
       tabsContent = Array.from(tabsContent).filter(
@@ -365,10 +367,11 @@ export function tabs() {
         tabsContentItem.setAttribute('data-tabs-item', '');
 
         if (tabsActiveHashBlock && index == tabsActiveHash[1]) {
-          tabsTitles[index].classList.add('--tab-active');
+          tabsTitles[index].classList.add('main-nav-tab-active');
         }
-        tabsContentItem.hidden =
-          !tabsTitles[index].classList.contains('--tab-active');
+        tabsContentItem.hidden = !tabsTitles[index].classList.contains(
+          'main-nav-tab-active'
+        );
       });
     }
   }
@@ -391,7 +394,7 @@ export function tabs() {
         (item) => item.closest('[data-tabs]') === tabsBlock
       );
       tabsContent.forEach((tabsContentItem, index) => {
-        if (tabsTitles[index].classList.contains('--tab-active')) {
+        if (tabsTitles[index].classList.contains('main-nav-tab-active')) {
           if (tabsBlockAnimate) {
           } else {
             tabsContentItem.hidden = false;
@@ -412,11 +415,11 @@ export function tabs() {
       const tabTitle = el.closest('[data-tabs-title]');
       const tabsBlock = tabTitle.closest('[data-tabs]');
       if (
-        !tabTitle.classList.contains('--tab-active') &&
+        !tabTitle.classList.contains('main-nav-tab-active') &&
         !tabsBlock.querySelector('._slide')
       ) {
         let tabActiveTitle = tabsBlock.querySelectorAll(
-          '[data-tabs-title].--tab-active'
+          '[data-tabs-title].main-nav-tab-active'
         );
         tabActiveTitle.length
           ? (tabActiveTitle = Array.from(tabActiveTitle).filter(
@@ -424,9 +427,9 @@ export function tabs() {
             ))
           : null;
         tabActiveTitle.length
-          ? tabActiveTitle[0].classList.remove('--tab-active')
+          ? tabActiveTitle[0].classList.remove('main-nav-tab-active')
           : null;
-        tabTitle.classList.add('--tab-active');
+        tabTitle.classList.add('main-nav-tab-active');
         setTabsStatus(tabsBlock);
       }
       e.preventDefault();

@@ -40,6 +40,7 @@
     }
   }
 }
+
 //========================================================================================================================================================
 
 .main-nav {
@@ -87,207 +88,216 @@
     }
   }
 
-  &__item {
-  }
-}
-
-//========================================================================================================================================================
-.main-nav-item {
-  @media (max-width: 1279px) {
-    border-bottom: 1px solid $greyBorderColor;
-  }
-
-  &__button {
-    position: relative;
-    display: flex;
-    align-items: center;
-    height: 100%;
-    transition: background-color 0.3s;
-    padding: 0 10px;
-    white-space: nowrap;
-    font-size: 14px;
-
-    &--special {
-      color: $redColor;
-    }
-
-    &::before {
-      content: '';
-      opacity: 0;
-      position: absolute;
-      width: 13px;
-      height: 13px;
-      top: 35px;
-      right: 10px;
-      transform: rotate(180deg);
-      background: url('@img/header-arrow-down.svg') 0 0 / contain no-repeat;
-      transition: transform 0.3s, right 0.1s, top 0.1s, opacity 0.3s ease 0.1s;
-      @media (max-width: 1279px) {
-        top: 14px;
-        right: 0px;
-      }
-    }
-
-    &::after {
-      content: '';
-      bottom: -1px;
-      display: block;
-      height: 1px;
-      right: 0;
-      position: absolute;
-      background: linear-gradient(to left, $redColor, $blueGradientColor 100%);
-      transition: width 0.3s, right 0.3s;
-      width: 0;
-    }
-
-    svg {
-      flex: 1 0 auto;
-      width: 13px;
-      height: 13px;
-      margin-left: 5px;
-      transition: transform 0.3s;
-    }
-
-    &.--spoiler-active {
-      background-color: $blueBackColor;
-      &::after {
-        width: 100%;
-        right: 0;
-      }
-      &::before {
-        opacity: 1;
-        transform: rotate(90deg);
-        top: 31px;
-        right: 6px;
-        @media (max-width: 1279px) {
-          top: 10px;
-          right: -4px;
-        }
-      }
-
-      svg {
-        transition: transform 0.3s;
-        transform: rotate(-90deg);
-      }
-      + .main-nav-item__wrapper {
-        opacity: 1;
-        visibility: visible;
-        @media (max-width: 1279px) {
-          max-height: 3000px;
-        }
-
-        .main-nav-item__container {
-          top: 0px;
-          @media (max-width: 1279px) {
-            top: -10px;
-          }
-        }
-      }
-    }
-
+  &-item {
     @media (max-width: 1279px) {
-      font-weight: 600;
-      width: 100%;
+      border-bottom: 1px solid $greyBorderColor;
+    }
+
+    &__button {
+      position: relative;
+      display: flex;
+      align-items: center;
       height: 100%;
-      padding: 10px 0;
-      display: block;
-      text-align: left;
+      transition: background-color 0.3s;
+      padding: 0 10px;
+      white-space: nowrap;
+      font-size: 14px;
+
+      &--special {
+        color: $redColor;
+      }
+
+      &::before {
+        content: '';
+        opacity: 0;
+        position: absolute;
+        width: 13px;
+        height: 13px;
+        top: 35px;
+        right: 10px;
+        transform: rotate(180deg);
+        background: url('@img/header-arrow-down.svg') 0 0 / contain no-repeat;
+        transition: transform 0.3s, right 0.1s, top 0.1s, opacity 0.3s ease 0.1s;
+        @media (max-width: 1279px) {
+          top: 14px;
+          right: 0px;
+        }
+      }
+
+      &::after {
+        content: '';
+        bottom: -1px;
+        display: block;
+        height: 1px;
+        right: 0;
+        position: absolute;
+        background: linear-gradient(
+          to left,
+          $redColor,
+          $blueGradientColor 100%
+        );
+        transition: width 0.3s, right 0.3s;
+        width: 0;
+      }
 
       svg {
-        position: absolute;
-        right: 0;
+        flex: 1 0 auto;
+        width: 13px;
+        height: 13px;
+        margin-left: 5px;
+        transition: transform 0.3s;
       }
 
       &.--spoiler-active {
-        background: none;
+        background-color: $blueBackColor;
         &::after {
-          display: none;
+          width: 100%;
+          right: 0;
+        }
+        &::before {
+          opacity: 1;
+          transform: rotate(90deg);
+          top: 31px;
+          right: 6px;
+          @media (max-width: 1279px) {
+            top: 10px;
+            right: -4px;
+          }
+        }
+
+        svg {
+          transition: transform 0.3s;
+          transform: rotate(-90deg);
+        }
+        + .main-nav-item__wrapper {
+          opacity: 1;
+          visibility: visible;
+          @media (max-width: 1279px) {
+            max-height: 3000px;
+          }
+
+          .main-nav-item__container {
+            top: 0px;
+            @media (max-width: 1279px) {
+              top: -10px;
+            }
+          }
+        }
+      }
+
+      @media (max-width: 1279px) {
+        font-weight: 600;
+        width: 100%;
+        height: 100%;
+        padding: 10px 0;
+        display: block;
+        text-align: left;
+
+        svg {
+          position: absolute;
+          right: 0;
+        }
+
+        &.--spoiler-active {
+          background: none;
+          &::after {
+            display: none;
+          }
+        }
+      }
+      @media (min-width: 1279px) {
+        &:focus {
+          background-color: $blueBackColor;
+        }
+      }
+
+      @media (any-hover: hover) {
+        &:hover {
+          background-color: $blueBackColor;
         }
       }
     }
-    @media (min-width: 1279px) {
-      &:focus {
-        background-color: $blueBackColor;
+
+    &__wrapper {
+      position: absolute;
+      left: 0;
+      top: 75px;
+      width: 100%;
+      max-height: 83dvh;
+      overflow-y: auto;
+      box-shadow: 0px 12px 11px $shadowLowColor;
+      background-color: $mainWhiteColor;
+      padding: 20px 0px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s;
+      z-index: -1;
+
+      /* Создание кастомной полосы прокрутки */
+      &::-webkit-scrollbar {
+        width: 5px; /* Ширина полосы прокрутки */
+      }
+
+      &::-webkit-scrollbar-track {
+        background: #f1f1f1; /* Цвет фона дорожки полосы прокрутки */
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: #888; /* Цвет полосы прокрутки */
+        border-radius: 5px;
+        transition: background 0.3s ease 0s;
+      }
+
+      &::-webkit-scrollbar-thumb:hover {
+        background: #555; /* Цвет полосы прокрутки при наведении */
+      }
+
+      @media (max-width: 1279px) {
+        position: static;
+        overflow: hidden;
+        max-height: 0px;
+        box-shadow: none;
+        font-size: 14px;
+        padding: 0px 0px;
+        transition: opacity 0.3s, max-height 0.3s, visibility 0.3s;
       }
     }
 
-    @media (any-hover: hover) {
-      &:hover {
-        background-color: $blueBackColor;
+    &__container {
+      position: relative;
+      top: -15px;
+      display: flex;
+      box-sizing: content-box;
+      margin: 0 auto;
+      column-gap: 30px;
+      max-width: 1320px;
+      padding: 0 30px;
+      row-gap: 7px;
+      transition: top 0.3s, opacity 0.3s;
+      @media (max-width: 1279px) {
+        padding: 10px 8px;
       }
     }
-  }
 
-  &__wrapper {
-    position: absolute;
-    left: 0;
-    top: 75px;
-    width: 100%;
-    max-height: 83dvh;
-    overflow-y: auto;
-    box-shadow: 0px 12px 11px $shadowLowColor;
-    background-color: $mainWhiteColor;
-    padding: 20px 0px;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s;
-    z-index: -1;
-
-    /* Создание кастомной полосы прокрутки */
-    &::-webkit-scrollbar {
-      width: 5px; /* Ширина полосы прокрутки */
-    }
-
-    &::-webkit-scrollbar-track {
-      background: #f1f1f1; /* Цвет фона дорожки полосы прокрутки */
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background: #888; /* Цвет полосы прокрутки */
-      border-radius: 5px;
-      transition: background 0.3s ease 0s;
-    }
-
-    &::-webkit-scrollbar-thumb:hover {
-      background: #555; /* Цвет полосы прокрутки при наведении */
-    }
-
-    @media (max-width: 1279px) {
-      position: static;
-      overflow: hidden;
-      max-height: 0px;
-      box-shadow: none;
-      font-size: 14px;
-      padding: 0px 0px;
-      transition: opacity 0.3s, max-height 0.3s, visibility 0.3s;
-    }
-  }
-
-  &__container {
-    position: relative;
-    top: -15px;
-    display: flex;
-    box-sizing: content-box;
-    margin: 0 auto;
-    column-gap: 30px;
-    max-width: 1320px;
-    padding: 0 30px;
-    row-gap: 7px;
-    transition: top 0.3s, opacity 0.3s;
-    @media (max-width: 1279px) {
-      padding: 10px 8px;
-    }
-  }
-
-  &__link {
-    a {
-      display: block;
+    &__link {
+      display: inline-block;
       font-size: 20px;
       padding: 12px 0px;
       height: 100%;
-      width: 100%;
       transition: color 0.3s;
       letter-spacing: 1px;
+
+      &--exhibitions {
+        font-size: 16px;
+        letter-spacing: 0px;
+        @media (max-width: 1279px) {
+          font-size: 14px;
+          padding: 8px 0;
+        }
+        @media (max-width: 767px) {
+          font-size: 12px;
+        }
+      }
 
       @media (any-hover: hover) {
         &:hover {
@@ -311,51 +321,158 @@
         font-size: 12px;
       }
     }
+
+    &__grid-list {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-auto-rows: auto; // or 1fr если нужно, чтобы блоки были одинаковой высоты
+      gap: 10px;
+      @media (max-width: 1279px) {
+        padding: 10px 0;
+      }
+      > * {
+        grid-column: 3 span;
+      }
+    }
   }
 
-  &__grid-list {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-auto-rows: auto; // or 1fr если нужно, чтобы блоки были одинаковой высоты
-    gap: 10px;
-    @media (max-width: 1279px) {
-      padding: 10px 0;
+  &-products {
+    &__wrapper {
+      column-gap: 0px;
+      padding: 10px 20px;
+      @media (max-width: 1279px) {
+        padding: 10px 0px;
+      }
     }
-    > * {
-      grid-column: 3 span;
+
+    &__list {
+      display: flex;
+      flex-direction: column;
+      flex: 1 1 30%;
+    }
+  }
+
+  &-service {
+    text-align: center;
+    @media (max-width: 1279px) {
+      text-align: left;
+    }
+
+    &__wrapper {
+      @media (max-width: 1279px) {
+        flex-direction: column-reverse;
+      }
+    }
+
+    &__list {
+      flex: 1 1 70%;
+      align-self: center;
+      @media (max-width: 1279px) {
+        align-self: flex-start;
+      }
+    }
+  }
+
+  &-exhibitions {
+    &__wrapper {
+      @media (max-width: 1279px) {
+        flex-direction: column;
+      }
+    }
+
+    &__list {
+      flex: 1 1 70%;
+      column-count: 2;
+      column-rule: 1px solid $greyBorderColor;
+    }
+  }
+
+  &-delivery {
+    text-align: center;
+
+    @media (max-width: 1279px) {
+      text-align: left;
+    }
+
+    &__wrapper {
+      @media (max-width: 1279px) {
+        flex-direction: column-reverse;
+      }
+    }
+
+    &__list-container {
+      flex: 1 1 30%;
+      align-self: center;
+      @media (max-width: 1279px) {
+        align-self: flex-start;
+      }
+    }
+  }
+
+  &-about {
+    text-align: center;
+
+    @media (max-width: 1279px) {
+      text-align: left;
+    }
+
+    &__wrapper {
+      @media (max-width: 1279px) {
+        flex-direction: column;
+      }
+    }
+
+    &__list-container {
+      flex: 1 1 70%;
+      align-self: center;
+      @media (max-width: 1279px) {
+        align-self: flex-start;
+      }
+    }
+  }
+
+  &-blog {
+    &__list {
+      @media (max-width: 767px) {
+        > * {
+          grid-column: 6 span;
+        }
+      }
+    }
+  }
+
+  &-contacts {
+    &__list {
+      @media (max-width: 1279px) {
+        > * {
+          grid-column: 4 span;
+        }
+      }
+      @media (max-width: 767px) {
+        > * {
+          grid-column: 6 span;
+        }
+      }
+    }
+  }
+
+  &-offers {
+    &__list {
+      @media (max-width: 767px) {
+        > * {
+          grid-column: 6 span;
+        }
+      }
     }
   }
 }
 //========================================================================================================================================================
 
-.main-nav-products {
-  &__wrapper {
-    column-gap: 0px;
-    padding: 10px 20px;
-    @media (max-width: 1279px) {
-      padding: 10px 0px;
-    }
-  }
-
-  &__list {
-    display: flex;
-    flex-direction: column;
-    flex: 1 1 30%;
-  }
-
-  &__item {
-  }
-}
-
 .products-item {
   opacity: 0.6;
   padding: 0 4px;
 
-  @media (max-width: 1279px) {
-    opacity: 1;
-  }
-
-  &.--tab-active {
+  &.main-nav-tab-active {
     opacity: 1;
     color: $blueColor;
 
@@ -383,6 +500,10 @@
     }
   }
 
+  @media (max-width: 1279px) {
+    opacity: 1;
+  }
+
   &__link {
     display: flex;
     align-items: center;
@@ -402,19 +523,19 @@
       }
     }
 
-    @media (any-hover: hover) {
-      &:hover {
-        .products-item__image-wrapper {
-          // ? Синий дэкграунд при наведении на айтемы Товаров
+    //  @media (any-hover: hover) {
+    // &:hover {
+    //   .products-item__image-wrapper {
+    // ? Синий дэкграунд при наведении на айтемы Товаров
 
-          //  &::before {
-          //    content: '';
-          //    background-color: $blueColor;
-          //    box-shadow: 1px 2px 7px $shadowHighColor;
-          //  }
-        }
-      }
-    }
+    //  &::before {
+    //    content: '';
+    //    background-color: $blueColor;
+    //    box-shadow: 1px 2px 7px $shadowHighColor;
+    //  }
+    //   }
+    // }
+    //  }
 
     @media (max-width: 1279px) {
       padding: 5px 0;
@@ -486,9 +607,6 @@
   flex: 0 1 70%;
   padding-left: 60px;
 
-  &__content {
-  }
-
   &__image {
     display: block;
     margin-bottom: 20px;
@@ -514,9 +632,6 @@
     margin-bottom: 25px;
   }
 
-  &__link {
-  }
-
   @media (max-width: 1279px) {
     display: none;
   }
@@ -524,74 +639,23 @@
 
 //========================================================================================================================================================
 
-.main-nav-service {
-  text-align: center;
-  @media (max-width: 1279px) {
-    text-align: left;
-  }
-
-  &__wrapper {
+.service-media-block {
+  flex: 1 1 30%;
+  position: relative;
+  &__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
     @media (max-width: 1279px) {
-      flex-direction: column-reverse;
-    }
-  }
-
-  &__list {
-    flex: 1 1 70%;
-    align-self: center;
-    @media (max-width: 1279px) {
-      align-self: flex-start;
-    }
-  }
-
-  &__link {
-  }
-
-  .service-media-block {
-    flex: 1 1 30%;
-    position: relative;
-    &__image {
-      position: absolute;
-      top: 0;
-      left: 0;
-      object-fit: contain;
-      width: 100%;
-      height: 100%;
-      @media (max-width: 1279px) {
-        position: static;
-      }
+      position: static;
     }
   }
 }
+
 //========================================================================================================================================================
-
-.main-nav-exhibitions {
-  &__wrapper {
-    @media (max-width: 1279px) {
-      flex-direction: column;
-    }
-  }
-
-  &__list {
-    flex: 1 1 70%;
-    column-count: 2;
-    column-rule: 1px solid $greyBorderColor;
-  }
-
-  &__link {
-    a {
-      font-size: 16px;
-      letter-spacing: 0px;
-      @media (max-width: 1279px) {
-        font-size: 14px;
-        padding: 8px 0;
-      }
-      @media (max-width: 767px) {
-        font-size: 12px;
-      }
-    }
-  }
-}
 
 .exhibitions-media-block {
   flex: 1 1 30%;
@@ -604,43 +668,9 @@
     display: block;
     margin-bottom: 20px;
   }
-
-  &__link {
-  }
 }
 
 //========================================================================================================================================================
-
-.main-nav-delivery {
-  text-align: center;
-
-  @media (max-width: 1279px) {
-    text-align: left;
-  }
-
-  &__wrapper {
-    @media (max-width: 1279px) {
-      flex-direction: column-reverse;
-    }
-  }
-
-  &__list-container {
-    flex: 1 1 30%;
-    align-self: center;
-    @media (max-width: 1279px) {
-      align-self: flex-start;
-    }
-  }
-
-  &__title {
-  }
-
-  &__list {
-  }
-
-  &__link {
-  }
-}
 
 .delivery-media-block {
   flex: 1 1 70%;
@@ -654,37 +684,6 @@
 
 //========================================================================================================================================================
 
-.main-nav-about {
-  text-align: center;
-
-  @media (max-width: 1279px) {
-    text-align: left;
-  }
-
-  &__wrapper {
-    @media (max-width: 1279px) {
-      flex-direction: column;
-    }
-  }
-
-  &__list-container {
-    flex: 1 1 70%;
-    align-self: center;
-    @media (max-width: 1279px) {
-      align-self: flex-start;
-    }
-  }
-
-  &__title {
-  }
-
-  &__list {
-  }
-
-  &__link {
-  }
-}
-
 .about-company-media-block {
   flex: 1 1 30%;
   align-self: center;
@@ -696,16 +695,6 @@
 }
 
 //========================================================================================================================================================
-
-.main-nav-blog {
-  &__list {
-    @media (max-width: 767px) {
-      > * {
-        grid-column: 6 span;
-      }
-    }
-  }
-}
 
 .blog-card {
   &__link {
@@ -761,24 +750,6 @@
 
 //========================================================================================================================================================
 
-.main-nav-contacts {
-  &__list {
-    @media (max-width: 1279px) {
-      > * {
-        grid-column: 4 span;
-      }
-    }
-    @media (max-width: 767px) {
-      > * {
-        grid-column: 6 span;
-      }
-    }
-  }
-
-  &__card {
-  }
-}
-
 .contacts-card {
   &--krasnodar {
     @media (min-width: 1277px) {
@@ -789,11 +760,15 @@
     }
   }
 
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+
   &__link {
-    max-width: 210px;
-    color: $blueColor;
+    align-self: flex-start;
     height: 100%;
-    display: block;
+    color: $blueColor;
     font-weight: 700;
     transition: color 0.3s;
     margin-bottom: 10px;
@@ -814,9 +789,6 @@
         color: $redColor;
       }
     }
-  }
-
-  &__content {
   }
 
   &__image {
@@ -878,23 +850,7 @@
 
 //========================================================================================================================================================
 
-.main-nav-offers {
-  &__list {
-    @media (max-width: 767px) {
-      > * {
-        grid-column: 6 span;
-      }
-    }
-  }
-
-  &__card {
-  }
-}
-
 .offers-card {
-  &__wrapper {
-  }
-
   &__img-wrapper {
     display: block;
     max-width: 250px;
@@ -927,9 +883,6 @@
         transform: scale(1.1);
       }
     }
-  }
-
-  &__content {
   }
 
   &__date {
@@ -983,8 +936,6 @@
     margin-right: 10px;
     align-self: center;
   }
-  &__link {
-  }
 
   &__list {
     @media (min-width: 1279px) {
@@ -1013,9 +964,6 @@
       font-weight: 600;
     }
   }
-
-  &__adress {
-  }
 }
 
 .social {
@@ -1037,13 +985,13 @@
         fill: $vkColor;
       }
     }
-    &--youtube {
-    }
+
     &--telegram {
       svg {
         fill: $tgColor;
       }
     }
+
     &--whatsapp {
       @media (min-width: 1279px) {
         display: none;
@@ -1093,9 +1041,6 @@
   width: 40px;
   height: 40px;
   margin-right: 45px;
-
-  &__input-block {
-  }
 
   @media (max-width: 767px) {
     margin-right: 0px;
@@ -1177,9 +1122,6 @@
 
   &__wrapper {
     display: block;
-  }
-
-  &__form {
   }
 
   input {
