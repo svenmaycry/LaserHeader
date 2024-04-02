@@ -72,7 +72,7 @@ const changeContainerAttribute = () => {
   }
 };
 
-//? Закрыть спойлера, оверлея и lock body, при ресайзе страницы.
+//? Закрытие спойлера, оверлея и lock body, при ресайзе страницы.
 const closeSpoiler = () => {
   if (!body.classList.contains('main-nav-open') && window.innerWidth <= 1279) {
     mainNavItemButton.forEach((spoiler) => {
