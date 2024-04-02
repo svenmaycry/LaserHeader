@@ -72,6 +72,26 @@ const changeContainerAttribute = () => {
   }
 };
 
+//? Закрыть спойлера, оверлея и lock body, при ресайзе страницы.
+const closeSpoiler = () => {
+  if (!body.classList.contains('main-nav-open') && window.innerWidth <= 1279) {
+    mainNavItemButton.forEach((spoiler) => {
+      if (spoiler.classList.contains('--spoiler-active')) {
+        spoiler.classList.remove('--spoiler-active');
+        overlay.classList.remove('--active');
+        body.classList.remove('lock');
+      }
+    });
+  }
+
+  if (body.classList.contains('main-nav-open') && window.innerWidth >= 1279) {
+    body.classList.remove('lock', 'main-nav-open');
+    mainNavItemButton.forEach((spoiler) => {
+      spoiler.classList.remove('--spoiler-active');
+    });
+  }
+};
+
 const onSearchClick = () => {
   closeSpoilersContent();
   closeBurgerMenu();
@@ -90,6 +110,7 @@ const onDocumentScroll = () => {
 
 const onDocumentResize = () => {
   changeContainerAttribute();
+  closeSpoiler();
 };
 
 searchButton.addEventListener('click', onSearchClick);
