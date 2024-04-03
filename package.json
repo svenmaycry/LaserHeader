@@ -26,7 +26,6 @@
       "gulp": "latest",
       "gulp-autoprefixer": "latest",
       "gulp-clean-css": "latest",
-      "gulp-fonter-fix": "^0.0.1",
       "gulp-group-css-media-queries": "latest",
       "gulp-if": "latest",
       "gulp-imagemin": "latest",
@@ -39,7 +38,6 @@
       "gulp-ttf2woff": "latest",
       "gulp-ttf2woff2": "latest",
       "gulp-util": "latest",
-      "gulp-version-number": "latest",
       "gulp-webp": "latest",
       "gulp-webp-html-nosvg": "latest",
       "gulp-webpcss": "latest",
@@ -73,4 +71,3 @@
       "simplebar": "latest"
    }
 }
-
