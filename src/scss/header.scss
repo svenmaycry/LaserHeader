@@ -31,7 +31,7 @@
       background-color: $mainWhiteColor;
     }
 
-    img {
+    &-img {
       width: auto;
       @media (min-width: 1279px) {
         width: 120px;
