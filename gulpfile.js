@@ -27,9 +27,10 @@ import { ftp } from './config/gulp-tasks/ftp.js';
 import { zip } from './config/gulp-tasks/zip.js';
 import { sprite } from './config/gulp-tasks/sprite.js';
 import { gitignore } from './config/gulp-tasks/gitignore.js';
+import { otfToTtf, ttfToWoff, fonstStyle } from './config/gulp-tasks/fonts.js';
 
 // Последовательная обработака шрифтов
-const fonts = gulp.series(reset);
+const fonts = gulp.series(reset, otfToTtf, ttfToWoff, fonstStyle);
 // Основные задачи будем выполнять параллельно после обработки шрифтов
 const devTasks = gulp.parallel(fonts, gitignore);
 // Основные задачи будем выполнять параллельно после обработки шрифтов
