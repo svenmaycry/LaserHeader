@@ -1,17 +1,17 @@
 @use 'sass:math';
 
-//! Подключение шрифтов
+// Подключение шрифтов
 //&display=swap - добавить при подключении через плагин
 
 @import url(https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900&display=swap);
 @import url(https://fonts.googleapis.com/css?family=Ubuntu:300,300italic,regular,italic,500,500italic,600,700,700italic);
 
-//! Шрифт по умолчанию, (в null файле)
+// Шрифт по умолчанию, (в null файле)
 
 $fontFamily: 'Inter';
 $fontSize: 16px;
 
-//! Основные цвета
+// Основные цвета
 $mainBlackColor: #000;
 $shadowVeryLowColor: rgba(0, 0, 0, 0.2);
 $shadowLowColor: rgba(0, 0, 0, 0.4);
@@ -31,7 +31,7 @@ $redColor: #fe3831;
 $vkColor: rgb(0, 119, 255);
 $tgColor: #25a0dd;
 
-//! НАСТРОЙКИ
+// НАСТРОЙКИ
 
 // Минимальная ширина страницы
 $minWidth: 320;
@@ -43,7 +43,7 @@ $maxWidthContainer: 1750;
 // (30 = по 15px слева и справа, 0 = нет отступа)
 $containerPadding: 20;
 
-//! Обнуление и общие параметры
+// Обнуление и общие параметры
 
 @import 'base/null';
 
@@ -87,5 +87,5 @@ body {
   }
 }
 
-//! Подключение стилей отдельных блоков
+// Подключение стилей отдельных блоков
 @import 'header';
