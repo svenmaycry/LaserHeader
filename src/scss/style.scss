@@ -59,10 +59,12 @@ body {
   > * {
     min-width: 0;
   }
+
   // Скролл заблокирован
   &.lock {
     overflow: hidden;
   }
+
   // Прижимаем footer
   > main {
     margin-top: 76px;
