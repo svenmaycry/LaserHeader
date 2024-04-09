@@ -9,3 +9,4 @@ flsStartTemplate/
 **/*.zip
 **/*.rar
 .idea
+.vercel
