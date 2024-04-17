@@ -1,10 +1,10 @@
 const body = document.querySelector('body');
-const iconMenuButton = document.querySelector('.icon-menu');
-const searchButton = document.querySelector('.search-header__button');
-const overlay = document.querySelector('.overlay');
-const mainHeader = document.querySelector('.main-header');
-const headerContainer = document.querySelector('.main-header__container');
-const mainNavItemButton = document.querySelectorAll('.main-nav-item__button');
+const iconMenuButton = document.querySelector('.js-icon-menu');
+const searchButton = document.querySelector('.js-search-header-button');
+const overlay = document.querySelector('.js-header-overlay');
+const mainHeader = document.querySelector('.js-main-header');
+const headerContainer = document.querySelector('.js-main-header-container');
+const mainNavItemButton = document.querySelectorAll('.js-main-nav-item-button');
 
 // При клике на поиск закрытие Меню-бургер + Сохранение класса lock.
 const closeBurgerMenu = () => {
