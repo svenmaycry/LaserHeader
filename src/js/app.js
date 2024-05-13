@@ -46,7 +46,7 @@ flsFunctions.spoilers();
 Документация: https://template.fls.guru/template-docs/modul-taby.html
 Сниппет (HTML): tabs
 */
-flsFunctions.tabs();
+flsFunctions.tabsHeader();
 
 /*
 Модуль "показать еще"

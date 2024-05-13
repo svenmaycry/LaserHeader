@@ -344,42 +344,39 @@ export function spoilers() {
 Документация по работе в шаблоне: https://template.fls.guru/template-docs/modul-taby.html
 Сниппет (HTML): tabs
 */
-export function tabs() {
-  const tabs = document.querySelectorAll('[data-tabs]');
+export function tabsHeader() {
+  const tabs = document.querySelectorAll('[data-tabs-header]');
   let tabsActiveHash = [];
 
   tabs.forEach((tabsBlock, index) => {
     tabsBlock.classList.add('--tab-init');
-    tabsBlock.setAttribute('data-tabs-index', index);
+    tabsBlock.setAttribute('data-tabs-header-index', index);
     tabsBlock.addEventListener('mouseover', setTabsAction);
     initTabs(tabsBlock);
   });
 
   // Работа с контентом
   function initTabs(tabsBlock) {
-    let tabsTitles = tabsBlock.querySelectorAll('[data-tabs-titles]>*');
-    let tabsContent = tabsBlock.querySelectorAll('[data-tabs-body]>*');
+    let tabsTitles = tabsBlock.querySelectorAll('[data-tabs-header-titles]>*');
+    let tabsContent = tabsBlock.querySelectorAll('[data-tabs-header-body]>*');
     const tabsBlockIndex = tabsBlock.dataset.tabsIndex;
     const tabsActiveHashBlock = tabsActiveHash[0] === tabsBlockIndex;
 
     if (tabsActiveHashBlock) {
       const tabsActiveTitle = tabsBlock.querySelector(
-        '[data-tabs-titles]>.main-nav-tab-active'
+        '[data-tabs-header-titles]>.main-nav-tab-active'
       );
-      tabsActiveTitle
-        ? tabsActiveTitle.classList.remove('main-nav-tab-active')
-        : null;
     }
     if (tabsContent.length) {
       tabsContent = Array.from(tabsContent).filter(
-        (item) => item.closest('[data-tabs]') === tabsBlock
+        (item) => item.closest('[data-tabs-header]') === tabsBlock
       );
       tabsTitles = Array.from(tabsTitles).filter(
-        (item) => item.closest('[data-tabs]') === tabsBlock
+        (item) => item.closest('[data-tabs-header]') === tabsBlock
       );
       tabsContent.forEach((tabsContentItem, index) => {
-        tabsTitles[index].setAttribute('data-tabs-title', '');
-        tabsContentItem.setAttribute('data-tabs-item', '');
+        tabsTitles[index].setAttribute('data-tabs-header-title', '');
+        tabsContentItem.setAttribute('data-tabs-header-item', '');
 
         if (tabsActiveHashBlock && index === tabsActiveHash[1]) {
           tabsTitles[index].classList.add('main-nav-tab-active');
@@ -392,11 +389,11 @@ export function tabs() {
   }
 
   function setTabsStatus(tabsBlock) {
-    let tabsTitles = tabsBlock.querySelectorAll('[data-tabs-title]');
-    let tabsContent = tabsBlock.querySelectorAll('[data-tabs-item]');
+    let tabsTitles = tabsBlock.querySelectorAll('[data-tabs-header-title]');
+    let tabsContent = tabsBlock.querySelectorAll('[data-tabs-header-item]');
 
     function isTabsAnimate(tabsBlock) {
-      if (tabsBlock.hasAttribute('data-tabs-animate')) {
+      if (tabsBlock.hasAttribute('data-tabs-header-animate')) {
         return tabsBlock.dataset.tabsAnimate > 0
           ? Number(tabsBlock.dataset.tabsAnimate)
           : 500;
@@ -406,10 +403,10 @@ export function tabs() {
     const tabsBlockAnimate = isTabsAnimate(tabsBlock);
     if (tabsContent.length > 0) {
       tabsContent = Array.from(tabsContent).filter(
-        (item) => item.closest('[data-tabs]') === tabsBlock
+        (item) => item.closest('[data-tabs-header]') === tabsBlock
       );
       tabsTitles = Array.from(tabsTitles).filter(
-        (item) => item.closest('[data-tabs]') === tabsBlock
+        (item) => item.closest('[data-tabs-header]') === tabsBlock
       );
       tabsContent.forEach((tabsContentItem, index) => {
         if (tabsTitles[index].classList.contains('main-nav-tab-active')) {
@@ -429,19 +426,19 @@ export function tabs() {
 
   function setTabsAction(e) {
     const el = e.target;
-    if (el.closest('[data-tabs-title]')) {
-      const tabTitle = el.closest('[data-tabs-title]');
-      const tabsBlock = tabTitle.closest('[data-tabs]');
+    if (el.closest('[data-tabs-header-title]')) {
+      const tabTitle = el.closest('[data-tabs-header-title]');
+      const tabsBlock = tabTitle.closest('[data-tabs-header]');
       if (
         !tabTitle.classList.contains('main-nav-tab-active') &&
         !tabsBlock.querySelector('._slide')
       ) {
         let tabActiveTitle = tabsBlock.querySelectorAll(
-          '[data-tabs-title].main-nav-tab-active'
+          '[data-tabs-header-title].main-nav-tab-active'
         );
         tabActiveTitle.length
           ? (tabActiveTitle = Array.from(tabActiveTitle).filter(
-            (item) => item.closest('[data-tabs]') === tabsBlock
+            (item) => item.closest('[data-tabs-header]') === tabsBlock
           ))
           : null;
         tabActiveTitle.length
